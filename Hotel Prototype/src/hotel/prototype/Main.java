@@ -4,14 +4,13 @@
  */
 package hotel.prototype;
 
-import javafx.scene.paint.Color;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Group;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -21,19 +20,21 @@ import javafx.stage.Stage;
 public class Main extends Application {
     
     @Override
-    public void start(Stage stage) {
+    public void start(Stage primaryStage) {
         
-        Group root = new Group();
-        Scene scene = new Scene(root,Color.BLACK);
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+            
+            Scene scene = new Scene(root);
+            
+            primaryStage.setTitle("Hotel de Regex");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        stage.setTitle("Hotel Prototype");
-        stage.setWidth(420);
-        stage.setHeight(420);
-        stage.setResizable(false);
-        stage.setFullScreen(true);
-        
-        stage.setScene(scene);
-        stage.show();
     }
 
     public static void main(String[] args) {
