@@ -20,6 +20,22 @@ public class MainTest {
     
     public MainTest() {
     }
+
+    @org.junit.jupiter.api.BeforeAll
+    public static void setUpClass() throws Exception {
+    }
+
+    @org.junit.jupiter.api.AfterAll
+    public static void tearDownClass() throws Exception {
+    }
+
+    @org.junit.jupiter.api.BeforeEach
+    public void setUp() throws Exception {
+    }
+
+    @org.junit.jupiter.api.AfterEach
+    public void tearDown() throws Exception {
+    }
     
     @BeforeAll
     public static void setUpClass() {
@@ -40,29 +56,26 @@ public class MainTest {
     /**
      * Test of start method, of class Main.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testStart() {
-//        System.out.println("start");
-//        Stage primaryStage = null;
+        System.out.println("start");
+        Stage primaryStage = null;
         Main instance = new Main();
-        Stage primaryStage = new Stage();
         instance.start(primaryStage);
-//        assertDoesNotThrow(() -> instance.start(primaryStage));
-        assertTrue(primaryStage.isShowing());
         // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
      * Test of main method, of class Main.
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void testMain() {
         System.out.println("main");
         String[] args = null;
         Main.main(args);
         // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
     
 }
