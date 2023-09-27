@@ -14,12 +14,12 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Label layoutX="188.0" layoutY="95.0" text="From:" />
-      <Label layoutX="203.0" layoutY="134.0" text="To:" />
-      <DatePicker fx:id="fromDatePicker" layoutX="237.0" layoutY="91.0" />
-      <DatePicker fx:id="toDatePicker" layoutX="237.0" layoutY="130.0" />
+      <Label layoutX="170.0" layoutY="95.0" text="Check In:" />
+      <Label layoutX="160.0" layoutY="134.0" text="Check Out:" />
+      <DatePicker fx:id="checkInDatePicker" layoutX="237.0" layoutY="91.0" />
+      <DatePicker fx:id="checkOutDatePicker" layoutX="237.0" layoutY="130.0" />
       <Label layoutX="140.0" layoutY="182.0" text="Choose Room:" />
-      <ChoiceBox layoutX="237.0" layoutY="178.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="roomChoiceBox" layoutX="237.0" layoutY="178.0" prefWidth="150.0" />
       <Button layoutX="179.0" layoutY="264.0" mnemonicParsing="false" onAction="#bookReservation" prefHeight="31.0" prefWidth="242.0" text="Book Reservation" />
    </children>
 </AnchorPane>
