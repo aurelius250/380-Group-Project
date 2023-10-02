@@ -12,9 +12,9 @@ import java.time.LocalDate;
  */
 public class Reservation {
     
-    private String ID;
-    private LocalDate checkIn,checkOut;
-    private Room room;
+    public String ID;
+    public LocalDate checkIn,checkOut;
+    public Room room;
     
     //private Customer customer;
     
@@ -25,19 +25,25 @@ public class Reservation {
         room = null;
     }
     
-    public void setID(String newID){
-        ID = newID;
+    public Reservation(String ID, LocalDate checkIn, LocalDate checkOut, Room room){
+        this.ID = ID;
+        this.checkIn = checkIn;
+        this.checkOut= checkOut;
+        this.room = room;
     }
     
-    public void setCheckIn(LocalDate newDate){
-        checkIn = newDate;
-    }
-    
-    public void setCheckOut(LocalDate newDate){
-        checkOut = newDate;
-    }
-    
-    public void setRoom(Room newRoom){
-        room = newRoom;
+    public void listDetails(){
+        System.out.println(
+                "Reservation ID: " + this.ID + 
+                "\nCheck In:  " + this.checkIn + 
+                "\nCheck Out: " + this.checkOut +
+                "\nRoom Number: " + this.room.roomNum +
+                "\nSmoking?: " + this.room.smoking +
+                "\n# of Beds: " + this.room.numBeds +
+                "\n# of People: " + this.room.numPeople +
+                "\nSize (sqft): " + this.room.sqftSize +
+                "\nBed Type: " + this.room.bedType +
+                "\nDesription: " + this.room.description
+        );
     }
 }

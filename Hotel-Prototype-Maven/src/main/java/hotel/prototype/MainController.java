@@ -5,7 +5,6 @@
 package hotel.prototype;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,24 +25,26 @@ public class MainController implements Initializable {
     @FXML
     private ChoiceBox<String> roomChoiceBox;
     
-    private LocalDate checkInDate, checkOutDate;
     private String[] roomTypes = {"Best Room","Medium Room","Cheap Room"};
     private String roomType;
     
     public void bookReservation(ActionEvent e){
-        checkInDate = checkInDatePicker.getValue();
-        checkOutDate = checkOutDatePicker.getValue();
-        roomType = roomChoiceBox.getValue();
         
-        System.out.println("Reservation confirmed from " + checkInDate + 
-                " to " + checkOutDate + " in the " + roomType + ".");
+        Reservation reservation = new Reservation(
+                "12345",
+                checkInDatePicker.getValue(),
+                checkOutDatePicker.getValue(),
+                new Room()
+        );
+        
+        //roomType = roomChoiceBox.getValue();
+        
+        reservation.listDetails();
     }
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         roomChoiceBox.getItems().addAll(roomTypes);
     }    
-    
 }

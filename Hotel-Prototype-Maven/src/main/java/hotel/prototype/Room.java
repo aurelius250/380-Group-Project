@@ -9,13 +9,13 @@ package hotel.prototype;
  * @author jon01
  */
 public class Room {
-    private int roomNum;
-    private boolean smoking;
-    private int numBeds;
-    private int numPeople;
-    private int sqftSize;
-    private char bedType;
-    private String description;
+    public int roomNum;
+    public boolean smoking;
+    public int numBeds;
+    public int numPeople;
+    public int sqftSize;
+    public char bedType;
+    public String description;
 
     public Room() {
         roomNum = 0;
