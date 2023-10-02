@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,17 +17,26 @@ import java.io.IOException;
 public class FileController {
 
     //private static String roomsFile = "rooms.txt";
-
-    public static void readFile(String fileName) {
+    public static ArrayList readFile(String fileName) {
         String fileData;
+        String[] dataArr = null;
+        ArrayList<Room> roomList = new ArrayList<Room>();
         try {
             FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
+            int position = 0;
             while ((fileData = br.readLine()) != null) {
-                for (int i = 0; i < fileData.length(); i++) {
-                    /*Read the string and seperate each piece of information by 
-                comma and assign to room class values appropriately.*/
-                }
+                dataArr = fileData.split(",");
+
+                roomList.add(new Room(Integer.parseInt(dataArr[0]),
+                         Boolean.parseBoolean(dataArr[1]),
+                         Integer.parseInt(dataArr[2]),
+                         Integer.parseInt(dataArr[3]),
+                         Integer.parseInt(dataArr[4]),
+                         dataArr[5].charAt(0),
+                        dataArr[6]));
+
+                position++;
             }
             br.close();
             fr.close();
@@ -34,9 +44,10 @@ public class FileController {
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+        return roomList;
     }
 
     public static void writeToFile(String fileName) {
-        
+
     }
 }
