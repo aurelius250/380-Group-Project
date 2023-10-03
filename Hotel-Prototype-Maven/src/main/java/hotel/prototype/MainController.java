@@ -1,9 +1,10 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package hotel.prototype;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -28,7 +29,7 @@ public class MainController implements Initializable {
     private String[] roomTypes = {"Best Room","Medium Room","Cheap Room"};
     private String roomType;
     
-    public void bookReservation(ActionEvent e){
+    public void bookReservation(ActionEvent e) throws IOException{
         
         Reservation reservation = new Reservation(
                 "12345",
@@ -40,6 +41,7 @@ public class MainController implements Initializable {
         //roomType = roomChoiceBox.getValue();
         
         reservation.listDetails();
+        reservation.addReservation();
     }
     
     
