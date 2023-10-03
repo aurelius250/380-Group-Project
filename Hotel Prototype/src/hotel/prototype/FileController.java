@@ -25,7 +25,6 @@ public class FileController {
         try {
             FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
-            int position = 0;
             while ((fileData = br.readLine()) != null) {
                 dataArr = fileData.split(",");
 
@@ -37,7 +36,6 @@ public class FileController {
                          dataArr[5].charAt(0),
                         dataArr[6]));
 
-                position++;
             }
             br.close();
             fr.close();
