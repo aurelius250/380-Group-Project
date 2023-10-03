@@ -9,13 +9,13 @@ package hotel.prototype;
  * @author jon01
  */
 public class Room {
-    private int roomNum;
-    private boolean smoking;
-    private int numBeds;
-    private int numPeople;
-    private int sqftSize;
-    private char bedType;
-    private String desc;
+    public int roomNum;
+    public boolean smoking;
+    public int numBeds;
+    public int numPeople;
+    public int sqftSize;
+    public char bedType;
+    public String description;
 
     public Room() {
         roomNum = 0;
@@ -24,16 +24,16 @@ public class Room {
         numPeople = 1;
         sqftSize = 200;
         bedType = 'Q';
-        desc = "Basic room";
+        description = "Basic room";
     }
 
-    public Room(int i,boolean a, int b, int c, int d, char e, String f) {
-        roomNum = i;
-        smoking = a;
-        numBeds = b;
-        numPeople = c;
-        sqftSize = d;
-        bedType = e;
-        desc = f;
+    public Room(int roomNum, boolean smoking, int numBeds, int numPeople, int sqftSize, char bedType, String description) {
+        this.roomNum = roomNum;
+        this.smoking = smoking;
+        this.numBeds = numBeds;
+        this.numPeople = numPeople;
+        this.sqftSize = sqftSize;
+        this.bedType = bedType;
+        this.description = description;
     }
 }
