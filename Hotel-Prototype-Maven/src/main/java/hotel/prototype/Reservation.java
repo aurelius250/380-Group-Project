@@ -4,6 +4,7 @@
  */
 package hotel.prototype;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 /**
@@ -43,7 +44,23 @@ public class Reservation {
                 "\n# of People: " + this.room.numPeople +
                 "\nSize (sqft): " + this.room.sqftSize +
                 "\nBed Type: " + this.room.bedType +
-                "\nDesription: " + this.room.description
+                "\nDescription: " + this.room.description
         );
+    }
+    
+    public void addReservation() throws IOException{
+        String row = 
+                    "\n"+ ID + "," + 
+                    checkIn + "," + 
+                    checkOut + "," +
+                    room.roomNum + "," + 
+                    room.smoking + "," +
+                    room.numBeds + "," +
+                    room.numPeople + "," + 
+                    room.sqftSize + "," + 
+                    room.bedType + "," +
+                    room.description;
+        
+        FileController.appendFile("Reservations.csv",row); 
     }
 }

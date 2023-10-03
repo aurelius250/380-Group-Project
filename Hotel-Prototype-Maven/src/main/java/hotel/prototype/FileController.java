@@ -39,4 +39,15 @@ public class FileController {
     public static void writeToFile(String fileName) {
         
     }
+    
+    public static void appendFile(String fileName, String data) throws IOException{
+        try (FileWriter fw = new FileWriter(fileName, true)) {
+            fw.append(data);
+            fw.close();
+        }
+        
+        catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
 }
