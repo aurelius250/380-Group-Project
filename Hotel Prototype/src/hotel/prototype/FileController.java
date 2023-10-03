@@ -4,7 +4,6 @@
  */
 package hotel.prototype;
 
-
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 public class FileController {
 
     //private static String roomsFile = "rooms.txt";
-    public static ArrayList readFile(String fileName) {
+    public static ArrayList readRoomFile(String fileName) {
         String fileData;
         String[] dataArr = null;
         ArrayList<Room> roomList = new ArrayList<Room>();
@@ -29,11 +28,11 @@ public class FileController {
                 dataArr = fileData.split(",");
 
                 roomList.add(new Room(Integer.parseInt(dataArr[0]),
-                         Boolean.parseBoolean(dataArr[1]),
-                         Integer.parseInt(dataArr[2]),
-                         Integer.parseInt(dataArr[3]),
-                         Integer.parseInt(dataArr[4]),
-                         dataArr[5].charAt(0),
+                        booleanParser(dataArr[1]),
+                        integerParser(dataArr[2]),
+                        integerParser(dataArr[3]),
+                        integerParser(dataArr[4]),
+                        dataArr[5].charAt(0),
                         dataArr[6]));
 
             }
@@ -49,15 +48,29 @@ public class FileController {
     public static void writeToFile(String fileName) {
 
     }
-    
-    public static void appendFile(String fileName, String data) throws IOException{
+
+    public static void appendFile(String fileName, String data) throws IOException {
         try (FileWriter fw = new FileWriter(fileName, true)) {
             fw.append(data);
             fw.close();
-        }
-        
-        catch (IOException ioe) {
+        } catch (IOException ioe) {
             ioe.printStackTrace();
+        }
+    }
+
+    public static int integerParser(String stringData) {
+        try {
+            return Integer.parseInt(stringData);
+        } catch (NumberFormatException nfe) {
+            return 0;
+        }
+    }
+
+    public static boolean booleanParser(String stringData) {
+        if(stringData != null){
+        return Boolean.parseBoolean(stringData);
+        } else {
+            return false;
         }
     }
 }
