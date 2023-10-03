@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.time.LocalDate;
 
 /**
  *
@@ -44,6 +45,34 @@ public class FileController {
         }
         return roomList;
     }
+    
+        public static ArrayList readReservationFile(String fileName) {
+        String fileData;
+        String[] dataArr = null;
+        ArrayList<Reservation> reservationList = new ArrayList<Reservation>();
+        try {
+            FileReader fr = new FileReader(fileName);
+            BufferedReader br = new BufferedReader(fr);
+            while ((fileData = br.readLine()) != null) {
+                dataArr = fileData.split(",");
+                
+                reservationList.add(new Reservation(dataArr[0]
+                        ,dateParser(dataArr[1])
+                        ,dateParser(dataArr[2])
+                        , new Room()));
+                // this is temporary I dont think a room class object can be
+                // read so directly from the file, but will discuss what we
+                // want to do first
+
+            }
+            br.close();
+            fr.close();
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        return reservationList;
+    }
 
     public static void writeToFile(String fileName) {
 
@@ -71,6 +100,16 @@ public class FileController {
         return Boolean.parseBoolean(stringData);
         } else {
             return false;
+        }
+    }
+    
+    public static LocalDate dateParser(String stringData){
+        LocalDate localDate;
+        if(stringData != null){
+            localDate = LocalDate.parse(stringData);
+            return localDate;
+        } else {
+            return null;
         }
     }
 }
