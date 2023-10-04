@@ -28,7 +28,7 @@ public class FileController {
             while ((fileData = br.readLine()) != null) {
                 dataArr = fileData.split(",");
 
-                roomList.add(new Room(Integer.parseInt(dataArr[0]),
+                roomList.add(new Room(integerParser(dataArr[0]),
                         booleanParser(dataArr[1]),
                         integerParser(dataArr[2]),
                         integerParser(dataArr[3]),
@@ -59,10 +59,7 @@ public class FileController {
                 reservationList.add(new Reservation(dataArr[0]
                         ,dateParser(dataArr[1])
                         ,dateParser(dataArr[2])
-                        , new Room()));
-                // this is temporary I dont think a room class object can be
-                // read so directly from the file, but will discuss what we
-                // want to do first
+                        ,new Room()/*integerParser(dataArr[4]))*/));
 
             }
             br.close();
@@ -76,6 +73,18 @@ public class FileController {
 
     public static void writeToFile(String fileName) {
 
+    }
+    
+    public static Room findRoom(ArrayList<Room> list,int roomToFind){
+        if(list == null)
+            return null;
+        
+        for(Room r : list){
+            if(r.roomNum == roomToFind){
+                return r;
+            }
+        }
+        return null;
     }
 
     public static void appendFile(String fileName, String data) throws IOException {
@@ -97,7 +106,7 @@ public class FileController {
 
     public static boolean booleanParser(String stringData) {
         if(stringData != null){
-        return Boolean.parseBoolean(stringData);
+            return Boolean.parseBoolean(stringData);
         } else {
             return false;
         }
