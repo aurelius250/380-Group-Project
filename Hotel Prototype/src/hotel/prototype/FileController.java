@@ -45,8 +45,8 @@ public class FileController {
         }
         return roomList;
     }
-    
-        public static ArrayList readReservationFile(String fileName) {
+
+    public static ArrayList readReservationFile(String fileName) {
         String fileData;
         String[] dataArr = null;
         ArrayList<Reservation> reservationList = new ArrayList<Reservation>();
@@ -55,11 +55,11 @@ public class FileController {
             BufferedReader br = new BufferedReader(fr);
             while ((fileData = br.readLine()) != null) {
                 dataArr = fileData.split(",");
-                
-                reservationList.add(new Reservation(dataArr[0]
-                        ,dateParser(dataArr[1])
-                        ,dateParser(dataArr[2])
-                        ,new Room()/*integerParser(dataArr[4]))*/));
+
+                reservationList.add(new Reservation(dataArr[0],
+                         dateParser(dataArr[1]),
+                         dateParser(dataArr[2]),
+                         new Room()/*integerParser(dataArr[4]))*/));
 
             }
             br.close();
@@ -74,17 +74,41 @@ public class FileController {
     public static void writeToFile(String fileName) {
 
     }
-    
-    public static Room findRoom(ArrayList<Room> list,int roomToFind){
-        if(list == null)
+
+    public static Room findRoom(ArrayList<Room> roomList, int roomToFind) {
+        if (roomList == null) {
             return null;
-        
-        for(Room r : list){
-            if(r.roomNum == roomToFind){
+        }
+
+        for (Room r : roomList) {
+            if (r.roomNum == roomToFind) {
                 return r;
             }
         }
         return null;
+    }
+
+    public static void replaceRoomLine(Room room, String fileName) {
+        /* figured we may need code to find and replace a single line in the
+        text file at will
+         */
+        String fileData;
+        String[] dataArr;
+        String currentRoomData = room.roomNum + "," + room.smoking + "," 
+                + room.numBeds + "," + room.numPeople + "," + room.sqftSize 
+                + "," + room.bedType + "," + room.description;
+        try {
+            FileReader fr = new FileReader(fileName);
+            BufferedReader br = new BufferedReader(fr);
+            while ((fileData = br.readLine()) != null){
+                dataArr = fileData.split(",");
+                if (integerParser(dataArr[0]) == room.roomNum){
+                    
+                }
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
     }
 
     public static void appendFile(String fileName, String data) throws IOException {
@@ -105,16 +129,16 @@ public class FileController {
     }
 
     public static boolean booleanParser(String stringData) {
-        if(stringData != null){
+        if (stringData != null) {
             return Boolean.parseBoolean(stringData);
         } else {
             return false;
         }
     }
-    
-    public static LocalDate dateParser(String stringData){
+
+    public static LocalDate dateParser(String stringData) {
         LocalDate localDate;
-        if(stringData != null){
+        if (stringData != null) {
             localDate = LocalDate.parse(stringData);
             return localDate;
         } else {
