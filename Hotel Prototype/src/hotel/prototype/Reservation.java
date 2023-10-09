@@ -1,24 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package hotel.prototype;
 
 import java.io.IOException;
 import java.time.LocalDate;
 
 /**
- *
- * @author keato
+ * Reservation class object. Stores ID, Check in/out date, room associated, and 
+ * the customer associated.
+ * @author K.Maki
  */
+
 public class Reservation {
     
     public String ID;
     public LocalDate checkIn,checkOut;
     public Room room;
-    
     //private Customer customer;
     
+    /**
+     * Default constructor.
+     */
     public Reservation(){
         ID = null;
         checkIn = null;
@@ -26,6 +26,13 @@ public class Reservation {
         room = null;
     }
     
+    /**
+     * Parameterized constructor.
+     * @param ID
+     * @param checkIn
+     * @param checkOut
+     * @param room 
+     */
     public Reservation(String ID, LocalDate checkIn, LocalDate checkOut, Room room){
         this.ID = ID;
         this.checkIn = checkIn;
@@ -33,6 +40,9 @@ public class Reservation {
         this.room = room;
     }
     
+    /**
+     * Outputs reservation details.
+     */
     public void listDetails(){
         System.out.println(
                 "Reservation ID: " + this.ID + 
@@ -48,6 +58,10 @@ public class Reservation {
         );
     }
     
+    /**
+     * Appends reservation data to the reservations file.
+     * @throws IOException 
+     */
     public void addReservation() throws IOException{
         String row = 
                     "\n"+ ID + "," + 
