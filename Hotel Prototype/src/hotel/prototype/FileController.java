@@ -56,6 +56,7 @@ public class FileController {
      * @return an ArrayList of Customer objects
      */
     public static ArrayList readCustomerFile(String fileName) {
+        String customerName,customerEmail;
         String fileData;
         String[] dataArr = null;
         ArrayList<Customer> customerList = new ArrayList<Customer>();
@@ -65,12 +66,13 @@ public class FileController {
             BufferedReader br = new BufferedReader(fr);
             while ((fileData = br.readLine()) != null) {
                 dataArr = fileData.split(",");
-                
+                customerName = dataArr[0];
+                customerEmail= dataArr[1];
                 for(int i = 2; i<dataArr.length;i++){
                     reservationIDs.add(integerParser(dataArr[i]));
                 }
                 
-                customerList.add(new Customer(dataArr[0],dataArr[1],reservationIDs));
+                customerList.add(new Customer(customerName,customerEmail,reservationIDs));
             }
             br.close();
             fr.close();
