@@ -45,6 +45,32 @@ public class FileController {
         }
         return roomList;
     }
+    
+    public static ArrayList readCustomerFile(String fileName) {
+        String fileData;
+        String[] dataArr = null;
+        ArrayList<Customer> customerList = new ArrayList<Customer>();
+        ArrayList<Integer> reservationIDs = new ArrayList<Integer>();
+        try {
+            FileReader fr = new FileReader(fileName);
+            BufferedReader br = new BufferedReader(fr);
+            while ((fileData = br.readLine()) != null) {
+                dataArr = fileData.split(",");
+                
+                for(int i = 2; i<dataArr.length;i++){
+                    reservationIDs.add(integerParser(dataArr[i]));
+                }
+                
+                customerList.add(new Customer(dataArr[0],dataArr[1],reservationIDs));
+            }
+            br.close();
+            fr.close();
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        return customerList;
+    }
 
     public static ArrayList readReservationFile(String fileName) {
         String fileData;
