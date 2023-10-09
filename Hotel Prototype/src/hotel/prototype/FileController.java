@@ -27,19 +27,31 @@ public class FileController {
         String fileData;
         String[] dataArr = null;
         ArrayList<Room> roomList = new ArrayList<Room>();
+        int roomNum,numBeds,numPeople,sqftSize;
+        boolean smoking;
+        char bedType;
+        String description;
         try {
             FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
             while ((fileData = br.readLine()) != null) {
                 dataArr = fileData.split(",");
-
-                roomList.add(new Room(integerParser(dataArr[0]),
-                        booleanParser(dataArr[1]),
-                        integerParser(dataArr[2]),
-                        integerParser(dataArr[3]),
-                        integerParser(dataArr[4]),
-                        dataArr[5].charAt(0),
-                        dataArr[6]));
+                
+                roomNum = integerParser(dataArr[0]);
+                smoking = booleanParser(dataArr[1]);
+                numBeds = integerParser(dataArr[2]);
+                numPeople = integerParser(dataArr[3]);
+                sqftSize = integerParser(dataArr[4]);
+                bedType = dataArr[5].charAt(0);
+                description = dataArr[6];
+                        
+                roomList.add(new Room(roomNum,
+                        smoking,
+                        numBeds,
+                        numPeople,
+                        sqftSize,
+                        bedType,
+                        description));
 
             }
             br.close();
@@ -89,7 +101,8 @@ public class FileController {
      * @return an ArrayList of Reservation objects
      */
     public static ArrayList readReservationFile(String fileName) {
-        String fileData;
+        String fileData,reservationID;
+        LocalDate checkIn, checkOut;
         String[] dataArr = null;
         ArrayList<Reservation> reservationList = new ArrayList<Reservation>();
         try {
@@ -97,10 +110,14 @@ public class FileController {
             BufferedReader br = new BufferedReader(fr);
             while ((fileData = br.readLine()) != null) {
                 dataArr = fileData.split(",");
+                
+                reservationID = dataArr[0];
+                checkIn = dateParser(dataArr[1]);
+                checkOut = dateParser(dataArr[2]);
 
-                reservationList.add(new Reservation(dataArr[0],
-                         dateParser(dataArr[1]),
-                         dateParser(dataArr[2]),
+                reservationList.add(new Reservation(reservationID,
+                         checkIn,
+                         checkOut,
                          new Room()/*integerParser(dataArr[4]))*/));
 
             }
