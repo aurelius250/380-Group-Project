@@ -18,6 +18,11 @@ import java.time.LocalDate;
 public class FileController {
 
     //private static String roomsFile = "rooms.txt";
+    /**
+     * Reads from a text file and generates an ArrayList of room objects from the file
+     * @param fileName name of the text file to be read from
+     * @return An ArrayList of room objects
+     */
     public static ArrayList readRoomFile(String fileName) {
         String fileData;
         String[] dataArr = null;
@@ -45,7 +50,11 @@ public class FileController {
         }
         return roomList;
     }
-    
+    /**
+     * Reads from a file and generates an ArrayList of Customer objects from the file
+     * @param fileName name of the text file to be read from
+     * @return an ArrayList of Customer objects
+     */
     public static ArrayList readCustomerFile(String fileName) {
         String fileData;
         String[] dataArr = null;
@@ -71,7 +80,12 @@ public class FileController {
         }
         return customerList;
     }
-
+    /**
+     * Reads from a file and generates an ArrayList of Reservation objects from
+     * the file
+     * @param fileName name of the text file to be read from
+     * @return an ArrayList of Reservation objects
+     */
     public static ArrayList readReservationFile(String fileName) {
         String fileData;
         String[] dataArr = null;
@@ -97,10 +111,12 @@ public class FileController {
         return reservationList;
     }
 
-    public static void writeToFile(String fileName) {
-
-    }
-
+    /**
+     * Method for finding a specific room within an ArrayList based on room number
+     * @param roomList The ArrayList of Room objects to be searched through
+     * @param roomToFind The Room number of the room to be searched for
+     * @return The Room that is found within the ArrayList or null if not found
+     */
     public static Room findRoom(ArrayList<Room> roomList, int roomToFind) {
         if (roomList == null) {
             return null;
@@ -113,7 +129,12 @@ public class FileController {
         }
         return null;
     }
-
+    /**
+     * Method for replacing a line in text file with new or updated Room object
+     * data
+     * @param room The Room object to pull data from
+     * @param fileName The name of the text file to write to
+     */
     public static void replaceRoomLine(Room room, String fileName) {
         /* figured we may need code to find and replace a single line in the
         text file at will
@@ -136,7 +157,12 @@ public class FileController {
             ioe.printStackTrace();
         }
     }
-
+    /**
+    * Method for appending string data to lines in a text file
+    * @param fileName The name of the file to have text added to
+    * @param data The string data of the text to be added to the file
+    * @throws IOException 
+    */
     public static void appendFile(String fileName, String data) throws IOException {
         try (FileWriter fw = new FileWriter(fileName, true)) {
             fw.append(data);
@@ -145,7 +171,11 @@ public class FileController {
             ioe.printStackTrace();
         }
     }
-
+    /**
+     * Method for converting string data to integer data
+     * @param stringData The string to be converted to an integer
+     * @return The integer value of the converted string
+     */
     public static int integerParser(String stringData) {
         try {
             return Integer.parseInt(stringData);
@@ -153,7 +183,11 @@ public class FileController {
             return 0;
         }
     }
-
+    /**
+     * Method for converting string data to boolean data
+     * @param stringData The string to be converted to an integer
+     * @return The boolean value of the converted string
+     */
     public static boolean booleanParser(String stringData) {
         if (stringData != null) {
             return Boolean.parseBoolean(stringData);
@@ -161,7 +195,11 @@ public class FileController {
             return false;
         }
     }
-
+    /**
+     * Method for converting string data to data of the LocalDate type
+     * @param stringData The string to be converted to the LocalDate type
+     * @return The LocalDate equivalent of the converted string
+     */
     public static LocalDate dateParser(String stringData) {
         LocalDate localDate;
         if (stringData != null) {
