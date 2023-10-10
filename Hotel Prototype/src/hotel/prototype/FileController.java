@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.time.LocalDate;
+import javafx.beans.property.SimpleIntegerProperty;
 
 /**
  *
@@ -142,7 +143,7 @@ public class FileController {
         }
 
         for (Room r : roomList) {
-            if (r.roomNum == roomToFind) {
+            if (r.roomNum == new SimpleIntegerProperty(roomToFind)) {
                 return r;
             }
         }
@@ -168,7 +169,7 @@ public class FileController {
             BufferedReader br = new BufferedReader(fr);
             while ((fileData = br.readLine()) != null){
                 dataArr = fileData.split(",");
-                if (integerParser(dataArr[0]) == room.roomNum){
+                if (new SimpleIntegerProperty(integerParser(dataArr[0])) == room.roomNum){
                     
                 }
             }
