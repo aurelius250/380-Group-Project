@@ -16,9 +16,9 @@ import javafx.scene.control.DatePicker;
 /**
  * FXML Controller class
  *
- * @author keato
+ * @author Keaton
  */
-public class MainController implements Initializable {
+public class CreateReservationController implements Initializable {
 
     @FXML
     private DatePicker checkInDatePicker, checkOutDatePicker;

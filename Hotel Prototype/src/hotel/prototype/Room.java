@@ -1,39 +1,81 @@
 package hotel.prototype;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  *
- * @author jon01
+ * @author Johnathan, Keaton
  */
 public class Room {
-    public int roomNum;
-    public boolean smoking;
-    public int numBeds;
-    public int numPeople;
-    public int sqftSize;
+    public SimpleIntegerProperty roomNum;
+    public SimpleBooleanProperty smoking;
+    public SimpleIntegerProperty numBeds;
+    public SimpleIntegerProperty numPeople;
+    public SimpleIntegerProperty sqftSize;
     public char bedType;
-    public String description;
+    public SimpleStringProperty description;
 
+    /**
+     * Default constructor
+     */
     public Room() {
-        roomNum = 0;
-        smoking = false;
-        numBeds = 1;
-        numPeople = 1;
-        sqftSize = 200;
+        roomNum = new SimpleIntegerProperty(0);
+        smoking = new SimpleBooleanProperty(false);
+        numBeds = new SimpleIntegerProperty(1);
+        numPeople = new SimpleIntegerProperty(1);
+        sqftSize = new SimpleIntegerProperty(200);
         bedType = 'Q';
-        description = "Basic room";
+        description = new SimpleStringProperty("Basic room");
+    }
+    
+    /**
+     * Parameterized constructor
+     * @param roomNum
+     * @param smoking
+     * @param numBeds
+     * @param numPeople
+     * @param sqftSize
+     * @param bedType
+     * @param description 
+     */
+    public Room(int roomNum, boolean smoking, int numBeds, int numPeople, int sqftSize, char bedType, String description) {
+        this.roomNum = new SimpleIntegerProperty(roomNum);
+        this.smoking = new SimpleBooleanProperty(smoking);
+        this.numBeds = new SimpleIntegerProperty(numBeds);
+        this.numPeople = new SimpleIntegerProperty(numPeople);
+        this.sqftSize = new SimpleIntegerProperty(sqftSize);
+        this.bedType = bedType;
+        this.description = new SimpleStringProperty(description);
     }
 
-    public Room(int roomNum, boolean smoking, int numBeds, int numPeople, int sqftSize, char bedType, String description) {
-        this.roomNum = roomNum;
-        this.smoking = smoking;
-        this.numBeds = numBeds;
-        this.numPeople = numPeople;
-        this.sqftSize = sqftSize;
-        this.bedType = bedType;
-        this.description = description;
+    public Integer getRoomNum() {
+        return roomNum.get();
     }
+
+    public Boolean getSmoking() {
+        return smoking.get();
+    }
+
+    public Integer getNumBeds() {
+        return numBeds.get();
+    }
+
+    public Integer getNumPeople() {
+        return numPeople.get();
+    }
+
+    public Integer getSqftSize() {
+        return sqftSize.get();
+    }
+
+    public char getBedType() {
+        return bedType;
+    }
+
+    public String getDescription() {
+        return description.get();
+    }
+    
 }

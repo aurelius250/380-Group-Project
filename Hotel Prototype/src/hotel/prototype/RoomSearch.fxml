@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.RoomSearchController">
+    <children>
+      <TableView fx:id="tableView" layoutX="32.0" layoutY="59.0" prefHeight="230.0" prefWidth="548.0">
+        <columns>
+          <TableColumn fx:id="colRoomNum" prefWidth="51.0" text="Room #" />
+            <TableColumn fx:id="colSmoking" prefWidth="64.0" text="Smoking?" />
+            <TableColumn fx:id="colNumBeds" prefWidth="61.0" text="# of Beds" />
+            <TableColumn fx:id="colNumPeople" prefWidth="72.0" text="# of People" />
+            <TableColumn fx:id="colSize" prefWidth="46.0" text="Size" />
+            <TableColumn fx:id="colBedType" prefWidth="65.0" text="Bed Type" />
+            <TableColumn fx:id="colDesc" prefWidth="191.0" text="Description" />
+        </columns>
+      </TableView>
+      <Button layoutX="228.0" layoutY="321.0" mnemonicParsing="false" onAction="#reserveRoom" prefHeight="25.0" prefWidth="157.0" text="Reserve Room" />
+   </children>
+</AnchorPane>
