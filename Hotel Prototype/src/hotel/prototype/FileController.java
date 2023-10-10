@@ -19,6 +19,28 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class FileController {
 
     //private static String roomsFile = "rooms.txt";
+    
+    public static ArrayList readFile(String fileName){
+        String fileData;
+        String[] dataArr = null;
+        ArrayList<String> list = new ArrayList<String>();
+        
+        try{
+            FileReader fr = new FileReader(fileName);
+            BufferedReader br = new BufferedReader(fr);
+            
+            while ((fileData = br.readLine()) != null){
+                list.add(fileData);
+            }
+            
+            br.close();
+            fr.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        
+        return list;
+    }
     /**
      * Reads from a text file and generates an ArrayList of room objects from the file
      * @param fileName name of the text file to be read from
