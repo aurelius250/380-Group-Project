@@ -12,9 +12,10 @@ import java.time.LocalDate;
 public class Reservation {
     
     public String ID;
-    public LocalDate checkIn,checkOut;
+    public LocalDate checkIn;
+    public LocalDate checkOut;
     public Room room;
-    //private Customer customer;
+    public Customer customer;
     
     /**
      * Default constructor.
@@ -48,13 +49,15 @@ public class Reservation {
                 "Reservation ID: " + this.ID + 
                 "\nCheck In:  " + this.checkIn + 
                 "\nCheck Out: " + this.checkOut +
-                "\nRoom Number: " + this.room.roomNum +
-                "\nSmoking?: " + this.room.smoking +
-                "\n# of Beds: " + this.room.numBeds +
-                "\n# of People: " + this.room.numPeople +
-                "\nSize (sqft): " + this.room.sqftSize +
-                "\nBed Type: " + this.room.bedType +
-                "\nDescription: " + this.room.description
+                "\nRoom Number: " + this.room.getRoomNum() +
+                "\nSmoking?: " + this.room.getSmoking() +
+                "\n# of Beds: " + this.room.getNumBeds() +
+                "\n# of People: " + this.room.getNumPeople() +
+                "\nSize (sqft): " + this.room.getSqftSize() +
+                "\nBed Type: " + this.room.getBedType() +
+                "\nDescription: " + this.room.getDescription() +
+                "\nCustomer Name: " + this.customer.getCustomerName() +
+                "\nCustomer Email: " + this.customer.getCustomerEmail()
         );
     }
     

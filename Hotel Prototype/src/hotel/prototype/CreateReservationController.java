@@ -1,17 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package hotel.prototype;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -20,30 +18,57 @@ import javafx.scene.control.DatePicker;
  */
 public class CreateReservationController implements Initializable {
 
+    public Label reservationIDText;
+    public Label roomNumText;
+    public Label smokingText;
+    public Label numBedsText;
+    public Label numPeopleText;
+    public Label sizeText;
+    public Label bedTypeText;
+    public Label descText;
+    
+    public TextField nameField;
+    public TextField emailField;
+    
+    public static Room selectedRoom;
+    
     @FXML
     private DatePicker checkInDatePicker, checkOutDatePicker;
     
-    @FXML
-    private ChoiceBox<String> roomChoiceBox;
+    public void back(ActionEvent e) throws IOException{
+        Main.setRoot("RoomSearch");
+    }
     
-    private LocalDate checkInDate, checkOutDate;
-    private String[] roomTypes = {"Best Room","Medium Room","Cheap Room"};
-    private String roomType;
-    
-    public void bookReservation(ActionEvent e){
-        checkInDate = checkInDatePicker.getValue();
-        checkOutDate = checkOutDatePicker.getValue();
-        roomType = roomChoiceBox.getValue();
+    public void createReservation(ActionEvent e){
+        Reservation reservation = new Reservation();
+        Customer customer = new Customer();
         
-        System.out.println("Reservation confirmed from " + checkInDate + 
-                " to " + checkOutDate + " in the " + roomType + ".");
+        customer.setCustomerName(nameField.getText());
+        customer.setCustomerEmail(emailField.getText());
+        
+        reservation.ID = reservationIDText.getText();
+        reservation.checkIn = checkInDatePicker.getValue();
+        reservation.checkOut = checkOutDatePicker.getValue();
+        reservation.room = selectedRoom;
+        reservation.customer = customer;
+
+        reservation.listDetails();
     }
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        roomChoiceBox.getItems().addAll(roomTypes);
+        displayRoomDetails(selectedRoom);
     }    
+    
+    public void displayRoomDetails(Room room){
+        roomNumText.setText(room.getRoomNum().toString());
+        smokingText.setText(room.getSmoking().toString());
+        numBedsText.setText(room.getNumBeds().toString());
+        numPeopleText.setText(room.getNumPeople().toString());
+        sizeText.setText(room.getRoomNum().toString());
+        bedTypeText.setText(String.valueOf(room.getBedType()));
+        descText.setText(room.getDescription());
+    }
     
 }

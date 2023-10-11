@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package hotel.prototype;
 
 import java.io.IOException;
@@ -10,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -21,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author Keaton
  */
 public class RoomSearchController implements Initializable {
+    @FXML
     public TableView<Room> tableView;
     
     public TableColumn<Room,Integer> colRoomNum;
@@ -31,17 +29,27 @@ public class RoomSearchController implements Initializable {
     public TableColumn<Room,Character> colBedType;
     public TableColumn<Room,String> colDesc;
     
-    public void reserveRoom(ActionEvent e) throws IOException{
+    public void reserveSelectedRoom(ActionEvent e) throws IOException{
         //TODO: Create reservation with data from selected row
+        Room room = tableView.getSelectionModel().getSelectedItem();
+        CreateReservationController.selectedRoom = room;
         Main.setRoot("CreateReservation");
     }
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        loadTableData();
+    } 
+    
+    /**
+     * Loads data into the room search table
+     */
+    private void loadTableData(){
         colRoomNum.setCellValueFactory(new PropertyValueFactory<>("roomNum"));
         colSmoking.setCellValueFactory(new PropertyValueFactory<>("smoking"));
         colNumBeds.setCellValueFactory(new PropertyValueFactory<>("numBeds"));
@@ -51,12 +59,12 @@ public class RoomSearchController implements Initializable {
         colDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
 
         ObservableList<Room> observableList = FXCollections.observableArrayList(
-                new Room(101,true,1,1,100,'K',"Cheap Room"),
-                new Room(102,true,1,1,100,'K',"Cheap Room"),
-                new Room(103,true,1,1,100,'K',"Cheap Room")
+                new Room(101,true,1,1,100,'S',"Cheap Room"),
+                new Room(201,false,2,2,200,'K',"Medium Room"),
+                new Room(301,true,3,4,300,'Q',"Best Room")
         );
         
         tableView.setItems(observableList);
-    }    
+    }
     
 }

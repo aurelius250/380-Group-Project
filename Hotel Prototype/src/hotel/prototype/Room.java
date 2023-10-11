@@ -49,6 +49,23 @@ public class Room {
         this.bedType = bedType;
         this.description = new SimpleStringProperty(description);
     }
+    
+    /**
+     * Creates string of room properties separated by commas
+     * @return Comma separated string
+     */
+    public String toStringCSV(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(roomNum.get()).append(",");
+        sb.append(smoking.get()).append(",");
+        sb.append(numBeds.get()).append(",");
+        sb.append(numPeople.get()).append(",");
+        sb.append(sqftSize.get()).append(",");
+        sb.append(bedType).append(",");
+        sb.append(description.get());
+        
+        return sb.toString();
+    }
 
     public Integer getRoomNum() {
         return roomNum.get();

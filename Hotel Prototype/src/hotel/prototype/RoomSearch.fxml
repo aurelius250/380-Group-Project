@@ -18,6 +18,6 @@
             <TableColumn fx:id="colDesc" prefWidth="191.0" text="Description" />
         </columns>
       </TableView>
-      <Button layoutX="228.0" layoutY="321.0" mnemonicParsing="false" onAction="#reserveRoom" prefHeight="25.0" prefWidth="157.0" text="Reserve Room" />
+      <Button layoutX="222.0" layoutY="321.0" mnemonicParsing="false" onAction="#reserveSelectedRoom" prefHeight="25.0" prefWidth="157.0" text="Reserve Selected Room" />
    </children>
 </AnchorPane>
