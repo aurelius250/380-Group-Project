@@ -19,5 +19,6 @@
         </columns>
       </TableView>
       <Button layoutX="222.0" layoutY="321.0" mnemonicParsing="false" onAction="#reserveSelectedRoom" prefHeight="25.0" prefWidth="157.0" text="Reserve Selected Room" />
+      <Button layoutX="32.0" layoutY="14.0" mnemonicParsing="false" onAction="#Back" text="Back" />
    </children>
 </AnchorPane>

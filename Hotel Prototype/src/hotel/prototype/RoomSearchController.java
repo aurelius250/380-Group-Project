@@ -30,10 +30,13 @@ public class RoomSearchController implements Initializable {
     public TableColumn<Room,String> colDesc;
     
     public void reserveSelectedRoom(ActionEvent e) throws IOException{
-        //TODO: Create reservation with data from selected row
         Room room = tableView.getSelectionModel().getSelectedItem();
         CreateReservationController.selectedRoom = room;
         Main.setRoot("CreateReservation");
+    }
+    
+    public void Back() throws IOException{
+        Main.setRoot("StartMenu");
     }
     
     /**
