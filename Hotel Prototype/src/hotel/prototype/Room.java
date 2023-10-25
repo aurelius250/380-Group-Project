@@ -20,7 +20,6 @@ public class Room {
     /**
      * Default constructor
      */
-    
     public Room() {
         roomNum = new SimpleIntegerProperty(0);
         smoking = new SimpleBooleanProperty(false);
