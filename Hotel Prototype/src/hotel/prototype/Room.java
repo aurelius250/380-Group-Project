@@ -14,12 +14,13 @@ public class Room {
     public SimpleIntegerProperty numBeds;
     public SimpleIntegerProperty numPeople;
     public SimpleIntegerProperty sqftSize;
-    public char bedType;
     public SimpleStringProperty description;
+    public char bedType;
 
     /**
      * Default constructor
      */
+    
     public Room() {
         roomNum = new SimpleIntegerProperty(0);
         smoking = new SimpleBooleanProperty(false);
@@ -56,6 +57,7 @@ public class Room {
      */
     public String toStringCSV(){
         StringBuilder sb = new StringBuilder();
+        
         sb.append(roomNum.get()).append(",");
         sb.append(smoking.get()).append(",");
         sb.append(numBeds.get()).append(",");
