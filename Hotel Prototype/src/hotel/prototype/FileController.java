@@ -59,6 +59,7 @@ public class FileController {
         boolean smoking;
         char bedType;
         String description;
+        
         try {
             FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
@@ -101,25 +102,30 @@ public class FileController {
         String[] dataArr = null;
         ArrayList<Customer> customerList = new ArrayList<Customer>();
         ArrayList<Integer> reservationIDs = new ArrayList<Integer>();
+        
         try {
             FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
+            
             while ((fileData = br.readLine()) != null) {
                 dataArr = fileData.split(",");
                 customerName = dataArr[0];
                 customerEmail= dataArr[1];
+                
                 for(int i = 2; i<dataArr.length;i++){
                     reservationIDs.add(integerParser(dataArr[i]));
                 }
                 
                 customerList.add(new Customer(customerName,customerEmail,reservationIDs));
             }
+            
             br.close();
             fr.close();
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+        
         return customerList;
     }
     /**
