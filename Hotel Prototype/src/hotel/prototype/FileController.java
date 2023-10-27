@@ -130,6 +130,7 @@ public class FileController {
         
         return customerList;
     }
+    
     /**
      * Reads from a file and generates an ArrayList of Reservation objects from
      * the file
@@ -141,9 +142,11 @@ public class FileController {
         LocalDate checkIn, checkOut;
         String[] dataArr = null;
         ArrayList<Reservation> reservationList = new ArrayList<Reservation>();
+        
         try {
             FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
+            
             while ((fileData = br.readLine()) != null) {
                 dataArr = fileData.split(",");
                 
@@ -157,12 +160,14 @@ public class FileController {
                          new Room()/*integerParser(dataArr[4]))*/));
 
             }
+            
             br.close();
             fr.close();
-
+            
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+        
         return reservationList;
     }
 
@@ -182,6 +187,7 @@ public class FileController {
                 return r;
             }
         }
+        
         return null;
     }
     /**
@@ -191,22 +197,25 @@ public class FileController {
      * @param fileName The name of the text file to write to
      */
     public static void replaceRoomLine(Room room, String fileName) {
-        /* figured we may need code to find and replace a single line in the
-        text file at will
+        /* Figured we may need code to find and replace a single line in the
+        text file at will.
          */
         String fileData;
         String[] dataArr;
         String currentRoomData = room.roomNum + "," + room.smoking + "," 
                 + room.numBeds + "," + room.numPeople + "," + room.sqftSize 
                 + "," + room.bedType + "," + room.description;
+        
         try {
             FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
+            
             while ((fileData = br.readLine()) != null){
                 dataArr = fileData.split(",");
                 if (new SimpleIntegerProperty(integerParser(dataArr[0])) == room.roomNum){
                     
                 }
+                
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
