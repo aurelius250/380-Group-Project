@@ -12,32 +12,34 @@ import java.time.LocalDate;
  */
 public class ReservationHandler {
     protected ArrayList reservationList;
-    
+   
     /**
-     * fills reservationList array with reservations from a given ArrayList
+     * Fills reservationList array with reservations from a given ArrayList
      * of strings
      * @param reservationLineData 
      */
     private void fillReservationList(ArrayList<String> reservationLineData){
-        String id;
+        String ID;
         LocalDate checkIn, checkOut;
         Room room = null;
-        String[] data;
+        String[] lineData;
+        
         for(int i = 0; i < reservationLineData.size();i++){
-            data = reservationLineData.get(i).split(",");
+            lineData = reservationLineData.get(i).split(",");
             
-            id = data[0];
-            checkIn = LocalDate.parse(data[1]);
-            checkOut = LocalDate.parse(data[2]);
-            //find room and set to room variable
+            ID = lineData[0];
+            checkIn = LocalDate.parse(lineData[1]);
+            checkOut = LocalDate.parse(lineData[2]);
+            //Find room and set to room variable
             
-            reservationList.add(new Reservation(id,checkIn,checkOut,room));
+            reservationList.add(new Reservation(ID,checkIn,checkOut,room));
         }
     }
     
     private void changeResDate() { 
 
 }
+    
     private void findReservation() { 
         
     }
