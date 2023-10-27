@@ -17,7 +17,6 @@ import javafx.beans.property.SimpleIntegerProperty;
  * @author Jonathan
  */
 public class FileController {
-
     //private static String roomsFile = "rooms.txt";
     /**
      * Reads from a text file and generates an ArrayList of strings of the whole
@@ -46,6 +45,7 @@ public class FileController {
         
         return list;
     }
+    
     /**
      * Reads from a text file and generates an ArrayList of room objects from the file
      * @param fileName name of the text file to be read from
@@ -93,6 +93,7 @@ public class FileController {
         
         return roomList;
     }
+    
     /**
      * Reads from a file and generates an ArrayList of Customer objects from the file
      * @param fileName name of the text file to be read from
@@ -190,6 +191,7 @@ public class FileController {
         
         return null;
     }
+    
     /**
      * Method for replacing a line in text file with new or updated Room object
      * data
@@ -221,6 +223,7 @@ public class FileController {
             ioe.printStackTrace();
         }
     }
+    
     /**
     * Method for appending string data to lines in a text file
     * @param fileName The name of the file to have text added to
@@ -235,6 +238,7 @@ public class FileController {
             ioe.printStackTrace();
         }
     }
+    
     /**
      * Method for converting string data to integer data
      * @param stringData The string to be converted to an integer
