@@ -251,10 +251,11 @@ public class FileController {
             return 0;
         }
     }
+    
     /**
-     * Method for converting string data to boolean data
+     * Method for converting string data to Boolean data
      * @param stringData The string to be converted to an integer
-     * @return The boolean value of the converted string
+     * @return The Boolean value of the converted string
      */
     public static boolean booleanParser(String stringData) {
         if (stringData != null) {
@@ -263,6 +264,7 @@ public class FileController {
             return false;
         }
     }
+    
     /**
      * Method for converting string data to data of the LocalDate type
      * @param stringData The string to be converted to the LocalDate type
