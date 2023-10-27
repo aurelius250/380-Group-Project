@@ -8,9 +8,7 @@ import java.time.LocalDate;
  * the customer associated.
  * @author K.Maki
  */
-
 public class Reservation {
-    
     public String ID;
     public LocalDate checkIn;
     public LocalDate checkOut;
