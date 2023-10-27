@@ -2,10 +2,12 @@ package hotel.prototype;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -25,7 +27,7 @@ public class CreateReservationController implements Initializable {
     public Label sizeText;
     public Label bedTypeText;
     public Label descText;
-    
+
     public TextField nameField;
     public TextField emailField;
     
@@ -58,6 +60,8 @@ public class CreateReservationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         displayRoomDetails(selectedRoom);
+        disablePastDates(checkInDatePicker);
+        disablePastDates(checkOutDatePicker);
     }    
     
     public void displayRoomDetails(Room room){
@@ -68,6 +72,16 @@ public class CreateReservationController implements Initializable {
         sizeText.setText(room.getRoomNum().toString());
         bedTypeText.setText(String.valueOf(room.getBedType()));
         descText.setText(room.getDescription());
+    }
+    
+    public void disablePastDates(DatePicker dp){
+        dp.setDayCellFactory(param -> new DateCell(){
+        @Override
+        public void updateItem(LocalDate date, boolean empty){
+            super.updateItem(date, empty);
+            setDisable(empty || date.compareTo(LocalDate.now())<0);
+            }
+        });
     }
     
 }
