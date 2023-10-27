@@ -20,19 +20,18 @@ public class Customer {
         return sb.toString();
     }
     
-    /**
-     * Parameterized constructor
-     * @param customerName
-     * @param customerEmail
-     * @param reservationIDs
-     */
     protected Customer() { 
         this.customerName = ""; 
         this.customerEmail = ""; 
         this.reservationIDs = new ArrayList<>();
     } 
 
-        
+    /**
+      * Parameterized constructor
+      * @param customerName
+      * @param customerEmail
+      * @param reservationIDs
+      */
     protected Customer(String customerName, String customerEmail, ArrayList<Integer> reservationIDs) {
         this.customerName = customerName;
         this.customerEmail = customerEmail;
