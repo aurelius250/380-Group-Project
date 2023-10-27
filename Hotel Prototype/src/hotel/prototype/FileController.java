@@ -63,9 +63,9 @@ public class FileController {
         try {
             FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
+            
             while ((fileData = br.readLine()) != null) {
                 dataArr = fileData.split(",");
-                
                 roomNum = integerParser(dataArr[0]);
                 smoking = booleanParser(dataArr[1]);
                 numBeds = integerParser(dataArr[2]);
@@ -83,12 +83,14 @@ public class FileController {
                         description));
 
             }
+            
             br.close();
             fr.close();
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+        
         return roomList;
     }
     /**
