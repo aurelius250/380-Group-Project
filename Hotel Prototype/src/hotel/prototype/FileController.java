@@ -177,8 +177,7 @@ public class FileController {
     
     
     /**
-     * Method for replacing a line in text file with new or updated Room object
-     * data
+     * Method for deleting a line from a text file
      * @param idOrNum the reservation id or room number you are looking to have removed from the file
      */
     public static void removeLine(String fileName, int idOrNum) {
@@ -187,9 +186,21 @@ public class FileController {
             FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
             BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
-            String[] fileData;
-           
+            String[] dataArr;
+            String currentLine;
+            while((currentLine = br.readLine())!= null){
+                dataArr = currentLine.split(",");
+                if(integerParser(dataArr[0])==idOrNum){
+                    currentLine = "";
+                }
+                bw.write(currentLine + System.getProperty("line.seperator"));
+            }
+            bw.close();
+            br.close();
             
+            File oldFile = new File(fileName);
+            temp.renameTo(oldFile);
+            oldFile.delete();
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
