@@ -24,8 +24,22 @@ public class StartMenuController implements Initializable {
      * Initializes the controller class.
      */
     
+    /** 
+     * sends user to the room search screen
+     * @param e button click on "find a room" button
+     * @throws IOException
+     */
     public void sendToRoomSearch (ActionEvent e) throws IOException{
         Main.setRoot("RoomSearch");
+    }
+    
+    /**
+     * sends user to login screen
+     * @param e button click on "login" button
+     * @throws IOException 
+     */
+    public void sendToLogin (ActionEvent e) throws IOException{
+    //TODO
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
