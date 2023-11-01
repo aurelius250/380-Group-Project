@@ -40,7 +40,7 @@ public class CreateReservationController implements Initializable {
         Main.setRoot("RoomSearch");
     }
     
-    public void createReservation(ActionEvent e){
+    public void createReservation(ActionEvent e) throws IOException{
         Reservation reservation = new Reservation();
         Customer customer = new Customer();
         
@@ -54,6 +54,9 @@ public class CreateReservationController implements Initializable {
         reservation.customer = customer;
 
         reservation.listDetails();
+        
+        // After pressing "create reservation" button, moves to review purchase scene
+        Main.setRoot("ReviewPurchase");
     }
     
     
