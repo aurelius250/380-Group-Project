@@ -7,6 +7,8 @@ package hotel.prototype;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.time.LocalDate;
@@ -177,30 +179,17 @@ public class FileController {
     /**
      * Method for replacing a line in text file with new or updated Room object
      * data
-     * @param room The Room object to pull data from
-     * @param fileName The name of the text file to write to
+     * @param idOrNum the reservation id or room number you are looking to have removed from the file
      */
-    public static void replaceRoomLine(Room room, String fileName) {
-        /* Figured we may need code to find and replace a single line in the
-        text file at will.
-         */
-        String fileData;
-        String[] dataArr;
-        String currentRoomData = room.roomNum + "," + room.smoking + "," 
-                + room.numBeds + "," + room.numPeople + "," + room.sqftSize 
-                + "," + room.bedType + "," + room.description;
-        
+    public static void removeLine(String fileName, int idOrNum) {
         try {
+            File temp = new File("temp.txt");
             FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
+            BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
+            String[] fileData;
+           
             
-            while ((fileData = br.readLine()) != null){
-                dataArr = fileData.split(",");
-                if (new SimpleIntegerProperty(integerParser(dataArr[0])) == room.roomNum){
-                    
-                }
-                
-            }
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
