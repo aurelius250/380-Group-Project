@@ -60,12 +60,16 @@ public class RoomSearchController implements Initializable {
         colSize.setCellValueFactory(new PropertyValueFactory<>("sqftSize"));
         colBedType.setCellValueFactory(new PropertyValueFactory<>("bedType"));
         colDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
-
+        
         ObservableList<Room> observableList = FXCollections.observableArrayList(
-                new Room(101,true,1,1,100,'S',"Cheap Room"),
-                new Room(201,false,2,2,200,'K',"Medium Room"),
-                new Room(301,true,3,4,300,'Q',"Best Room")
-        );
+                FileController.readRoomFile("src/hotel/prototype/Rooms.txt"));
+
+//        ObservableList<Room> observableList = FXCollections.observableArrayList(
+//                new Room(101,true,1,1,100,'S',"Cheap Room"),
+//                new Room(201,false,2,2,200,'K',"Medium Room"),
+//                new Room(301,true,3,4,300,'Q',"Best Room")
+//                //FileController.readRoomFile("Rooms.csv")
+//        );
         
         tableView.setItems(observableList);
     }
