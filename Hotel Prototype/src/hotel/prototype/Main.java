@@ -19,7 +19,8 @@ import static javafx.application.Application.launch;
 public class Main extends Application {
 
     private static Scene scene;
-
+    private static Scene reviewPurchaseScene;
+    
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("StartMenu"));
@@ -28,12 +29,21 @@ public class Main extends Application {
         //stage.setTitle("Hotel Regex");
         stage.setTitle("Hotel Regex: The most rundown hotel in the San Fernando Valley");
         stage.show();
+        
     }
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
+    public void switchToReviewScreen(Stage stage) throws IOException {
+        if (reviewPurchaseScene == null) {
+            reviewPurchaseScene = new Scene(loadFXML("ReviewPurchase"));
+        }
+
+        stage.setScene(reviewPurchaseScene);
+    }
+    
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
