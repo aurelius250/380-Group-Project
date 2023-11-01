@@ -24,6 +24,8 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("StartMenu"));
         stage.setScene(scene);
+        
+        //stage.setTitle("Hotel Regex");
         stage.setTitle("Hotel Regex: The most rundown hotel in the San Fernando Valley");
         stage.show();
     }
