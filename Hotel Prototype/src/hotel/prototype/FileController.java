@@ -172,25 +172,7 @@ public class FileController {
         return reservationList;
     }
 
-    /**
-     * Method for finding a specific room within an ArrayList based on room number
-     * @param roomList The ArrayList of Room objects to be searched through
-     * @param roomToFind The Room number of the room to be searched for
-     * @return The Room that is found within the ArrayList or null if not found
-     */
-    public static Room findRoom(ArrayList<Room> roomList, int roomToFind) {
-        if (roomList == null) {
-            return null;
-        }
-
-        for (Room r : roomList) {
-            if (r.roomNum == new SimpleIntegerProperty(roomToFind)) {
-                return r;
-            }
-        }
-        
-        return null;
-    }
+    
     
     /**
      * Method for replacing a line in text file with new or updated Room object
