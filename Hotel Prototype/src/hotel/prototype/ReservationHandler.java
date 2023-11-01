@@ -8,6 +8,7 @@ import static hotel.prototype.FileController.booleanParser;
 import static hotel.prototype.FileController.integerParser;
 import java.util.ArrayList;
 import java.time.LocalDate;
+import javafx.beans.property.SimpleIntegerProperty;
 
 /**
  *
@@ -16,7 +17,7 @@ import java.time.LocalDate;
 public class ReservationHandler {
 
     protected ArrayList reservationList;
-    protected ArrayList roomList;
+    protected ArrayList<Room> roomList;
 
     /**
      * Fills reservationList array with reservations from a given ArrayList of
@@ -36,7 +37,7 @@ public class ReservationHandler {
             ID = lineData[0];
             checkIn = LocalDate.parse(lineData[1]);
             checkOut = LocalDate.parse(lineData[2]);
-            //Find room and set to room variable
+            room = findRoom(integerParser(lineData[3]));
 
             reservationList.add(new Reservation(ID, checkIn, checkOut, room));
         }
@@ -68,6 +69,25 @@ public class ReservationHandler {
                         bedType,
                         description));
         }
+    }
+    
+    /**
+     * Method for finding a specific room within an ArrayList based on room number
+     * @param roomToFind The Room number of the room to be searched for
+     * @return The Room that is found within the ArrayList or null if not found
+     */
+    public Room findRoom(int roomToFind) {
+        if (roomList == null) {
+            return null;
+        }
+
+        for (Room r : roomList) {
+            if (r.roomNum == new SimpleIntegerProperty(roomToFind)) {
+                return r;
+            }
+        }
+        
+        return null;
     }
 
     private void changeResDate() {
