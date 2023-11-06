@@ -32,6 +32,10 @@ public class ReviewPurchaseController implements Initializable {
         displayGreeting(primaryStage);
     }    
     
+    private void setPrimaryStage(Stage stage) { 
+        this.primaryStage = stage; 
+    }
+  
     public void start(Stage stage) { 
         
     }
@@ -46,8 +50,8 @@ public class ReviewPurchaseController implements Initializable {
         String greeting = "Reservation successfully confirmed.";
         text.setText(greeting);
         Group root = new Group(text); 
-        Scene scene = new Scene(root, 600, 300);
-        stage.setScene(scene);
-        stage.show();
+//        Scene scene = new Scene(root, 600, 300);
+//        stage.setScene(scene);
+//        stage.show();
     }
 }
