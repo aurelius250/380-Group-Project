@@ -41,22 +41,12 @@ public class CreateReservationController implements Initializable {
     }
     
     public void createReservation(ActionEvent e) throws IOException{
-        Reservation reservation = new Reservation();
-        Customer customer = new Customer();
         
-        customer.setCustomerName(nameField.getText());
-        customer.setCustomerEmail(emailField.getText());
-        
-        reservation.ID = reservationIDText.getText();
-        reservation.checkIn = checkInDatePicker.getValue();
-        reservation.checkOut = checkOutDatePicker.getValue();
-        reservation.room = selectedRoom;
-        reservation.customer = customer;
-
-        reservation.listDetails();
+        //Create the reservation
+        createReservation();
         
         // After pressing "create reservation" button, moves to review purchase scene
-        Main.setRoot("ReviewPurchase");
+        //Main.setRoot("ReviewPurchase");
     }
     
     
@@ -85,6 +75,22 @@ public class CreateReservationController implements Initializable {
             setDisable(empty || date.compareTo(LocalDate.now())<0);
             }
         });
+    }
+    
+    public void createReservation() throws IOException{
+        Reservation reservation = new Reservation();
+        Customer customer = new Customer();
+        
+        customer.setCustomerName(nameField.getText());
+        customer.setCustomerEmail(emailField.getText());
+        
+        reservation.ID = reservationIDText.getText();
+        reservation.checkIn = checkInDatePicker.getValue();
+        reservation.checkOut = checkOutDatePicker.getValue();
+        reservation.room = selectedRoom;
+        reservation.customer = customer;
+
+        reservation.addReservation();
     }
     
 }
