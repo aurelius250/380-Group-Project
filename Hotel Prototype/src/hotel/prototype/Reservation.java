@@ -23,6 +23,7 @@ public class Reservation {
         checkIn = null;
         checkOut = null;
         room = null;
+        customer = null;
     }
     
     /**
@@ -31,12 +32,14 @@ public class Reservation {
      * @param checkIn
      * @param checkOut
      * @param room 
+     * @param customer
      */
-    public Reservation(String ID, LocalDate checkIn, LocalDate checkOut, Room room){
+    public Reservation(String ID, LocalDate checkIn, LocalDate checkOut, Room room, Customer customer){
         this.ID = ID;
         this.checkIn = checkIn;
         this.checkOut= checkOut;
         this.room = room;
+        this.customer = customer;
     }
     
     /**
