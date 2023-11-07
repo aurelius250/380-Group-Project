@@ -29,6 +29,7 @@ public class ReservationHandler {
         String ID;
         LocalDate checkIn, checkOut;
         Room room = null;
+        Customer customer = null;
         String[] lineData;
 
         for (int i = 0; i < reservationLineData.size(); i++) {
@@ -38,8 +39,9 @@ public class ReservationHandler {
             checkIn = LocalDate.parse(lineData[1]);
             checkOut = LocalDate.parse(lineData[2]);
             room = findRoom(integerParser(lineData[3]));
+            //TODO get customer data
 
-            reservationList.add(new Reservation(ID, checkIn, checkOut, room));
+            reservationList.add(new Reservation(ID, checkIn, checkOut, room, customer));
         }
     }
 
