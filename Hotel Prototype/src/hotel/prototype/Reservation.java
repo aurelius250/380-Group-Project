@@ -64,18 +64,25 @@ public class Reservation {
      * @throws IOException 
      */
     public void addReservation() throws IOException{
+        FileController.appendFile("src/hotel/prototype/Reservations.csv",
+                "\n" + this.toStringCSV()); 
+    }
+    
+    public String toStringCSV(){
         String row = 
-                    "\n"+ ID + "," + 
+                    ID + "," + 
                     checkIn + "," + 
                     checkOut + "," +
-                    room.roomNum + "," + 
-                    room.smoking + "," +
-                    room.numBeds + "," +
-                    room.numPeople + "," + 
-                    room.sqftSize + "," + 
-                    room.bedType + "," +
-                    room.description;
+                    room.getRoomNum() + "," + 
+                    room.getSmoking() + "," +
+                    room.getNumBeds() + "," +
+                    room.getNumPeople() + "," + 
+                    room.getSqftSize() + "," + 
+                    room.getBedType() + "," +
+                    room.getDescription() + "," +
+                    customer.getCustomerName() + "," +
+                    customer.getCustomerEmail();
         
-        FileController.appendFile("Reservations.csv",row); 
+        return row;
     }
 }
