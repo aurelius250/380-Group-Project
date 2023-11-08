@@ -46,7 +46,7 @@ public class CreateReservationController implements Initializable {
         createReservation();
         
         // After pressing "create reservation" button, moves to review purchase scene
-        //Main.setRoot("ReviewPurchase");
+        Main.setRoot("ReviewPurchase");
     }
     
     
