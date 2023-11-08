@@ -208,6 +208,10 @@ public class FileController {
         }
     }
     
+    public static void replaceLine(String filename, String newLine, String oldLine){
+    
+    }
+    
     /**
     * Method for appending string data to lines in a text file
     * @param fileName The name of the file to have text added to
