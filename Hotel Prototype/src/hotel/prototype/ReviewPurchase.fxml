@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -8,15 +9,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="hotel.prototype.ReviewPurchaseController">
+<AnchorPane id="AnchorPane" prefHeight="412.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.ReviewPurchaseController">
     <children> 
-      <Label layoutX="148.0" layoutY="14.0" text="Review Purchase" underline="true">
+      <Label layoutX="300.0" layoutY="14.0" text="Review Purchase" underline="true">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
         <Button layoutX="477.0" layoutY="345.0" mnemonicParsing="false" onAction="#returnStart" text="Return to Start" />
-      <TextField layoutX="14.0" layoutY="106.0" prefHeight="27.0" prefWidth="581.0" text="Reservation purchase successful! We hope you have a nice stay and redirect all complaints to Jonathan." />
+      <ImageView fitHeight="314.0" fitWidth="196.0" layoutX="42.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/hamza-younous-UY5CYtvYk9g-unsplash.jpg" />
+         </image>
+      </ImageView>
+      <TextArea layoutX="329.0" layoutY="58.0" prefHeight="192.0" prefWidth="340.0" text="Reservation purchase successful! We hope you have a&#10;nice stay, and please redirect all complaints to Jonathan.&#10;&#10;Reservation ID:&#10;Name: &#10;Email: &#10;" />
     </children> 
    
 </AnchorPane>
