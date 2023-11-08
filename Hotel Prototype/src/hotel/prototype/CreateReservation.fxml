@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -8,19 +13,19 @@
 <?import javafx.scene.shape.Box?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.CreateReservationController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.CreateReservationController">
    <children>
       <Box depth="100" drawMode="LINE" height="250.0" layoutX="148.0" layoutY="200.0" width="250.0" />
-      <Label layoutX="148.0" layoutY="14.0" text="Create Reservation" underline="true">
+      <Label layoutX="204.0" layoutY="13.0" text="Create Reservation">
          <font>
-            <Font size="36.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="331.0" layoutY="110.0" text="Check In:" />
+      <Label layoutX="327.0" layoutY="108.0" text="Check In:" />
       <Label layoutX="321.0" layoutY="149.0" text="Check Out:" />
-      <DatePicker fx:id="checkInDatePicker" layoutX="398.0" layoutY="106.0" />
-      <DatePicker fx:id="checkOutDatePicker" layoutX="398.0" layoutY="145.0" />
-      <Button layoutX="330.0" layoutY="301.0" mnemonicParsing="false" onAction="#createReservation" prefHeight="31.0" prefWidth="242.0" text="Create Reservation" />
+      <DatePicker fx:id="checkInDatePicker" layoutX="398.0" layoutY="106.0" prefHeight="27.0" prefWidth="174.0" />
+      <DatePicker fx:id="checkOutDatePicker" layoutX="398.0" layoutY="145.0" prefHeight="27.0" prefWidth="174.0" />
+      <Button layoutX="331.0" layoutY="334.0" mnemonicParsing="false" onAction="#createReservation" prefHeight="31.0" prefWidth="242.0" text="Create Reservation" />
       <Label layoutX="36.0" layoutY="108.0" text="Room Number: " />
       <Label layoutX="35.0" layoutY="129.0" text="Smoking?:" />
       <Label layoutX="36.0" layoutY="151.0" text="# of Beds:" />
@@ -35,14 +40,20 @@
       <Label fx:id="sizeText" layoutX="136.0" layoutY="194.0" text="Label" />
       <Label fx:id="bedTypeText" layoutX="136.0" layoutY="217.0" text="Label" />
       <Label fx:id="descText" layoutX="136.0" layoutY="242.0" text="Label" />
-      <Label layoutX="344.0" layoutY="215.0" text="Name:" />
-      <TextField fx:id="nameField" layoutX="398.0" layoutY="214.0" prefHeight="25.0" prefWidth="174.0" />
-      <Label layoutX="346.0" layoutY="246.0" text="Email:" />
-      <TextField fx:id="emailField" layoutX="398.0" layoutY="245.0" prefHeight="25.0" prefWidth="174.0" />
-      <Label layoutX="307.0" layoutY="76.0" text="Resevation ID:" />
-      <Label fx:id="reservationIDText" layoutX="398.0" layoutY="76.0" text="00000" />
-      <Button layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Back" />
-      <Label layoutX="394.0" layoutY="184.0" text="Customer Information" underline="true" />
-      <Label layoutX="31.0" layoutY="84.0" prefWidth="75.0" text="Room Details" underline="true" />
+      <Label layoutX="334.0" layoutY="226.0" text="Name:" />
+      <TextField fx:id="nameField" layoutX="398.0" layoutY="221.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="336.0" layoutY="271.0" text="Email:" />
+      <TextField fx:id="emailField" layoutX="398.0" layoutY="266.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="318.0" layoutY="76.0" text="Reservation ID:" />
+      <Label fx:id="reservationIDText" layoutX="406.0" layoutY="76.0" text="00000" />
+      <Button layoutX="26.0" layoutY="336.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Label layoutX="327.0" layoutY="191.0" text="Customer Information">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="35.0" layoutY="75.0" prefHeight="17.0" prefWidth="110.0" text="Room Details">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
    </children>
 </AnchorPane>
