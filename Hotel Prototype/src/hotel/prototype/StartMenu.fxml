@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.StartMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.StartMenuController">
    <children>
       <Text layoutX="14.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regex Hotel" textAlignment="CENTER" wrappingWidth="175.13671875">
          <font>
@@ -16,7 +16,7 @@
       </Text>
       <Button layoutX="189.0" layoutY="19.0" mnemonicParsing="false" onAction="#sendToRoomSearch" prefWidth="85.0" text="Find a room" />
       <Button layoutX="274.0" layoutY="19.0" mnemonicParsing="false" prefWidth="85.0" text="About Us" />
-      <Button layoutX="444.0" layoutY="19.0" mnemonicParsing="false" prefWidth="85.0" text="Login" />
+      <Button layoutX="444.0" layoutY="19.0" mnemonicParsing="false" onAction="#sendToLogin" prefWidth="85.0" text="Login" />
       <Button layoutX="359.0" layoutY="19.0" mnemonicParsing="false" prefWidth="85.0" text="News" />
       <Text layoutX="140.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Something somthing, introductory statement" textAlignment="CENTER" wrappingWidth="320.13671875">
          <font>
