@@ -27,7 +27,7 @@ public class LoginController implements Initializable {
      * @param e on click of "back" button sends user to start
      * @throws IOException
      */
-    public void sentToStart(ActionEvent e) throws IOException{
+    public void sendToStart(ActionEvent e) throws IOException{
         Main.setRoot("StartMenu");
     }
     @Override

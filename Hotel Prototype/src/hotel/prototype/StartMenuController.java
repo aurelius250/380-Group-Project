@@ -33,17 +33,15 @@ public class StartMenuController implements Initializable {
         Main.setRoot("RoomSearch");
     }
     
-    public void sentToLogin (ActionEvent e) throws IOException{
-        Main.setRoot("login");
-    }
     /**
-     * sends user to login screen
+     * sends user to the login screen
      * @param e button click on "login" button
      * @throws IOException 
      */
     public void sendToLogin (ActionEvent e) throws IOException{
-    //TODO
+        Main.setRoot("login");
     }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
