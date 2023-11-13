@@ -33,6 +33,10 @@ public class StartMenuController implements Initializable {
         Main.setRoot("RoomSearch");
     }
     
+    public void sendToReservationSearch(ActionEvent e) throws IOException{
+        Main.setRoot("RoomSearch");
+    }
+    
     /**
      * sends user to the login screen
      * @param e button click on "login" button
