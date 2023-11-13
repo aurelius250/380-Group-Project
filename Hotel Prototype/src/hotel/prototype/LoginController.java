@@ -10,6 +10,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import java.io.IOException;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -17,11 +21,17 @@ import java.io.IOException;
  * @author jon01
  */
 public class LoginController implements Initializable {
-    @FXML
     /**
      * Initializes the controller class.
      */
-    
+    @FXML
+    private Button button; 
+    @FXML
+    private TextField email;
+    @FXML
+    private PasswordField password;
+    @FXML
+    private Label loginLabel;
     /**
      * sends user to start menu
      * @param e on click of "back" button sends user to start
@@ -29,6 +39,14 @@ public class LoginController implements Initializable {
      */
     public void sendToStart(ActionEvent e) throws IOException{
         Main.setRoot("StartMenu");
+    }
+    
+    public void userLogin(ActionEvent e)throws IOException {
+    
+    }
+    
+    private void checkLogin () throws IOException {
+       
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

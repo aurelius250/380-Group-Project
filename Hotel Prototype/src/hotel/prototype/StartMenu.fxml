@@ -14,10 +14,10 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <Button layoutX="189.0" layoutY="19.0" mnemonicParsing="false" onAction="#sendToRoomSearch" prefWidth="85.0" text="Find a room" />
-      <Button layoutX="274.0" layoutY="19.0" mnemonicParsing="false" prefWidth="85.0" text="About Us" />
-      <Button layoutX="444.0" layoutY="19.0" mnemonicParsing="false" onAction="#sendToLogin" prefWidth="85.0" text="Login" />
-      <Button layoutX="359.0" layoutY="19.0" mnemonicParsing="false" prefWidth="85.0" text="News" />
+      <Button layoutX="189.0" layoutY="18.0" mnemonicParsing="false" onAction="#sendToRoomSearch" prefWidth="120.0" text="Find Reservation" />
+      <Button layoutX="322.0" layoutY="18.0" mnemonicParsing="false" prefWidth="85.0" text="About Us" />
+      <Button layoutX="494.0" layoutY="18.0" mnemonicParsing="false" onAction="#sendToLogin" prefWidth="85.0" text="Login" />
+      <Button layoutX="408.0" layoutY="18.0" mnemonicParsing="false" prefWidth="85.0" text="News" />
       <Text layoutX="140.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Something somthing, introductory statement" textAlignment="CENTER" wrappingWidth="320.13671875">
          <font>
             <Font size="17.0" />
@@ -28,5 +28,6 @@
             <Image url="@images/Thebackrooms.jpg" />
          </image>
       </ImageView>
+      <Button layoutX="189.0" layoutY="44.0" mnemonicParsing="false" prefWidth="120.0" text="Check Reservation" />
    </children>
 </AnchorPane>
