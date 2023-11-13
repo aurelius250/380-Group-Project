@@ -27,7 +27,7 @@ public class Main extends Application {
         stage.setScene(scene);
         
         //stage.setTitle("Hotel Regex");
-        stage.setTitle("Hotel Regex: The most rundown hotel in the San Fernando Valley");
+        stage.setTitle("Hotel Regex");
         stage.show();
         
     }
