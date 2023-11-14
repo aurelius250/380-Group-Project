@@ -28,6 +28,6 @@
             <Image url="@images/Thebackrooms.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="189.0" layoutY="44.0" mnemonicParsing="false" prefWidth="120.0" text="Check Reservation" />
+      <Button layoutX="189.0" layoutY="44.0" mnemonicParsing="false" onAction="#sendToReservationSearch" prefWidth="120.0" text="Check Reservation" />
    </children>
 </AnchorPane>

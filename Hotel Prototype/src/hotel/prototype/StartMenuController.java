@@ -34,7 +34,7 @@ public class StartMenuController implements Initializable {
     }
     
     public void sendToReservationSearch(ActionEvent e) throws IOException{
-        Main.setRoot("RoomSearch");
+        Main.setRoot("ReviewReservation");
     }
     
     /**

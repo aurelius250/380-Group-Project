@@ -4,8 +4,10 @@
  */
 package hotel.prototype;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
 /**
@@ -18,6 +20,11 @@ public class ReviewReservationController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    public void sendToStart(ActionEvent e)throws IOException{
+        Main.setRoot("StartMenu");
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
