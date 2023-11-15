@@ -12,27 +12,38 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.StartMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.StartMenuController">
    <children>
-      <Text layoutX="14.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regex Hotel" textAlignment="CENTER" wrappingWidth="175.13671875">
+      <Text layoutX="52.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regex Hotel" textAlignment="CENTER" wrappingWidth="370.86647033691406">
          <font>
-            <Font size="26.0" />
+            <Font size="87.0" />
          </font>
       </Text>
-      <Button layoutX="189.0" layoutY="18.0" mnemonicParsing="false" onAction="#sendToRoomSearch" prefWidth="120.0" text="Find Reservation" />
-      <Button layoutX="322.0" layoutY="18.0" mnemonicParsing="false" prefWidth="85.0" text="About Us" />
-      <Button layoutX="494.0" layoutY="18.0" mnemonicParsing="false" onAction="#sendToLogin" prefWidth="85.0" text="Login" />
-      <Button layoutX="408.0" layoutY="18.0" mnemonicParsing="false" prefWidth="85.0" text="News" />
-      <Text layoutX="140.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Something somthing, introductory statement" textAlignment="CENTER" wrappingWidth="320.13671875">
+      <Button layoutX="563.0" layoutY="321.0" mnemonicParsing="false" onAction="#sendToRoomSearch" prefHeight="76.0" prefWidth="204.0" text="New Reservation">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <Button layoutX="1156.0" layoutY="794.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="191.0" text="About Us">
+         <font>
+            <Font size="21.0" />
+         </font></Button>
+      <Button layoutX="1222.0" layoutY="300.0" mnemonicParsing="false" onAction="#sendToLogin" prefHeight="84.0" prefWidth="175.0" text="Login">
+         <font>
+            <Font size="27.0" />
+         </font></Button>
+      <Text layoutX="540.0" layoutY="812.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The San Fernando Valley's premier choice for hospitality" textAlignment="CENTER" wrappingWidth="477.58746337890625">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <Button layoutX="566.0" layoutY="443.0" mnemonicParsing="false" onAction="#sendToReservationSearch" prefHeight="76.0" prefWidth="218.0" text="Check Existing Reservation">
          <font>
             <Font size="17.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="250.0" fitWidth="400.0" layoutX="175.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+         </font></Button>
+      <ImageView fitHeight="600.0" fitWidth="432.0" layoutX="31.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/Thebackrooms.jpg" />
+            <Image url="@images/christian-lambert-vmIWr0NnpCQ-unsplash.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="189.0" layoutY="44.0" mnemonicParsing="false" onAction="#sendToReservationSearch" prefWidth="120.0" text="Check Reservation" />
    </children>
 </AnchorPane>
