@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import static hotel.prototype.FileController.readFile;
 
 /**
  * FXML Controller class
@@ -29,6 +30,8 @@ public class RoomSearchController implements Initializable {
     public TableColumn<Room,Character> colBedType;
     public TableColumn<Room,String> colDesc;
     
+    ReservationHandler resHandler = new ReservationHandler();
+    
     public void reserveSelectedRoom(ActionEvent e) throws IOException{
         Room room = tableView.getSelectionModel().getSelectedItem();
         CreateReservationController.selectedRoom = room;
@@ -46,6 +49,15 @@ public class RoomSearchController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        if(resHandler.isReservationsEmpty() && resHandler.isRoomsEmpty()){
+            //resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.csv"));
+            resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
+        } else if (resHandler.isReservationsEmpty()){
+            //resHandler.fillReservationList(readFile("src/hotel/prototype/Resrvations.csv"));
+        } else if (resHandler.isRoomsEmpty()){
+            resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
+        }
+        resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
         loadTableData();
     } 
     
@@ -62,7 +74,7 @@ public class RoomSearchController implements Initializable {
         colDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
         
         ObservableList<Room> observableList = FXCollections.observableArrayList(
-                FileController.readRoomFile("src/hotel/prototype/Rooms.txt"));
+                resHandler.roomList);
         
         tableView.setItems(observableList);
     }

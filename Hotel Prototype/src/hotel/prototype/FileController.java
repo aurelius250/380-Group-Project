@@ -51,56 +51,6 @@ public class FileController {
     }
 
     /**
-     * Reads from a text file and generates an ArrayList of room objects from
-     * the file
-     *
-     * @param fileName name of the text file to be read from
-     * @return An ArrayList of room objects
-     */
-    public static ArrayList readRoomFile(String fileName) {
-        String fileData;
-        String[] dataArr = null;
-        ArrayList<Room> roomList = new ArrayList<Room>();
-        int roomNum, numBeds, numPeople, sqftSize;
-        boolean smoking;
-        char bedType;
-        String description;
-
-        try {
-            FileReader fr = new FileReader(fileName);
-            BufferedReader br = new BufferedReader(fr);
-
-            while ((fileData = br.readLine()) != null) {
-                dataArr = fileData.split(",");
-                roomNum = integerParser(dataArr[0]);
-                smoking = booleanParser(dataArr[1]);
-                numBeds = integerParser(dataArr[2]);
-                numPeople = integerParser(dataArr[3]);
-                sqftSize = integerParser(dataArr[4]);
-                bedType = dataArr[5].charAt(0);
-                description = dataArr[6];
-
-                roomList.add(new Room(roomNum,
-                        smoking,
-                        numBeds,
-                        numPeople,
-                        sqftSize,
-                        bedType,
-                        description));
-
-            }
-
-            br.close();
-            fr.close();
-
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-        return roomList;
-    }
-
-    /**
      * Reads from a file and generates an ArrayList of Customer objects from the
      * file
      *

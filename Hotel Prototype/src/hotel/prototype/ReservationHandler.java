@@ -18,6 +18,11 @@ public class ReservationHandler {
 
     protected ArrayList reservationList;
     protected ArrayList<Room> roomList;
+    
+     public ReservationHandler() {
+        reservationList = new ArrayList();
+        roomList = new ArrayList();
+    }
 
     /**
      * Fills reservationList array with reservations from a given ArrayList of
@@ -25,7 +30,7 @@ public class ReservationHandler {
      *
      * @param reservationLineData
      */
-    private void fillReservationList(ArrayList<String> reservationLineData) {
+    public void fillReservationList(ArrayList<String> reservationLineData) {
         String ID;
         LocalDate checkIn, checkOut;
         Room room = null;
@@ -45,7 +50,7 @@ public class ReservationHandler {
         }
     }
 
-    private void fillRoomList(ArrayList<String> roomLineData) {
+    public void fillRoomList(ArrayList<String> roomLineData) {
         int roomNum, numBeds, numPeople, sqftSize;
         boolean smoking;
         char bedType;
@@ -71,6 +76,8 @@ public class ReservationHandler {
                         bedType,
                         description));
         }
+        
+        System.out.println("success");
     }
     
     /**
@@ -91,7 +98,25 @@ public class ReservationHandler {
         
         return null;
     }
-
+    
+    public boolean isReservationsEmpty(){
+        if(reservationList == null){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public boolean isRoomsEmpty(){
+        if(roomList == null){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
     private void changeResDate() {
 
     }
