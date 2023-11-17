@@ -8,12 +8,12 @@ import java.time.LocalDate;
  * the customer associated.
  * @author K.Maki
  */
-public class Reservation {
-    public String ID;
-    public LocalDate checkIn;
-    public LocalDate checkOut;
-    public Room room;
-    public Customer customer;
+public final class Reservation {
+    protected String ID;
+    protected LocalDate checkIn;
+    protected LocalDate checkOut;
+    protected Room room;
+    protected Customer customer;
     
     /**
      * Default constructor.
@@ -42,32 +42,28 @@ public class Reservation {
         this.customer = customer;
     }
     
+    public void setCheckIn(LocalDate checkIn){
+        this.checkIn = checkIn;
+    }
+    
+    public void setCheckOut(LocalDate checkOut){
+        this.checkOut = checkOut;
+    }
+    
     public void setRoom(Room room){
         this.room = room;
     }
     
-    public Room getRoom(){
-        return this.room;
+    public void setCustomer(Customer customer){
+        this.customer = customer;
     }
     
-    /**
-     * Outputs reservation details.
-     */
-    public void listDetails(){
-        System.out.println(
-                "Reservation ID: " + this.ID + 
-                "\nCheck In:  " + this.checkIn + 
-                "\nCheck Out: " + this.checkOut +
-                "\nRoom Number: " + this.room.getRoomNum() +
-                "\nSmoking?: " + this.room.getSmoking() +
-                "\n# of Beds: " + this.room.getNumBeds() +
-                "\n# of People: " + this.room.getNumPeople() +
-                "\nSize (sqft): " + this.room.getSqftSize() +
-                "\nBed Type: " + this.room.getBedType() +
-                "\nDescription: " + this.room.getDescription() +
-                "\nCustomer Name: " + this.customer.getCustomerName() +
-                "\nCustomer Email: " + this.customer.getCustomerEmail()
-        );
+    public String getID(){
+        return this.ID;
+    }
+    
+    public Room getRoom(){
+        return this.room;
     }
     
     /**
@@ -98,6 +94,8 @@ public class Reservation {
     }
     
     public String generateID(){
-        return "R" + (int)(Math.random() * 9999 - 1000) + 1000;
+        int max = 999999;
+        int min = 100000;
+        return "R" + (int)(Math.random() * (max - min) + min);
     }
 }
