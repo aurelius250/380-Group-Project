@@ -19,7 +19,7 @@ public class Reservation {
      * Default constructor.
      */
     public Reservation(){
-        ID = null;
+        ID = this.generateID();
         checkIn = null;
         checkOut = null;
         room = null;
@@ -40,6 +40,14 @@ public class Reservation {
         this.checkOut= checkOut;
         this.room = room;
         this.customer = customer;
+    }
+    
+    public void setRoom(Room room){
+        this.room = room;
+    }
+    
+    public Room getRoom(){
+        return this.room;
     }
     
     /**
@@ -87,5 +95,9 @@ public class Reservation {
                     customer.getCustomerEmail();
         
         return row;
+    }
+    
+    public String generateID(){
+        return "R" + (int)(Math.random() * 9999 - 1000) + 1000;
     }
 }
