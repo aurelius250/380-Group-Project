@@ -31,7 +31,7 @@ public class CreateReservationController implements Initializable {
     public TextField nameField;
     public TextField emailField;
     
-    public static Room selectedRoom;
+    public static Reservation reservation;
     
     @FXML
     private DatePicker checkInDatePicker, checkOutDatePicker;
@@ -52,19 +52,21 @@ public class CreateReservationController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        displayRoomDetails(selectedRoom);
+        displayReservationDetails(reservation);
         disablePastDates(checkInDatePicker);
         disablePastDates(checkOutDatePicker);
     }    
     
-    public void displayRoomDetails(Room room){
-        roomNumText.setText(room.getRoomNum().toString());
-        smokingText.setText(room.getSmoking().toString());
-        numBedsText.setText(room.getNumBeds().toString());
-        numPeopleText.setText(room.getNumPeople().toString());
-        sizeText.setText(room.getRoomNum().toString());
-        bedTypeText.setText(String.valueOf(room.getBedType()));
-        descText.setText(room.getDescription());
+    public void displayReservationDetails(Reservation r){
+        roomNumText.setText(r.getRoom().getRoomNum().toString());
+        smokingText.setText(r.getRoom().getSmoking().toString());
+        numBedsText.setText(r.getRoom().getNumBeds().toString());
+        numPeopleText.setText(r.getRoom().getNumPeople().toString());
+        sizeText.setText(r.getRoom().getRoomNum().toString());
+        bedTypeText.setText(String.valueOf(r.getRoom().getBedType()));
+        descText.setText(r.getRoom().getDescription());
+        reservationIDText.setText(r.getID());
+        
     }
     
     public void disablePastDates(DatePicker dp){
@@ -78,17 +80,14 @@ public class CreateReservationController implements Initializable {
     }
     
     public void createReservation() throws IOException{
-        Reservation reservation = new Reservation();
         Customer customer = new Customer();
         
         customer.setCustomerName(nameField.getText());
         customer.setCustomerEmail(emailField.getText());
         
-        reservation.ID = reservationIDText.getText();
-        reservation.checkIn = checkInDatePicker.getValue();
-        reservation.checkOut = checkOutDatePicker.getValue();
-        reservation.room = selectedRoom;
-        reservation.customer = customer;
+        reservation.setCheckIn(checkInDatePicker.getValue());
+        reservation.setCheckOut(checkOutDatePicker.getValue());
+        reservation.setCustomer(customer);
 
         reservation.addReservation();
     }
