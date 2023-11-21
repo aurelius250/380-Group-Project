@@ -32,13 +32,13 @@ public class Room {
     
     /**
      * Parameterized constructor
-     * @param roomNum
-     * @param smoking
-     * @param numBeds
-     * @param numPeople
-     * @param sqftSize
-     * @param bedType
-     * @param description 
+     * @param roomNum The number of the room
+     * @param smoking Whether smoking is allowed or not in the room
+     * @param numBeds How many beds are in the room
+     * @param numPeople max occupancy of the room
+     * @param sqftSize The size of the room in square footage
+     * @param bedType The size of the beds (king,queen,twin)
+     * @param description A general description of the room
      */
     public Room(int roomNum, boolean smoking, int numBeds, int numPeople, int sqftSize, char bedType, String description) {
         this.roomNum = new SimpleIntegerProperty(roomNum);
@@ -67,31 +67,59 @@ public class Room {
         
         return sb.toString();
     }
-
+    
+    /**
+     * Getter method for getting the roomNumber
+     * @return the room object's room number
+     */
     public Integer getRoomNum() {
         return roomNum.get();
     }
-
+    
+    /**
+     * Getter method for getting the smoking status of the room
+     * @return Boolean value representing smoking status in room
+     */
     public Boolean getSmoking() {
         return smoking.get();
     }
-
+    
+    /**
+     * Getter method for getting the number of beds in the room
+     * @return an integer value representing number of beds in room
+     */
     public Integer getNumBeds() {
         return numBeds.get();
     }
-
+    
+    /**
+     * Getter method for getting the max occupancy of the room
+     * @return integer value representing max occupancy of room
+     */
     public Integer getNumPeople() {
         return numPeople.get();
     }
-
+    
+    /**
+     * Getter method for getting the size of the room in square footage
+     * @return integer value representing the room size
+     */
     public Integer getSqftSize() {
         return sqftSize.get();
     }
-
+    
+    /**
+     * Getter method for getting the bed type in the room
+     * @return Char value representing bed type (k,q,t)
+     */
     public char getBedType() {
         return bedType;
     }
 
+    /**
+     * Getter method for getting the description of the room
+     * @return String of the description
+     */
     public String getDescription() {
         return description.get();
     }

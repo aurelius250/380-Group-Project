@@ -70,6 +70,9 @@ public class ReviewReservationController implements Initializable {
         reservationIDText.setText(tableView.getSelectionModel().getSelectedItem().getID());
     }
     
+    /**
+     * Displays customer reservations as lines on a table view to then be selected
+     */
     private void loadTableData(){
         colRoom.setCellValueFactory(new PropertyValueFactory<>("ID"));
         colCheckIn.setCellValueFactory(new PropertyValueFactory<>("checkIn"));
@@ -81,10 +84,22 @@ public class ReviewReservationController implements Initializable {
         tableView.setItems(observableList);
     }
     
+    /**
+     * Action code for running the displayReservationDetails method
+     * @param e On receiving button press input from "select" button
+     * @throws IOException 
+     */
      public void reviewSelectedReservation(ActionEvent e) throws IOException{
-        tableView.getSelectionModel().getSelectedItem();
+        displayReservationDetails(tableView.getSelectionModel().getSelectedItem());
     }
      
+     /**
+      * Code to be ran on opening the ReviewReservation Scene
+      * starts by making sure that the reservationHandler has been initialized
+      * with filled object lists
+      * @param url
+      * @param rb 
+      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        if(resHandler.isReservationsEmpty() && resHandler.isRoomsEmpty()){
