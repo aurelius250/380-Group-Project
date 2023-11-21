@@ -51,6 +51,11 @@ public class StartMenuController implements Initializable {
         Main.setRoot("login");
     }
     
+    /**
+     * Initializes the StartMenu Controller class
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

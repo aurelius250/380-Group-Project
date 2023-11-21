@@ -14,7 +14,7 @@ import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
- *
+ * Class controlling the Create reservation GUI and its actions
  * @author Keaton
  */
 public class CreateReservationController implements Initializable {
@@ -36,10 +36,21 @@ public class CreateReservationController implements Initializable {
     @FXML
     private DatePicker checkInDatePicker, checkOutDatePicker;
     
+    /**
+     * Method for sending a user back to the RoomSearch scene
+     * @param e Button press of "Back" button
+     * @throws IOException 
+     */
     public void back(ActionEvent e) throws IOException{
         Main.setRoot("RoomSearch");
     }
     
+    /**
+     * ActionEvent method for running the proper create Reservation method
+     * and setting the scene to the ReviewPurchase Scene
+     * @param e on button press of "Create Reservation
+     * @throws IOException 
+     */
     public void createReservation(ActionEvent e) throws IOException{
         
         //Create the reservation
