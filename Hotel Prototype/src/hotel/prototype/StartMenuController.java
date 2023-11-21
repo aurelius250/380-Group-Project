@@ -15,7 +15,7 @@ import javafx.event.ActionEvent;
 
 /**
  * FXML Controller class
- *
+ * Controller class for the start menu
  * @author Jonathan
  */
 public class StartMenuController implements Initializable {
@@ -33,6 +33,11 @@ public class StartMenuController implements Initializable {
         Main.setRoot("RoomSearch");
     }
     
+    /**
+     * sends user to the ReviewReservation screen
+     * @param e button click on "Review Reservation" button
+     * @throws IOException 
+     */
     public void sendToReservationSearch(ActionEvent e) throws IOException{
         Main.setRoot("ReviewReservation");
     }
