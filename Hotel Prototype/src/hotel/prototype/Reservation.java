@@ -66,6 +66,14 @@ public final class Reservation {
         return this.room;
     }
     
+    public String getCheckIn(){
+        return checkIn.toString();
+    }
+    
+    public String getCheckOut(){
+        return checkIn.toString();
+    }
+    
     /**
      * Appends reservation data to the reservations file.
      * @throws IOException 

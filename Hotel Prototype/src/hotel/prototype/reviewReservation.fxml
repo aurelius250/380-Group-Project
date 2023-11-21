@@ -12,11 +12,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.ReviewReservationController">
    <children>
-      <TableView layoutX="330.0" layoutY="83.0" prefHeight="200.0" prefWidth="225.0">
+      <TableView fx:id="tableView" layoutX="330.0" layoutY="83.0" prefHeight="200.0" prefWidth="225.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Room" />
-          <TableColumn prefWidth="75.0" text="Check in" />
-            <TableColumn prefWidth="75.0" text="Check out" />
+          <TableColumn fx:id="colRoom" prefWidth="75.0" text="Room" />
+          <TableColumn fx:id="colCheckIn" prefWidth="75.0" text="Check in" />
+            <TableColumn fx:id="colCheckOut" prefWidth="75.0" text="Check out" />
         </columns>
       </TableView>
       <GridPane layoutX="52.0" layoutY="78.0">
@@ -59,6 +59,6 @@
          </font>
       </Label>
       <Button layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#sendToStart" text="Back" />
-      <Button layoutX="417.0" layoutY="309.0" mnemonicParsing="false" text="Select" />
+      <Button layoutX="417.0" layoutY="309.0" mnemonicParsing="false" onAction="#reviewSelectedReservation" text="Select" />
    </children>
 </AnchorPane>
