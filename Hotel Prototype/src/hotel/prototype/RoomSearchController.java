@@ -19,15 +19,46 @@ import static hotel.prototype.FileController.readFile;
  * @author Keaton
  */
 public class RoomSearchController implements Initializable {
+
+    /**
+     * Table to select room from
+     */
     @FXML
     public TableView<Room> tableView;
     
+    /**
+     *  Column displaying room numbers
+     */
     public TableColumn<Room,Integer> colRoomNum;
+
+    /**
+     * Column displaying smoking status of rooms
+     */
     public TableColumn<Room,Boolean> colSmoking;
+
+    /**
+     * Column displaying number of beds in the rooms
+     */
     public TableColumn<Room,Integer> colNumBeds;
+
+    /**
+     * Column displaying max occupancy of the rooms
+     */
     public TableColumn<Room,Integer> colNumPeople;
+
+    /**
+     * Column displaying size of the rooms
+     */
     public TableColumn<Room,Integer> colSize;
+
+    /**
+     * Column displaying the bed type in the room
+     */
     public TableColumn<Room,Character> colBedType;
+
+    /**
+     * Column displaying a description of the room
+     */
     public TableColumn<Room,String> colDesc;
     
     ReservationHandler resHandler = new ReservationHandler();
@@ -35,7 +66,7 @@ public class RoomSearchController implements Initializable {
     /**
      * creates a new reservation and assigns a room to it before
      * sending user to CreateReservation Scene
-     * @param e on 
+     * @param e Button press of "Reserve Selected Room"
      * @throws IOException 
      */
     public void reserveSelectedRoom(ActionEvent e) throws IOException{

@@ -17,7 +17,14 @@ import javafx.beans.property.SimpleIntegerProperty;
  */
 public class ReservationHandler {
 
+    /**
+     * ArrayList of Reservation objects
+     */
     protected ArrayList reservationList;
+
+    /**
+     * ArrayList of room objects
+     */
     protected ArrayList<Room> roomList;
     
     /** 

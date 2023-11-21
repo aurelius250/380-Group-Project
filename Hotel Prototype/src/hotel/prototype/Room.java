@@ -5,16 +5,44 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- *
+ * Object class representing the hotel rooms
  * @author Jonathan, Keaton
  */
 public class Room {
+
+    /**
+     *  The room number of room
+     */
     public SimpleIntegerProperty roomNum;
+
+    /**
+     *  Whether smoking is allowed in the room
+     */
     public SimpleBooleanProperty smoking;
+
+    /**
+     *  number of beds in the room
+     */
     public SimpleIntegerProperty numBeds;
+
+    /**
+     * max occupancy of the room
+     */
     public SimpleIntegerProperty numPeople;
+
+    /**
+     * size of the room in square feet
+     */
     public SimpleIntegerProperty sqftSize;
+
+    /**
+     * description of the room
+     */
     public SimpleStringProperty description;
+
+    /**
+     * type of beds in the room
+     */
     public char bedType;
 
     /**

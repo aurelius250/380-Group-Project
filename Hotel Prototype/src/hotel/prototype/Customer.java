@@ -7,8 +7,20 @@ import java.util.ArrayList;
  * @author tomc
  */
 public class Customer {
+
+    /**
+     *  Name of the customer 
+     */
     protected String customerName; 
+
+    /**
+     *  Customers email
+     */
     protected String customerEmail; 
+
+    /**
+     *  Reservation IDs associated with the customer
+     */
     protected ArrayList reservationIDs; 
     
     /**

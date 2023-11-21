@@ -20,9 +20,6 @@ import javafx.event.ActionEvent;
  */
 public class StartMenuController implements Initializable {
     @FXML
-    /**
-     * Initializes the controller class.
-     */
     
     /** 
      * sends user to the room search screen

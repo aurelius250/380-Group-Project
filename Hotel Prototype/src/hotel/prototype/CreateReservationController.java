@@ -19,18 +19,59 @@ import javafx.scene.control.TextField;
  */
 public class CreateReservationController implements Initializable {
 
+    /**
+     *  Label to display reservationID
+     */
     public Label reservationIDText;
+
+    /**
+     *Label to display the rooms number
+     */
     public Label roomNumText;
+
+    /**
+     *Label to display whether smoking is allowed in the room
+     */
     public Label smokingText;
+
+    /**
+     *Label to display number of beds in room
+     */
     public Label numBedsText;
+
+    /**
+     *Label to display occupancy allowance of room
+     */
     public Label numPeopleText;
+
+    /**
+     *Label to display room size
+     */
     public Label sizeText;
+
+    /**
+     *Label to display room bed types
+     */
     public Label bedTypeText;
+
+    /**
+     *Label to display room description
+     */
     public Label descText;
 
+    /**
+     *  Field for entering customer name
+     */
     public TextField nameField;
+
+    /**
+     * Field for entering customer email
+     */
     public TextField emailField;
     
+    /**
+     * Reservation Object to be assigned data
+     */
     public static Reservation reservation;
     
     @FXML

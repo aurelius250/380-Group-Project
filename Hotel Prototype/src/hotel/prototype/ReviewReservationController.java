@@ -26,26 +26,67 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class ReviewReservationController implements Initializable {
 
     /**
-     * Initializes the controller class.
+     * TableView variable for accessing table data
      */
     public TableView<Reservation> tableView;
     
+    /**
+     *  Label to display reservationID
+     */
     public Label reservationIDText;
+
+    /**
+     *  Label to display the associated room number
+     */
     public Label roomNumText;
+
+    /**
+     *  Label to display whether smoking is allowed in the associated room or not
+     */
     public Label smokingText;
+
+    /**
+     *  Label to display number of beds in the room
+     */
     public Label numBedsText;
+
+    /**
+     *  Label to display max occupancy of the room
+     */
     public Label numPeopleText;
+
+    /**
+     *  Label to display the size of the room
+     */
     public Label sizeText;
+
+    /**
+     *  Label to display the bed type(s) in the room
+     */
     public Label bedTypeText;
+
+    /**
+     *  Label to display descrtiption of the room
+     */
     public Label descText;
     
+    /**
+     *  column to display the room number associated with reservation
+     */
     public TableColumn<Reservation,String> colRoom;
+
+    /**
+     * column to display checkIn dates of reservations
+     */
     public TableColumn<Reservation,LocalDate> colCheckIn;
+
+    /**
+     * column to display checkOut dates of reservations
+     */
     public TableColumn<Reservation,LocalDate> colCheckOut;
     
     ReservationHandler resHandler = new ReservationHandler();
-    public static Reservation reservation;
-    
+
     /**
      * Method for sending users back to start menu
      * @param e runs on button press of "back" button
@@ -57,7 +98,7 @@ public class ReviewReservationController implements Initializable {
     
     /**
      * Displays all of the data pertaining to an associated reservations room.
-     * @param r Th reservation that is to have associated room data pulled from
+     * @param r The reservation that is to have associated room data pulled from
      */
     public void displayReservationDetails(Reservation r){
         roomNumText.setText(tableView.getSelectionModel().getSelectedItem().getRoom().getRoomNum().toString());
