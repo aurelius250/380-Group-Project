@@ -6,7 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 /**
  *
- * @author Johnathan, Keaton
+ * @author Jonathan, Keaton
  */
 public class Room {
     public SimpleIntegerProperty roomNum;

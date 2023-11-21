@@ -15,7 +15,8 @@ import java.time.LocalDate;
 import javafx.beans.property.SimpleIntegerProperty;
 
 /**
- *
+ * FileController reads and writes data from files for data storage purposes
+ * and for use during run-time
  * @author Jonathan
  */
 public class FileController {

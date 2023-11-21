@@ -11,8 +11,9 @@ import java.time.LocalDate;
 import javafx.beans.property.SimpleIntegerProperty;
 
 /**
- *
- * @author tomc
+ * ReservationHandler holds and creates ArrayLists of room and reservation
+ * objects for use during run-time
+ * @author tomc , Jonathan
  */
 public class ReservationHandler {
 
@@ -28,7 +29,7 @@ public class ReservationHandler {
      * Fills reservationList array with reservations from a given ArrayList of
      * strings
      *
-     * @param reservationLineData
+     * @param reservationLineData ArrayList of lines gained from text file as strings
      */
     public void fillReservationList(ArrayList<String> reservationLineData) {
         String ID;
@@ -49,7 +50,11 @@ public class ReservationHandler {
             reservationList.add(new Reservation(ID, checkIn, checkOut, room, customer));
         }
     }
-
+    /**
+     * Fills roomList array with room objects using data from a given ArrayList of
+     * strings
+     * @param roomLineData ArrayList of lines gained from text file as strings 
+     */
     public void fillRoomList(ArrayList<String> roomLineData) {
         int roomNum, numBeds, numPeople, sqftSize;
         boolean smoking;
@@ -99,6 +104,10 @@ public class ReservationHandler {
         return null;
     }
     
+    /**
+     * Method for checking if the reservationsList is empty or not
+     * @return true if the list is empty and false if it contains any objects
+     */
     public boolean isReservationsEmpty(){
         if(reservationList == null){
             return true;
@@ -108,6 +117,10 @@ public class ReservationHandler {
         }
     }
     
+    /**
+     * Method for checking if the reservationsList is empty or not
+     * @return true if the list is empty and false if it contains any objects
+     */
     public boolean isRoomsEmpty(){
         if(roomList == null){
             return true;
@@ -117,12 +130,4 @@ public class ReservationHandler {
         }
     }
     
-    private void changeResDate() {
-
-    }
-
-    private void findReservation() {
-
-    }
-
 }

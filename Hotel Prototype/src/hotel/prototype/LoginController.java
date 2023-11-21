@@ -24,6 +24,7 @@ public class LoginController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
     @FXML
     private Button button; 
     @FXML
@@ -41,13 +42,28 @@ public class LoginController implements Initializable {
         Main.setRoot("StartMenu");
     }
     
+    /**
+     * Will log a user into their account given correct email and password
+     * @param e button click of "Login" button runs method
+     * @throws IOException 
+     */
     public void userLogin(ActionEvent e)throws IOException {
     
     }
     
+    /**
+     * checks to see if email and password entered in text fields matches a user profile
+     * @throws IOException 
+     */
     private void checkLogin () throws IOException {
        
     }
+    
+    /**
+     * initial start up code for this scene. Does nothing
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

@@ -20,7 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
- *
+ * Controller class for the Review Reservation screen.
  * @author jon01
  */
 public class ReviewReservationController implements Initializable {
@@ -46,10 +46,19 @@ public class ReviewReservationController implements Initializable {
     ReservationHandler resHandler = new ReservationHandler();
     public static Reservation reservation;
     
+    /**
+     * Method for sending users back to start menu
+     * @param e runs on button press of "back" button
+     * @throws IOException 
+     */
     public void sendToStart(ActionEvent e)throws IOException{
         Main.setRoot("StartMenu");
     }
     
+    /**
+     * Displays all of the data pertaining to an associated reservations room.
+     * @param r Th reservation that is to have associated room data pulled from
+     */
     public void displayReservationDetails(Reservation r){
         roomNumText.setText(tableView.getSelectionModel().getSelectedItem().getRoom().getRoomNum().toString());
         smokingText.setText(tableView.getSelectionModel().getSelectedItem().getRoom().getSmoking().toString());
