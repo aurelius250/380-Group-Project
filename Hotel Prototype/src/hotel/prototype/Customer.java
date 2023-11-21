@@ -3,7 +3,7 @@ package hotel.prototype;
 import java.util.ArrayList;
 
 /**
- * 
+ * Object class representing users and their data
  * @author tomc
  */
 public class Customer {

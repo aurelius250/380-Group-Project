@@ -48,7 +48,7 @@ public class CreateReservationController implements Initializable {
     /**
      * ActionEvent method for running the proper create Reservation method
      * and setting the scene to the ReviewPurchase Scene
-     * @param e on button press of "Create Reservation
+     * @param e on button press of "Create Reservation" button
      * @throws IOException 
      */
     public void createReservation(ActionEvent e) throws IOException{
@@ -60,7 +60,12 @@ public class CreateReservationController implements Initializable {
         Main.setRoot("ReviewPurchase");
     }
     
-    
+    /**
+     * Initializes the CreateReservationController class
+     * Runs necessary scene start methods
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         displayReservationDetails(reservation);
@@ -68,6 +73,10 @@ public class CreateReservationController implements Initializable {
         disablePastDates(checkOutDatePicker);
     }    
     
+    /**
+     * Changes label text to display appropriate room and reservation object data to user
+     * @param r The reservation object to pull data from
+     */
     public void displayReservationDetails(Reservation r){
         roomNumText.setText(r.getRoom().getRoomNum().toString());
         smokingText.setText(r.getRoom().getSmoking().toString());
@@ -80,6 +89,11 @@ public class CreateReservationController implements Initializable {
         
     }
     
+    /**
+     * Method for making dates in the past unavailable to user for
+     * selection
+     * @param dp 
+     */
     public void disablePastDates(DatePicker dp){
         dp.setDayCellFactory(param -> new DateCell(){
         @Override
@@ -90,6 +104,10 @@ public class CreateReservationController implements Initializable {
         });
     }
     
+    /**
+     * Creates the actual reservation object based on user input and selection
+     * @throws IOException 
+     */
     public void createReservation() throws IOException{
         Customer customer = new Customer();
         

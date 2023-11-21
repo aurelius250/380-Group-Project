@@ -20,6 +20,9 @@ public class ReservationHandler {
     protected ArrayList reservationList;
     protected ArrayList<Room> roomList;
     
+    /** 
+     * default constructor
+     */
      public ReservationHandler() {
         reservationList = new ArrayList();
         roomList = new ArrayList();

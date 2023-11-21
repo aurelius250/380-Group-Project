@@ -32,6 +32,12 @@ public class RoomSearchController implements Initializable {
     
     ReservationHandler resHandler = new ReservationHandler();
     
+    /**
+     * creates a new reservation and assigns a room to it before
+     * sending user to CreateReservation Scene
+     * @param e on 
+     * @throws IOException 
+     */
     public void reserveSelectedRoom(ActionEvent e) throws IOException{
         Reservation reservation = new Reservation();
         reservation.setRoom(tableView.getSelectionModel().getSelectedItem());
@@ -39,6 +45,10 @@ public class RoomSearchController implements Initializable {
         Main.setRoot("CreateReservation");
     }
     
+    /**
+     * Sends user back to the StartMenu scene
+     * @throws IOException 
+     */
     public void Back() throws IOException{
         Main.setRoot("StartMenu");
     }
