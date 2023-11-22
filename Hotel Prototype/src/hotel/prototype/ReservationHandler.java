@@ -140,4 +140,35 @@ public class ReservationHandler {
         }
     }
     
+    /**
+     * Adds a given reservation to the reservation ArrayList
+     * @param r the reservation to be added
+     */
+    public void addReservationToList (Reservation r){
+        reservationList.add(r);
+    }
+    
+    /**
+     * Adds a given room to the room ArrayList
+     * @param r The room to be added
+     */
+    public void addRoomToList (Room r){
+        roomList.add(r);
+    }
+    
+    /**
+     * removes a given reservation from the reservation ArrayList
+     * @param r The reservation to be removed
+     */
+    public void removeListedReservation(Reservation r){
+        reservationList.remove(r);
+    }
+    
+    /**
+     * removes a given room from the room ArrayList
+     * @param r The room to be removed
+     */
+    public void removeListedRoom(Room r){
+        roomList.remove(r);
+    }
 }
