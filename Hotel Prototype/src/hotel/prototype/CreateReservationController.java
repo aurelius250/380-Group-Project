@@ -160,6 +160,7 @@ public class CreateReservationController implements Initializable {
         reservation.setCustomer(customer);
 
         reservation.addReservation();
+        ReservationHandler.resHandler.addReservationToList(reservation);
     }
     
 }

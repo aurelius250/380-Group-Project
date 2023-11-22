@@ -27,6 +27,8 @@ public class ReservationHandler {
      */
     protected ArrayList<Room> roomList;
     
+    public static ReservationHandler resHandler = new ReservationHandler();
+    
     /** 
      * default constructor
      */
@@ -119,7 +121,7 @@ public class ReservationHandler {
      * @return true if the list is empty and false if it contains any objects
      */
     public boolean isReservationsEmpty(){
-        if(reservationList == null){
+        if(reservationList.isEmpty()){
             return true;
         }
         else {
@@ -132,7 +134,7 @@ public class ReservationHandler {
      * @return true if the list is empty and false if it contains any objects
      */
     public boolean isRoomsEmpty(){
-        if(roomList == null){
+        if(roomList.isEmpty()){
             return true;
         }
         else {

@@ -5,6 +5,7 @@
 package hotel.prototype;
 
 import static hotel.prototype.FileController.readFile;
+import static hotel.prototype.ReservationHandler.resHandler;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -66,7 +67,7 @@ public class ReviewReservationController implements Initializable {
     public Label bedTypeText;
 
     /**
-     *  Label to display descrtiption of the room
+     *  Label to display description of the room
      */
     public Label descText;
     
@@ -84,8 +85,7 @@ public class ReviewReservationController implements Initializable {
      * column to display checkOut dates of reservations
      */
     public TableColumn<Reservation,LocalDate> colCheckOut;
-    
-    ReservationHandler resHandler = new ReservationHandler();
+
 
     /**
      * Method for sending users back to start menu
@@ -120,7 +120,7 @@ public class ReviewReservationController implements Initializable {
         colCheckOut.setCellValueFactory(new PropertyValueFactory<>("checkOut"));
         
         ObservableList<Reservation> observableList = FXCollections.observableArrayList(
-                resHandler.reservationList);
+                ReservationHandler.resHandler.reservationList);
         
         tableView.setItems(observableList);
     }
@@ -143,16 +143,14 @@ public class ReviewReservationController implements Initializable {
       */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       if(resHandler.isReservationsEmpty() && resHandler.isRoomsEmpty()){
-            resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
-            //resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
-        } else if (resHandler.isReservationsEmpty()){
-            resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
-        } else if (resHandler.isRoomsEmpty()){
-            //resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
-        }
-        resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
-        resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
+       if(ReservationHandler.resHandler.isReservationsEmpty()){
+           ReservationHandler.resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
+       }
+       if(ReservationHandler.resHandler.isRoomsEmpty()){
+           ReservationHandler.resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
+       }
+        //ReservationHandler.resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
+        //ReservationHandler.resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
         loadTableData();
     }    
     

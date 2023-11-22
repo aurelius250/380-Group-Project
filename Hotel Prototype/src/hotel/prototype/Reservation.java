@@ -122,7 +122,7 @@ public final class Reservation {
      * @return the checkOut date as a string
      */
     public String getCheckOut(){
-        return checkIn.toString();
+        return checkOut.toString();
     }
     
     /**
@@ -130,7 +130,7 @@ public final class Reservation {
      * @throws IOException 
      */
     public void addReservation() throws IOException{
-        FileController.appendFile("src/hotel/prototype/Reservations.csv",
+        FileController.appendFile("src/hotel/prototype/Reservations.txt",
                 "\n" + this.toStringCSV()); 
     }
     
@@ -143,15 +143,7 @@ public final class Reservation {
                     ID + "," + 
                     checkIn + "," + 
                     checkOut + "," +
-                    room.getRoomNum() + "," + 
-                    room.getSmoking() + "," +
-                    room.getNumBeds() + "," +
-                    room.getNumPeople() + "," + 
-                    room.getSqftSize() + "," + 
-                    room.getBedType() + "," +
-                    room.getDescription() + "," +
-                    customer.getCustomerName() + "," +
-                    customer.getCustomerEmail();
+                    room.getRoomNum();
         
         return row;
     }
