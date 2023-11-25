@@ -2,6 +2,7 @@ package hotel.prototype;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * Reservation class object. Stores ID, Check in/out date, room associated, and 
@@ -155,6 +156,24 @@ public final class Reservation {
     public String generateID(){
         int max = 999999;
         int min = 100000;
-        return "R" + (int)(Math.random() * (max - min) + min);
+        String ID = "R" + (int)(Math.random() * (max - min) + min);
+        ArrayList<Reservation> reservations = 
+                ReservationHandler.resHandler.reservationList;
+        
+        if(isDuplicate(ID, reservations)){
+            return generateID();
+        }
+        else{
+            return ID;
+        }
+    }
+    
+    private boolean isDuplicate(String ID, ArrayList<Reservation> reservations){
+        for (Reservation r : reservations){
+            if(r.ID.equals(ID)){
+                return true;
+            }
+        }
+        return false;
     }
 }
