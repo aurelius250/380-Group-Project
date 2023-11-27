@@ -101,14 +101,14 @@ public class ReviewReservationController implements Initializable {
      * @param r The reservation that is to have associated room data pulled from
      */
     public void displayReservationDetails(Reservation r){
-        roomNumText.setText(tableView.getSelectionModel().getSelectedItem().getRoom().getRoomNum().toString());
-        smokingText.setText(tableView.getSelectionModel().getSelectedItem().getRoom().getSmoking().toString());
-        numBedsText.setText(tableView.getSelectionModel().getSelectedItem().getRoom().getNumBeds().toString());
-        numPeopleText.setText(tableView.getSelectionModel().getSelectedItem().getRoom().getNumPeople().toString());
-        sizeText.setText(tableView.getSelectionModel().getSelectedItem().getRoom().getRoomNum().toString());
-        bedTypeText.setText(String.valueOf(tableView.getSelectionModel().getSelectedItem().getRoom().getBedType()));
-        descText.setText(tableView.getSelectionModel().getSelectedItem().getRoom().getDescription());
-        reservationIDText.setText(tableView.getSelectionModel().getSelectedItem().getID());
+        roomNumText.setText(r.getRoom().getRoomNum().toString());
+        smokingText.setText(r.getRoom().getSmoking().toString());
+        numBedsText.setText(r.getRoom().getNumBeds().toString());
+        numPeopleText.setText(r.getRoom().getNumPeople().toString());
+        sizeText.setText(r.getRoom().getSqftSize().toString());
+        bedTypeText.setText(String.valueOf(r.getRoom().getBedType()));
+        descText.setText(r.getRoom().getDescription());
+        reservationIDText.setText(r.getID());
     }
     
     /**
@@ -143,12 +143,15 @@ public class ReviewReservationController implements Initializable {
       */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       if(ReservationHandler.resHandler.isReservationsEmpty()){
-           ReservationHandler.resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
-       }
        if(ReservationHandler.resHandler.isRoomsEmpty()){
            ReservationHandler.resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
        }
+        
+       if(ReservationHandler.resHandler.isReservationsEmpty()){
+           ReservationHandler.resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
+       }
+       
+       
         //ReservationHandler.resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
         //ReservationHandler.resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
         loadTableData();

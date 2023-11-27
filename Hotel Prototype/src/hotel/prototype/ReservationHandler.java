@@ -108,7 +108,7 @@ public class ReservationHandler {
         }
 
         for (Room r : roomList) {
-            if (r.roomNum == new SimpleIntegerProperty(roomToFind)) {
+            if (r.roomNum.intValue() == roomToFind) {
                 return r;
             }
         }
@@ -121,12 +121,7 @@ public class ReservationHandler {
      * @return true if the list is empty and false if it contains any objects
      */
     public boolean isReservationsEmpty(){
-        if(reservationList.isEmpty()){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return reservationList.isEmpty();
     }
     
     /**
@@ -134,12 +129,7 @@ public class ReservationHandler {
      * @return true if the list is empty and false if it contains any objects
      */
     public boolean isRoomsEmpty(){
-        if(roomList.isEmpty()){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return roomList.isEmpty();
     }
     
     /**

@@ -1,5 +1,6 @@
 package hotel.prototype;
 
+import static hotel.prototype.FileController.readFile;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -156,15 +157,16 @@ public final class Reservation {
     public String generateID(){
         int max = 999999;
         int min = 100000;
-        String ID = "R" + (int)(Math.random() * (max - min) + min);
-        ArrayList<Reservation> reservations = 
-                ReservationHandler.resHandler.reservationList;
+        String IDstr = "R" + (int)(Math.random() * (max - min) + min);
+        ReservationHandler resHandler = ReservationHandler.resHandler;
+        resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
+        ArrayList<Reservation> reservations = resHandler.reservationList;
         
-        if(isDuplicate(ID, reservations)){
+        if(isDuplicate(IDstr, reservations)){
             return generateID();
         }
         else{
-            return ID;
+            return IDstr;
         }
     }
     
