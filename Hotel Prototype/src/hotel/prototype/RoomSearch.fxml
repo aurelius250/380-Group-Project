@@ -21,7 +21,7 @@
                   <Image url="@images/frames-for-your-heart-zSG-kd-L6vw-unsplash%20copy.jpg" />
                </image>
             </ImageView>
-            <TableView fx:id="tableView" layoutX="774.0" layoutY="178.0" prefHeight="277.0" prefWidth="553.0" style="-fx-background-color: white; -fx-border-radius: 50px; -fx-border-width: 5px; -fx-border-color: orange; -fx-background-radius: 50px;">
+            <TableView fx:id="tableView" layoutX="462.0" layoutY="311.0" prefHeight="277.0" prefWidth="553.0" style="-fx-background-color: white; -fx-border-radius: 50px; -fx-border-width: 5px; -fx-border-color: orange; -fx-background-radius: 50px;">
               <columns>
                 <TableColumn fx:id="colRoomNum" prefWidth="51.0" text="Room #" />
                   <TableColumn fx:id="colSmoking" prefWidth="64.0" text="Smoking?" />
@@ -35,22 +35,29 @@
                   <DropShadow offsetX="1.0" offsetY="1.5" />
                </effect>
             </TableView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdff1f" height="900.0" layoutX="719.0" stroke="BLACK" strokeType="INSIDE" width="95.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa721" height="900.0" layoutX="1349.0" stroke="BLACK" strokeType="INSIDE" width="95.0" />
+            <Button layoutX="475.0" layoutY="636.0" mnemonicParsing="false" onAction="#Back" prefHeight="64.0" prefWidth="123.0" style="-fx-background-color: orange;" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="2.79" radius="2.41" width="8.85" />
+               </effect>
+            </Button>
+            <Button layoutX="746.0" layoutY="636.0" mnemonicParsing="false" onAction="#reserveSelectedRoom" prefHeight="64.0" prefWidth="258.0" style="-fx-background-color: orange;" text="Reserve Selected Room" textFill="WHITE">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <effect>
+                  <DropShadow height="8.67" offsetX="1.0" offsetY="1.5" radius="3.8825000000000003" width="8.86" />
+               </effect>
+            </Button>
+            <Text fill="WHITE" layoutX="194.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Dream Room Awaits!" wrappingWidth="1120.888168334961">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
-      <Button layoutX="1005.0" layoutY="666.0" mnemonicParsing="false" onAction="#reserveSelectedRoom" prefHeight="90.0" prefWidth="326.0" text="Reserve Selected Room">
-         <font>
-            <Font size="23.0" />
-         </font>
-         <effect>
-            <DropShadow height="8.67" offsetX="1.0" offsetY="1.5" radius="3.8825000000000003" width="8.86" />
-         </effect></Button>
-      <Button layoutX="760.0" layoutY="691.0" mnemonicParsing="false" onAction="#Back" prefHeight="69.0" prefWidth="180.0" text="Back">
-         <font>
-            <Font size="22.0" />
-         </font>
-         <effect>
-            <DropShadow blurType="ONE_PASS_BOX" height="2.79" radius="2.41" width="8.85" />
-         </effect></Button>
    </children>
 </AnchorPane>
