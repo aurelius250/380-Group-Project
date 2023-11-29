@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.ReviewPurchaseController">
     <children> 
-      <Label layoutX="616.0" layoutY="-11.0" prefHeight="145.0" prefWidth="828.0" text="Review Purchase">
+      <Label layoutX="616.0" layoutY="-11.0" prefHeight="145.0" prefWidth="828.0" text="Reservation Review">
          <font>
             <Font size="74.0" />
          </font>
@@ -29,12 +29,12 @@
          <font>
             <Font size="24.0" />
          </font></TextArea>
-      <Text layoutX="616.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation purchase successful! We hope you have a nice stay! ">
+      <Text layoutX="616.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation successful! We hope you have a nice stay! ">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text layoutX="605.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you for choosing Regex Hotel! We appreciate your business!">
+      <Text layoutX="605.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you for choosing Regex Hotel! We appreciate your business! ">
          <font>
             <Font size="26.0" />
          </font>
