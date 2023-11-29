@@ -93,11 +93,8 @@ public class CreateReservationController implements Initializable {
      * @throws IOException 
      */
     public void createReservation(ActionEvent e) throws IOException{
-        
-        //Create the reservation
         createReservation();
-        
-        // After pressing "create reservation" button, moves to review purchase scene
+        ReviewPurchaseController.reservation = reservation;
         Main.setRoot("ReviewPurchase");
     }
     

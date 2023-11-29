@@ -127,6 +127,14 @@ public final class Reservation {
         return checkOut.toString();
     }
     
+    public String getCustomerName(){
+        return customer.getCustomerName();
+    }
+    
+    public String getCustomerEmail(){
+        return customer.getCustomerEmail();
+    }
+    
     /**
      * Appends reservation data to the reservations file.
      * @throws IOException 
