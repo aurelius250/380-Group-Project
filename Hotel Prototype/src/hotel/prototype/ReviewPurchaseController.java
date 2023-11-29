@@ -7,11 +7,10 @@ package hotel.prototype;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.stage.Stage; 
-import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
 /**
@@ -23,6 +22,14 @@ public class ReviewPurchaseController implements Initializable {
 
     private Stage primaryStage; 
     
+    public static Reservation reservation;
+    
+    public Label resIDText;
+    public Label nameText;
+    public Label emailText;
+    public Label checkInText;
+    public Label checkOutText;
+    
     /**
      * Initializes the controller class.
      */
@@ -30,6 +37,7 @@ public class ReviewPurchaseController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         displayGreeting(primaryStage);
+        displayReservationDetails(reservation);
     }    
     
     private void setPrimaryStage(Stage stage) { 
@@ -53,5 +61,13 @@ public class ReviewPurchaseController implements Initializable {
 //        Scene scene = new Scene(root, 600, 300);
 //        stage.setScene(scene);
 //        stage.show();
+    }
+    
+    private void displayReservationDetails(Reservation reservation){
+        resIDText.setText(reservation.getID());
+        nameText.setText(reservation.getCustomerName());
+        emailText.setText(reservation.getCustomerEmail());
+        checkInText.setText(reservation.getCheckIn());
+        checkOutText.setText(reservation.getCheckOut());
     }
 }
