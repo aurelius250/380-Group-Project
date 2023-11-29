@@ -63,7 +63,7 @@ public class FileController {
         String fileData;
         String[] dataArr = null;
         ArrayList<Customer> customerList = new ArrayList<Customer>();
-        ArrayList<Integer> reservationIDs = new ArrayList<Integer>();
+        ArrayList<String> reservationIDs = new ArrayList<String>();
 
         try {
             FileReader fr = new FileReader(fileName);
@@ -75,10 +75,10 @@ public class FileController {
                 customerEmail = dataArr[1];
 
                 for (int i = 2; i < dataArr.length; i++) {
-                    reservationIDs.add(integerParser(dataArr[i]));
+                    reservationIDs.add((dataArr[i]));
                 }
 
-                customerList.add(new Customer(customerName, customerEmail, reservationIDs));
+                //customerList.add(new Customer(customerName, customerEmail, reservationIDs));
             }
 
             br.close();

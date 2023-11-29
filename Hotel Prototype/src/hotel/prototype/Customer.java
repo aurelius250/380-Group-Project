@@ -17,11 +17,16 @@ public class Customer {
      *  Customers email
      */
     protected String customerEmail; 
+    
+    /**
+     *  Customers Password
+     */
+    protected String customerPassword;
 
     /**
      *  Reservation IDs associated with the customer
      */
-    protected ArrayList reservationIDs; 
+    protected ArrayList<String> reservationIDs; 
     
     /**
      * Method for taking customer object data and making it into a comma separated string
@@ -51,9 +56,10 @@ public class Customer {
       * @param customerEmail
       * @param reservationIDs integer list of reservation ids associated with customer
       */
-    protected Customer(String customerName, String customerEmail, ArrayList<Integer> reservationIDs) {
+    protected Customer(String customerName, String customerEmail,String customerPassword, ArrayList<String> reservationIDs) {
         this.customerName = customerName;
         this.customerEmail = customerEmail;
+        this.customerPassword = customerPassword;
         this.reservationIDs = reservationIDs;
     }    
     
@@ -88,12 +94,27 @@ public class Customer {
     protected void setCustomerEmail(String customerEmail) {
         this.customerEmail = customerEmail;
     }
-
+    
+    /**
+     * Getter method for getting the email of the customer
+     * @return String of customer password
+     */
+    public String getCustomerPass(){
+        return customerPassword;
+    }
+    
+    /**
+     * Setter method for setting the customerPassword variable
+     * @param customerPassword 
+     */
+    public void setCustomerPass(String customerPassword){
+        this.customerPassword = customerPassword;
+    }
     /**
      * Getter method for getting the reservation IDs associated with customer
      * @return An ArrayList of reservationIDs
      */
-    protected ArrayList<Integer> getReservationIDs() {
+    protected ArrayList<String> getReservationIDs() {
         return reservationIDs;
     }
 
@@ -101,7 +122,7 @@ public class Customer {
      * Setter method for setting the reservationIDs list in customer object
      * @param reservationIDs ArrayList of Integers to be assigned to reservationIDs variable
      */
-    protected void setReservationIDs(ArrayList<Integer> reservationIDs) {
+    protected void setReservationIDs(ArrayList<String> reservationIDs) {
         this.reservationIDs = reservationIDs;
     }
     
