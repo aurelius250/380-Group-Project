@@ -143,6 +143,8 @@ public class ReviewReservationController implements Initializable {
       */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       ReservationHandler.resHandler.roomList.clear();
+       ReservationHandler.resHandler.reservationList.clear();
        if(ReservationHandler.resHandler.isRoomsEmpty()){
            ReservationHandler.resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
        }
