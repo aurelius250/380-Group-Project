@@ -101,13 +101,13 @@ public class ReviewReservationController implements Initializable {
      * @param r The reservation that is to have associated room data pulled from
      */
     public void displayReservationDetails(Reservation r){
-        roomNumText.setText(r.getRoom().getRoomNum().toString());
-        smokingText.setText(r.getRoom().getSmoking().toString());
-        numBedsText.setText(r.getRoom().getNumBeds().toString());
-        numPeopleText.setText(r.getRoom().getNumPeople().toString());
-        sizeText.setText(r.getRoom().getSqftSize().toString());
-        bedTypeText.setText(String.valueOf(r.getRoom().getBedType()));
-        descText.setText(r.getRoom().getDescription());
+        roomNumText.setText(r.getRoomNum().toString());
+        smokingText.setText(r.getSmoking().toString());
+        numBedsText.setText(r.getNumBeds().toString());
+        numPeopleText.setText(r.getNumPeople().toString());
+        sizeText.setText(r.getRoomNum().toString());
+        bedTypeText.setText(String.valueOf(r.getBedType()));
+        descText.setText(r.getDescription());
         reservationIDText.setText(r.getID());
     }
     
