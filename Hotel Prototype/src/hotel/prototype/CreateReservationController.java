@@ -116,15 +116,14 @@ public class CreateReservationController implements Initializable {
      * @param r The reservation object to pull data from
      */
     public void displayReservationDetails(Reservation r){
-        roomNumText.setText(r.getRoom().getRoomNum().toString());
-        smokingText.setText(r.getRoom().getSmoking().toString());
-        numBedsText.setText(r.getRoom().getNumBeds().toString());
-        numPeopleText.setText(r.getRoom().getNumPeople().toString());
-        sizeText.setText(r.getRoom().getRoomNum().toString());
-        bedTypeText.setText(String.valueOf(r.getRoom().getBedType()));
-        descText.setText(r.getRoom().getDescription());
+        roomNumText.setText(r.getRoomNum().toString());
+        smokingText.setText(r.getSmoking().toString());
+        numBedsText.setText(r.getNumBeds().toString());
+        numPeopleText.setText(r.getNumPeople().toString());
+        sizeText.setText(r.getRoomNum().toString());
+        bedTypeText.setText(String.valueOf(r.getBedType()));
+        descText.setText(r.getDescription());
         reservationIDText.setText(r.getID());
-        
     }
     
     /**

@@ -17,11 +17,13 @@ import javafx.beans.property.SimpleIntegerProperty;
  * @author tomc , Jonathan
  */
 public class ReservationHandler {
+    
+    protected Customer user;
 
     /**
      * ArrayList of Reservation objects
      */
-    protected ArrayList reservationList;
+    protected ArrayList<Reservation> reservationList;
 
     /**
      * ArrayList of room objects
@@ -149,6 +151,28 @@ public class ReservationHandler {
         }
         
         return null;
+    }
+    
+    public Reservation findReservation(String id){
+        if (reservationList == null) {
+            return null;
+        }
+
+        for (Reservation r : reservationList) {
+            if (r.ID.contentEquals(id)) {
+                return r;
+            }
+        }
+        
+        return null;
+    }
+    
+    public Customer getUser(){
+        return user;
+    }
+    
+    public void setUser(Customer user){
+        this.user = user;
     }
     
     /**

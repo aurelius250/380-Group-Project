@@ -135,6 +135,34 @@ public final class Reservation {
         return customer.getCustomerEmail();
     }
     
+    public Integer getRoomNum(){
+        return room.getRoomNum();
+    }
+    
+    public Boolean getSmoking(){
+        return room.getSmoking();
+    }
+    
+    public Integer getNumBeds(){
+        return room.getNumBeds();
+    }
+    
+    public Integer getNumPeople(){
+        return room.getNumPeople();
+    }
+    
+    public Integer getSqftSize(){
+        return room.getSqftSize();
+    }
+    
+    public char getBedType(){
+        return room.getBedType();
+    }
+    
+    public String getDescription(){
+        return room.getDescription();
+    }
+    
     /**
      * Appends reservation data to the reservations file.
      * @throws IOException 

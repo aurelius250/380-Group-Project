@@ -4,12 +4,14 @@
  */
 package hotel.prototype;
 
+import static hotel.prototype.FileController.readFile;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -48,15 +50,54 @@ public class LoginController implements Initializable {
      * @throws IOException 
      */
     public void userLogin(ActionEvent e)throws IOException {
-    
+        if(checkLogin(email.getText(),password.getText())){
+            System.out.println("login success");
+            System.out.println(ReservationHandler.resHandler.user.customerName);
+            if(ReservationHandler.resHandler.user.reservationIDs.isEmpty()){
+                System.out.println("empty");
+            }
+        } else {
+            System.out.println("login Failure");
+        }
+        
     }
     
     /**
      * checks to see if email and password entered in text fields matches a user profile
      * @throws IOException 
+     * @return 
      */
-    private void checkLogin () throws IOException {
-       
+    private Boolean checkLogin (String email,String pass) throws IOException {
+        String[] lineData;
+        Customer user;
+        ArrayList<String> customerList = new ArrayList();
+        ArrayList<String> reservationIDs = new ArrayList();
+        customerList = readFile("src/hotel/prototype/Customers.txt");
+        
+        for(String s: customerList){
+            lineData=s.split(",");
+            
+            if(lineData[1].equals(email)&& lineData[2].equals(pass)){
+                for(int i = 3; i < lineData.length;i++){
+                    reservationIDs.add(lineData[i]);
+                }
+                user = new Customer(lineData[0],email,pass,reservationIDs);
+                
+                ReservationHandler.resHandler.setUser(user);
+                
+                customerList.clear();
+                reservationIDs.clear();
+                lineData = null;
+                
+                return true;
+            }
+        }
+        
+        customerList.clear();
+        reservationIDs.clear();
+        lineData=null;
+        
+        return false;
     }
     
     /**
