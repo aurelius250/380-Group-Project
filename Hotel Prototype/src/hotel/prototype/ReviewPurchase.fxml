@@ -9,20 +9,36 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="378.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.ReviewPurchaseController">
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.ReviewPurchaseController">
     <children> 
-      <Label layoutX="341.0" layoutY="25.0" prefHeight="44.0" prefWidth="185.0" text="Review Purchase">
+      <Label layoutX="616.0" layoutY="-11.0" prefHeight="145.0" prefWidth="828.0" text="Review Purchase">
          <font>
-            <Font size="25.0" />
+            <Font size="74.0" />
          </font>
       </Label>
-        <Button layoutX="463.0" layoutY="304.0" mnemonicParsing="false" onAction="#returnStart" prefHeight="44.0" prefWidth="140.0" text="Return to Start" />
-      <ImageView fitHeight="314.0" fitWidth="196.0" layoutX="41.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+        <Button layoutX="1162.0" layoutY="783.0" mnemonicParsing="false" onAction="#returnStart" prefHeight="70.0" prefWidth="216.0" style="-fx-background-color: orange;" text="Return to Start" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font></Button>
+      <ImageView fitHeight="863.0" fitWidth="891.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/hamza-younous-UY5CYtvYk9g-unsplash.jpg" />
          </image>
       </ImageView>
-      <TextArea layoutX="264.0" layoutY="82.0" prefHeight="192.0" prefWidth="340.0" text="Reservation purchase successful! We hope you have a&#10;nice stay. &#10;&#10;Reservation ID:&#10;&#10;Name: &#10;Email: &#10;&#10;Check in: &#10;Check out: &#10;" />
+      <TextArea layoutX="607.0" layoutY="253.0" prefHeight="289.0" prefWidth="404.0" text="&#10;&#10;Reservation ID:&#10;&#10;Name: &#10;Email: &#10;&#10;Check in: &#10;Check out: &#10;">
+         <font>
+            <Font size="24.0" />
+         </font></TextArea>
+      <Text layoutX="616.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation purchase successful! We hope you have a nice stay! ">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text layoutX="605.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you for choosing Regex Hotel! We appreciate your business!">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
     </children> 
    
 </AnchorPane>
