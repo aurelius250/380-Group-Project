@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -43,5 +44,10 @@
             <Font size="37.0" />
          </font></Label>
       <Button layoutX="565.0" layoutY="525.0" mnemonicParsing="false" onAction="#sendToStart" prefHeight="46.0" prefWidth="101.0" text="Back" />
+      <ImageView fitHeight="514.0" fitWidth="441.0" layoutX="156.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/phil-desforges-Qn9e6JsYUFg-unsplash%20copy.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
