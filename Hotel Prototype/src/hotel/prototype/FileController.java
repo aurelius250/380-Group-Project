@@ -29,7 +29,7 @@ public class FileController {
      * @param fileName name of the text file to be read from
      * @return An ArrayList of room objects
      */
-    public static ArrayList readFile(String fileName) {
+    public static ArrayList<String> readFile(String fileName) {
         String fileData;
         String[] dataArr = null;
         ArrayList<String> list = new ArrayList<String>();
