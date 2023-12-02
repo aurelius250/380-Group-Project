@@ -42,8 +42,10 @@ public class FileControllerTest {
         Boolean test;
         
         if(result.equals(expResult)){
+            System.out.println("Success");
             test = true;
         } else {
+            System.out.println("Failure");
             test = false;
         }
         

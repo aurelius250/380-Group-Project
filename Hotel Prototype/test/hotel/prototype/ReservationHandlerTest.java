@@ -69,6 +69,12 @@ public class ReservationHandlerTest {
         expResult.add(new Room(201,false,2,2,200,'K',"Medium Room" ));
         expResult.add(new Room(401,true,3,4,0,'Q',"Best Room"));
         
+        if(expResult.get(0).toStringCSV().equals(instance.roomList.get(0).toStringCSV())){
+            System.out.println("Success");
+        } else {
+            System.out.println("Failure");
+        }
+        
         System.out.println("Expected: " + expResult.get(0).toStringCSV());
         System.out.println("Actual: " + instance.roomList.get(0).toStringCSV()); 
     }
