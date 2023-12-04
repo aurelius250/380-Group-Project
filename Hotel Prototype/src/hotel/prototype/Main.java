@@ -4,6 +4,7 @@
  */
 package hotel.prototype;
 
+import javafx.scene.image.Image;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,7 +26,9 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("StartMenu"));
         stage.setScene(scene);
-        
+        Image icon = new Image(getClass().getResourceAsStream("images/hotel-svgrepo-com.svg"));
+        stage.getIcons().add(icon);
+
         //stage.setTitle("Hotel Regex");
         stage.setTitle("Hotel Regex");
         stage.show();
@@ -51,5 +54,5 @@ public class Main extends Application {
     
     public static void main(String[] args) {
         launch(args);
-    }   
+}
 }
