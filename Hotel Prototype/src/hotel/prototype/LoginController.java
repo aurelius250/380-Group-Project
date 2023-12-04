@@ -53,6 +53,9 @@ public class LoginController implements Initializable {
         if(checkLogin(email.getText(),password.getText())){
             System.out.println("login success");
             System.out.println(ReservationHandler.resHandler.user.customerName);
+            ArrayList<String> temp = new ArrayList<String>();
+            temp = ReservationHandler.resHandler.user.getReservationIDs();
+            System.out.println(temp.get(0));
             if(ReservationHandler.resHandler.user.reservationIDs.isEmpty()){
                 System.out.println("empty");
             }
@@ -70,8 +73,9 @@ public class LoginController implements Initializable {
     private Boolean checkLogin (String email,String pass) throws IOException {
         String[] lineData;
         Customer user;
-        ArrayList<String> customerList = new ArrayList();
-        ArrayList<String> reservationIDs = new ArrayList();
+        String temp;
+        ArrayList<String> customerList = new ArrayList<String>();
+        ArrayList<String> reservationIDs = new ArrayList<String>();
         customerList = readFile("src/hotel/prototype/Customers.txt");
         
         for(String s: customerList){
@@ -79,9 +83,16 @@ public class LoginController implements Initializable {
             
             if(lineData[1].equals(email)&& lineData[2].equals(pass)){
                 for(int i = 3; i < lineData.length;i++){
-                    reservationIDs.add(lineData[i]);
+                    temp = lineData[i];
+                    reservationIDs.add(temp);
+                    System.out.println(reservationIDs.get(0));
                 }
-                user = new Customer(lineData[0],email,pass,reservationIDs);
+                user = new Customer();
+                
+                user.setCustomerName(lineData[0]);
+                user.setCustomerEmail(email);
+                user.setCustomerPass(pass);
+                user.reservationIDs = reservationIDs;
                 
                 ReservationHandler.resHandler.setUser(user);
                 
