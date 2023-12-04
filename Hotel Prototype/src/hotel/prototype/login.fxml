@@ -66,5 +66,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
+      <Label fx:id="updateLabel" layoutX="800.0" layoutY="346.0" />
+      <Label fx:id="updateLabel2" layoutX="800.0" layoutY="372.0" />
    </children>
 </AnchorPane>
