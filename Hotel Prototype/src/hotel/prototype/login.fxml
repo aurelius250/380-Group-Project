@@ -19,16 +19,16 @@
          <font>
             <Font size="24.0" />
          </font></Hyperlink>
-      <Label layoutX="740.0" layoutY="77.0" prefHeight="118.0" prefWidth="496.0" text="Regex Hotel" wrapText="true">
+      <Label layoutX="720.0" layoutY="78.0" prefHeight="150.0" prefWidth="567.0" text="  Regex Hotel" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="96.0" />
          </font>
       </Label>
-      <Label fx:id="loginLabel" layoutX="876.0" layoutY="236.0" text="Sign in">
+      <Label fx:id="loginLabel" layoutX="894.0" layoutY="244.0" prefHeight="93.0" prefWidth="226.0" text="Sign in">
          <font>
             <Font size="69.0" />
          </font></Label>
-      <Button layoutX="794.0" layoutY="578.0" mnemonicParsing="false" onAction="#sendToStart" prefHeight="46.0" prefWidth="108.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px;" text="Back">
+      <Button layoutX="797.0" layoutY="578.0" mnemonicParsing="false" onAction="#sendToStart" prefHeight="46.0" prefWidth="108.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px;" text="Back">
          <font>
             <Font size="19.0" />
          </font></Button>
@@ -61,7 +61,7 @@
             <PasswordField fx:id="password" style="-fx-border-color: black; -fx-border-radius: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button fx:id="button" alignment="CENTER" layoutX="1014.0" layoutY="565.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="154.0" style="-fx-border-radius: 10px; -fx-background-color: white; -fx-border-color: black;" text="Login">
+      <Button fx:id="button" alignment="CENTER" layoutX="1031.0" layoutY="561.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="154.0" style="-fx-border-radius: 10px; -fx-background-color: white; -fx-border-color: black;" text="Login">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
