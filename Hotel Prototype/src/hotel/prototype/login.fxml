@@ -19,14 +19,14 @@
          <font>
             <Font size="24.0" />
          </font></Hyperlink>
-      <Label layoutX="720.0" layoutY="78.0" prefHeight="150.0" prefWidth="567.0" text="  Regex Hotel" textAlignment="CENTER" wrapText="true">
+      <Label layoutX="768.0" layoutY="84.0" prefHeight="150.0" prefWidth="445.0" text="  Regex Hotel" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font size="96.0" />
+            <Font size="80.0" />
          </font>
       </Label>
-      <Label fx:id="loginLabel" layoutX="894.0" layoutY="244.0" prefHeight="93.0" prefWidth="226.0" text="Sign in">
+      <Label fx:id="loginLabel" layoutX="928.0" layoutY="253.0" prefHeight="93.0" prefWidth="171.0" text="Sign in">
          <font>
-            <Font size="69.0" />
+            <Font size="49.0" />
          </font></Label>
       <Button layoutX="797.0" layoutY="578.0" mnemonicParsing="false" onAction="#sendToStart" prefHeight="46.0" prefWidth="108.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px;" text="Back">
          <font>
