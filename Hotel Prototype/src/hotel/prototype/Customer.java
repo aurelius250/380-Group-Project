@@ -47,7 +47,7 @@ public class Customer {
     protected Customer() { 
         this.customerName = ""; 
         this.customerEmail = ""; 
-        this.reservationIDs = new ArrayList<>();
+        this.reservationIDs = new ArrayList<String>();
     } 
 
     /**
@@ -123,7 +123,7 @@ public class Customer {
      * @param reservationIDs ArrayList of Integers to be assigned to reservationIDs variable
      */
     protected void setReservationIDs(ArrayList<String> reservationIDs) {
-        this.reservationIDs = reservationIDs;
+        this.reservationIDs.addAll(reservationIDs);
     }
     
 }
