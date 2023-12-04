@@ -35,6 +35,10 @@ public class LoginController implements Initializable {
     private PasswordField password;
     @FXML
     private Label loginLabel;
+    @FXML
+    private Label updateLabel;
+    @FXML
+    private Label updateLabel2;
     /**
      * sends user to start menu
      * @param e on click of "back" button sends user to start
@@ -52,15 +56,19 @@ public class LoginController implements Initializable {
     public void userLogin(ActionEvent e)throws IOException {
         if(checkLogin(email.getText(),password.getText())){
             System.out.println("login success");
-            System.out.println(ReservationHandler.resHandler.user.customerName);
-            ArrayList<String> temp = new ArrayList<String>();
-            temp = ReservationHandler.resHandler.user.getReservationIDs();
-            System.out.println(temp.get(0));
-            if(ReservationHandler.resHandler.user.reservationIDs.isEmpty()){
-                System.out.println("empty");
-            }
+            updateLabel.setText("You have Successfully Logged in.");
+            updateLabel2.setText("Please click \"back\" to return to home.");
+            //System.out.println(ReservationHandler.resHandler.user.customerName);
+            //ArrayList<String> temp = new ArrayList<String>();
+            //temp = ReservationHandler.resHandler.user.getReservationIDs();
+            //System.out.println(temp.get(0));
+            //if(ReservationHandler.resHandler.user.reservationIDs.isEmpty()){
+            //    System.out.println("empty");
+            //}
         } else {
             System.out.println("login Failure");
+            updateLabel.setText("Wrong Email or Password");
+            updateLabel2.setText("");
         }
         
     }
@@ -85,14 +93,13 @@ public class LoginController implements Initializable {
                 for(int i = 3; i < lineData.length;i++){
                     temp = lineData[i];
                     reservationIDs.add(temp);
-                    System.out.println(reservationIDs.get(0));
                 }
                 user = new Customer();
                 
                 user.setCustomerName(lineData[0]);
                 user.setCustomerEmail(email);
                 user.setCustomerPass(pass);
-                user.reservationIDs = reservationIDs;
+                user.setReservationIDs(reservationIDs);
                 
                 ReservationHandler.resHandler.setUser(user);
                 

@@ -152,7 +152,8 @@ public class ReviewReservationController implements Initializable {
        if(ReservationHandler.resHandler.isReservationsEmpty()){
            ReservationHandler.resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
        }
-       
+       if(resHandler.user != null)
+       ReservationHandler.resHandler.SetToUserReservations();
        
         //ReservationHandler.resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
         //ReservationHandler.resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
