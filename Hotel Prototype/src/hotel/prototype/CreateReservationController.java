@@ -7,6 +7,9 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -77,6 +80,9 @@ public class CreateReservationController implements Initializable {
     @FXML
     private DatePicker checkInDatePicker, checkOutDatePicker;
     
+    private LocalDate checkIn, checkOut;
+    private String customerName, customerEmail;
+    
     /**
      * Method for sending a user back to the RoomSearch scene
      * @param e Button press of "Back" button
@@ -93,9 +99,22 @@ public class CreateReservationController implements Initializable {
      * @throws IOException 
      */
     public void createReservation(ActionEvent e) throws IOException{
-        createReservation();
-        ReviewPurchaseController.reservation = reservation;
-        Main.setRoot("ReviewPurchase");
+        customerName = nameField.getText();
+        customerEmail = emailField.getText(); 
+        checkIn = checkInDatePicker.getValue();
+        checkOut = checkOutDatePicker.getValue();
+        
+        if(!checkDateRange(checkIn, checkOut)){
+            String header = "Invalid Date Range";
+            String content = "Please make sure the check in date is before"
+                    + " the check out date.";
+            displayAlert(header, content);
+        }
+        else{
+            setReservationData();
+            ReviewPurchaseController.reservation = reservation;
+            Main.setRoot("ReviewPurchase");
+        }  
     }
     
     /**
@@ -145,18 +164,30 @@ public class CreateReservationController implements Initializable {
      * Creates the actual reservation object based on user input and selection
      * @throws IOException 
      */
-    public void createReservation() throws IOException{
+    private void setReservationData() throws IOException{
         Customer customer = new Customer();
         
-        customer.setCustomerName(nameField.getText());
-        customer.setCustomerEmail(emailField.getText());
+        customer.setCustomerName(customerName);
+        customer.setCustomerEmail(customerEmail);
         
-        reservation.setCheckIn(checkInDatePicker.getValue());
-        reservation.setCheckOut(checkOutDatePicker.getValue());
+        reservation.setCheckIn(checkIn);
+        reservation.setCheckOut(checkOut);
         reservation.setCustomer(customer);
 
         reservation.addReservation();
         ReservationHandler.resHandler.addReservationToList(reservation);
+    }
+    
+    private boolean checkDateRange(LocalDate from, LocalDate to){
+        return from.isBefore(to);
+    }
+    
+    private void displayAlert(String header, String content){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Invalid Input");
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
     
 }
