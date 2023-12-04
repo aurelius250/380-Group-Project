@@ -38,6 +38,7 @@ public class ReservationHandler {
      public ReservationHandler() {
         reservationList = new ArrayList<Reservation>();
         roomList = new ArrayList<Room>();
+        user = null;
     }
 
     /**
