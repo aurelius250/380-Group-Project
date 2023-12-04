@@ -36,8 +36,8 @@ public class ReservationHandler {
      * default constructor
      */
      public ReservationHandler() {
-        reservationList = new ArrayList();
-        roomList = new ArrayList();
+        reservationList = new ArrayList<Reservation>();
+        roomList = new ArrayList<Room>();
     }
 
     /**
@@ -66,7 +66,7 @@ public class ReservationHandler {
 //        }
 //    }
      
-     public void fillReservationList(ArrayList<String> reservationLineData) {
+    public void fillReservationList(ArrayList<String> reservationLineData) {
     String ID;
     LocalDate checkIn, checkOut;
     Room room = null;
@@ -131,7 +131,6 @@ public class ReservationHandler {
                         description));
         }
         
-        System.out.println("success");
     }
     
     /**
