@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -110,6 +109,11 @@ public class CreateReservationController implements Initializable {
                     + " the check out date.";
             displayAlert(header, content);
         }
+        else if(checkEmptyFields()){
+            String header = "Empty Fields";
+            String content = "Please make sure data is entered for all fields.";
+            displayAlert(header, content);
+        }
         else{
             setReservationData();
             ReviewPurchaseController.reservation = reservation;
@@ -179,11 +183,35 @@ public class CreateReservationController implements Initializable {
     }
     
     private boolean checkDateRange(LocalDate from, LocalDate to){
-        return from.isBefore(to);
+        if(from == null || to == null){
+            return false;
+        }
+        else{
+            return from.isBefore(to);
+        }
+    }
+    
+    private boolean checkEmptyFields(){
+        TextField[] fields = {nameField,emailField};
+        //LocalDate[] dates = {checkIn,checkOut};
+        
+        for(TextField field : fields){
+            if(field.getText().isEmpty()){
+                return true;
+            }
+        }
+        
+        //for(LocalDate date : dates){
+            //if(date == null){
+                //return true;
+            //}
+        //}
+        
+        return false;
     }
     
     private void displayAlert(String header, String content){
-        Alert alert = new Alert(AlertType.INFORMATION);
+        Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Invalid Input");
         alert.setHeaderText(header);
         alert.setContentText(content);
