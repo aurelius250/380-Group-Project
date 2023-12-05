@@ -14,10 +14,11 @@ import javafx.beans.property.SimpleIntegerProperty;
 /**
  * ReservationHandler holds and creates ArrayLists of room and reservation
  * objects for use during run-time
+ *
  * @author tomc , Jonathan
  */
 public class ReservationHandler {
-    
+
     protected Customer user;
 
     /**
@@ -29,13 +30,13 @@ public class ReservationHandler {
      * ArrayList of room objects
      */
     protected ArrayList<Room> roomList;
-    
+
     public static ReservationHandler resHandler = new ReservationHandler();
-    
-    /** 
+
+    /**
      * default constructor
      */
-     public ReservationHandler() {
+    public ReservationHandler() {
         reservationList = new ArrayList<Reservation>();
         roomList = new ArrayList<Room>();
         user = null;
@@ -45,7 +46,8 @@ public class ReservationHandler {
      * Fills reservationList array with reservations from a given ArrayList of
      * strings
      *
-     * @param reservationLineData ArrayList of lines gained from text file as strings
+     * @param reservationLineData ArrayList of lines gained from text file as
+     * strings
      */
 //    public void fillReservationList(ArrayList<String> reservationLineData) {
 //        String ID;
@@ -66,27 +68,38 @@ public class ReservationHandler {
 //            reservationList.add(new Reservation(ID, checkIn, checkOut, room, customer));
 //        }
 //    }
-     
+    /**
+     * Fills reservationList array with reservations from a given ArrayList of
+     * strings
+     *
+     * @param reservationLineData ArrayList of lines gained from text file as
+     * strings
+     */
     public void fillReservationList(ArrayList<String> reservationLineData) {
-    String ID;
-    LocalDate checkIn, checkOut;
-    Room room = null;
-    Customer customer = null;
-    String[] lineData;
+        String ID;
+        LocalDate checkIn, checkOut;
+        Room room = null;
+        Customer customer = null;
+        String[] lineData;
 
-    for (int i = 0; i < reservationLineData.size(); i++) {
-        lineData = reservationLineData.get(i).split(",");
+        for (int i = 0; i < reservationLineData.size(); i++) {
+            lineData = reservationLineData.get(i).split(",");
 
-        ID = lineData[0];
-        checkIn = parseLocalDate(lineData[1]);
-        checkOut = parseLocalDate(lineData[2]);
-        room = findRoom(integerParser(lineData[3]));
-        //TODO get customer data
+            ID = lineData[0];
+            checkIn = parseLocalDate(lineData[1]);
+            checkOut = parseLocalDate(lineData[2]);
+            room = findRoom(integerParser(lineData[3]));
+            //TODO get customer data
 
-        reservationList.add(new Reservation(ID, checkIn, checkOut, room, customer));
+            reservationList.add(new Reservation(ID, checkIn, checkOut, room, customer));
+        }
     }
-}
 
+    public void SetToUserReservations() {
+        for (String s : user.reservationIDs) {
+           reservationList.removeIf(n -> !(n.ID.contentEquals(s)));
+        }
+    }
     private LocalDate parseLocalDate(String dateString) {
         if (dateString != null && !dateString.trim().isEmpty()) {
             try {
@@ -101,9 +114,10 @@ public class ReservationHandler {
     }
 
     /**
-     * Fills roomList array with room objects using data from a given ArrayList of
-     * strings
-     * @param roomLineData ArrayList of lines gained from text file as strings 
+     * Fills roomList array with room objects using data from a given ArrayList
+     * of strings
+     *
+     * @param roomLineData ArrayList of lines gained from text file as strings
      */
     public void fillRoomList(ArrayList<String> roomLineData) {
         int roomNum, numBeds, numPeople, sqftSize;
@@ -122,20 +136,22 @@ public class ReservationHandler {
             sqftSize = integerParser(lineData[4]);
             bedType = lineData[5].charAt(0);
             description = lineData[6];
-            
+
             roomList.add(new Room(roomNum,
-                        smoking,
-                        numBeds,
-                        numPeople,
-                        sqftSize,
-                        bedType,
-                        description));
+                    smoking,
+                    numBeds,
+                    numPeople,
+                    sqftSize,
+                    bedType,
+                    description));
         }
-        
+
     }
-    
+
     /**
-     * Method for finding a specific room within an ArrayList based on room number
+     * Method for finding a specific room within an ArrayList based on room
+     * number
+     *
      * @param roomToFind The Room number of the room to be searched for
      * @return The Room that is found within the ArrayList or null if not found
      */
@@ -149,11 +165,11 @@ public class ReservationHandler {
                 return r;
             }
         }
-        
+
         return null;
     }
-    
-    public Reservation findReservation(String id){
+
+    public Reservation findReservation(String id) {
         if (reservationList == null) {
             return null;
         }
@@ -163,63 +179,69 @@ public class ReservationHandler {
                 return r;
             }
         }
-        
+
         return null;
     }
-    
-    public Customer getUser(){
+
+    public Customer getUser() {
         return user;
     }
-    
-    public void setUser(Customer user){
+
+    public void setUser(Customer user) {
         this.user = user;
     }
-    
+
     /**
      * Method for checking if the reservationsList is empty or not
+     *
      * @return true if the list is empty and false if it contains any objects
      */
-    public boolean isReservationsEmpty(){
+    public boolean isReservationsEmpty() {
         return reservationList.isEmpty();
     }
-    
+
     /**
      * Method for checking if the reservationsList is empty or not
+     *
      * @return true if the list is empty and false if it contains any objects
      */
-    public boolean isRoomsEmpty(){
+    public boolean isRoomsEmpty() {
         return roomList.isEmpty();
     }
-    
+
     /**
      * Adds a given reservation to the reservation ArrayList
+     *
      * @param r the reservation to be added
      */
-    public void addReservationToList (Reservation r){
+    public void addReservationToList(Reservation r) {
         reservationList.add(r);
     }
-    
+
     /**
      * Adds a given room to the room ArrayList
+     *
      * @param r The room to be added
      */
-    public void addRoomToList (Room r){
+    public void addRoomToList(Room r) {
         roomList.add(r);
     }
-    
+
     /**
      * removes a given reservation from the reservation ArrayList
+     *
      * @param r The reservation to be removed
      */
-    public void removeListedReservation(Reservation r){
+    public void removeListedReservation(Reservation r) {
         reservationList.remove(r);
     }
-    
+
     /**
      * removes a given room from the room ArrayList
+     *
      * @param r The room to be removed
      */
-    public void removeListedRoom(Room r){
+    public void removeListedRoom(Room r) {
         roomList.remove(r);
     }
 }

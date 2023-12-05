@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -12,62 +13,60 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.StartMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.StartMenuController">
    <children>
-      <Text layoutX="69.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regex Hotel" textAlignment="CENTER" wrappingWidth="370.86647033691406">
+      <Text layoutX="180.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regex Hotel" textAlignment="CENTER" wrappingWidth="370.86647033691406">
          <font>
             <Font size="87.0" />
          </font>
       </Text>
-      <ImageView fitHeight="600.0" fitWidth="432.0" layoutX="42.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="579.0" fitWidth="460.0" layoutX="125.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/christian-lambert-vmIWr0NnpCQ-unsplash.jpg" />
          </image>
+         <effect>
+            <DropShadow offsetX="1.5" offsetY="1.5" />
+         </effect>
       </ImageView>
-      <Text layoutX="977.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vacationing made easy! " wrappingWidth="496.41473388671875">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </Text>
-      <GridPane layoutX="563.0" layoutY="370.0" prefHeight="444.0" prefWidth="776.0">
+      <GridPane layoutX="816.0" layoutY="217.0" prefHeight="643.0" prefWidth="449.0" vgap="30.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="437.24163818359375" minWidth="10.0" prefWidth="378.19140625" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.08135986328125" minWidth="10.0" prefWidth="326.80859375" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="437.24163818359375" minWidth="10.0" prefWidth="420.6265869140625" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints maxHeight="36.08134460449219" minHeight="10.0" prefHeight="16.2440185546875" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="124.916259765625" minHeight="0.0" prefHeight="62.6483154296875" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="89.54067993164062" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="131.40350341796875" minHeight="0.0" prefHeight="60.3948974609375" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="200.6051025390625" minHeight="0.0" prefHeight="200.6051025390625" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="45.08135986328125" minHeight="10.0" prefHeight="12.21771240234375" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="211.0" minHeight="10.0" prefHeight="145.10491943359375" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="200.6051025390625" minHeight="0.0" prefHeight="138.89508056640625" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="200.6051025390625" minHeight="0.0" prefHeight="138.89508056640625" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#sendToRoomSearch" prefHeight="100.0" prefWidth="320.0" style="-fx-background-color: orange;" text="New Reservation" textFill="WHITE" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#sendToReservationSearch" prefHeight="130.0" prefWidth="421.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="Existing Reservations" textFill="WHITE" GridPane.rowIndex="2">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font size="40.0" />
                </font>
+               <effect>
+                  <DropShadow height="11.75" offsetY="1.5" radius="5.4375" width="12.0" />
+               </effect>
             </Button>
-            <Button mnemonicParsing="false" onAction="#sendToReservationSearch" prefHeight="100.0" prefWidth="320.0" style="-fx-background-color: orange;" text="Existing Reservations" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#sendToRoomSearch" prefHeight="130.0" prefWidth="421.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="New Reservation" textFill="WHITE">
                <font>
-                  <Font size="30.0" />
+                  <Font size="43.0" />
                </font>
+               <effect>
+                  <DropShadow height="11.5" offsetY="1.5" radius="5.375" width="12.0" />
+               </effect>
             </Button>
-            <Button mnemonicParsing="false" onAction="#sendToLogin" prefHeight="100.0" prefWidth="320.0" style="-fx-background-color: orange;" text="Login" textFill="WHITE" GridPane.rowIndex="4">
+            <Button mnemonicParsing="false" onAction="#sendToLogin" prefHeight="130.0" prefWidth="421.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="Login" textFill="WHITE" GridPane.rowIndex="1">
                <font>
-                  <Font size="30.0" />
+                  <Font size="45.0" />
                </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="320.0" style="-fx-background-color: orange;" text="About Us" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <font>
-                  <Font size="30.0" />
-               </font>
+               <effect>
+                  <DropShadow height="11.0" offsetY="1.5" radius="5.25" width="12.0" />
+               </effect>
             </Button>
          </children>
       </GridPane>
-      <Text layoutX="511.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The San Fernando Valley's premier choice for hospitality" textAlignment="CENTER" wrappingWidth="453.24169921875">
+      <Text layoutX="665.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The San Fernando Valley's premier choice for hospitality" textAlignment="CENTER" wrappingWidth="709.458740234375">
          <font>
-            <Font size="32.0" />
+            <Font size="46.0" />
          </font>
       </Text>
    </children>
