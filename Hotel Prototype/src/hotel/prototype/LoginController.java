@@ -5,6 +5,7 @@
 package hotel.prototype;
 
 import static hotel.prototype.FileController.readFile;
+import static hotel.prototype.FileController.booleanParser;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -56,14 +57,17 @@ public class LoginController implements Initializable {
     public void userLogin(ActionEvent e)throws IOException {
         if(checkLogin(email.getText(),password.getText())){
             System.out.println("login success");
+            Main.setRoot("StartMenu");
             updateLabel.setText("You have Successfully Logged in.");
             updateLabel2.setText("Please click \"back\" to return to home.");
             //System.out.println(ReservationHandler.resHandler.user.customerName);
+            //System.out.println(ReservationHandler.resHandler.user.isAdmin);
             //ArrayList<String> temp = new ArrayList<String>();
             //temp = ReservationHandler.resHandler.user.getReservationIDs();
-            //System.out.println(temp.get(0));
             //if(ReservationHandler.resHandler.user.reservationIDs.isEmpty()){
             //    System.out.println("empty");
+            //}else{
+            //System.out.println(temp.get(0));
             //}
         } else {
             System.out.println("login Failure");
@@ -89,14 +93,15 @@ public class LoginController implements Initializable {
         for(String s: customerList){
             lineData=s.split(",");
             
-            if(lineData[1].equals(email)&& lineData[2].equals(pass)){
-                for(int i = 3; i < lineData.length;i++){
+            if(lineData[2].equals(email)&& lineData[3].equals(pass)){
+                for(int i = 4; i < lineData.length;i++){
                     temp = lineData[i];
                     reservationIDs.add(temp);
                 }
                 user = new Customer();
                 
-                user.setCustomerName(lineData[0]);
+                user.setIsAdmin(FileController.booleanParser(lineData[0]));
+                user.setCustomerName(lineData[1]);
                 user.setCustomerEmail(email);
                 user.setCustomerPass(pass);
                 user.setReservationIDs(reservationIDs);

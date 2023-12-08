@@ -7,6 +7,8 @@ import java.util.ArrayList;
  * @author tomc
  */
 public class Customer {
+    
+    protected boolean isAdmin;
 
     /**
      *  Name of the customer 
@@ -55,8 +57,10 @@ public class Customer {
       * @param customerName
       * @param customerEmail
       * @param reservationIDs integer list of reservation ids associated with customer
+      * @param isAdmin
       */
-    protected Customer(String customerName, String customerEmail,String customerPassword, ArrayList<String> reservationIDs) {
+    protected Customer(String customerName, String customerEmail,String customerPassword, ArrayList<String> reservationIDs,boolean isAdmin) {
+        this.isAdmin = isAdmin;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.customerPassword = customerPassword;
@@ -124,6 +128,10 @@ public class Customer {
      */
     protected void setReservationIDs(ArrayList<String> reservationIDs) {
         this.reservationIDs.addAll(reservationIDs);
+    }
+    
+    protected void setIsAdmin (boolean isAdmin){
+        this.isAdmin = isAdmin;
     }
     
 }
