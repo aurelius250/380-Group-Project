@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -15,59 +16,64 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.StartMenuController">
    <children>
-      <Text layoutX="180.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regex Hotel" textAlignment="CENTER" wrappingWidth="370.86647033691406">
-         <font>
-            <Font size="87.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="579.0" fitWidth="460.0" layoutX="125.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/christian-lambert-vmIWr0NnpCQ-unsplash.jpg" />
-         </image>
-         <effect>
-            <DropShadow offsetX="1.5" offsetY="1.5" />
-         </effect>
-      </ImageView>
-      <GridPane layoutX="816.0" layoutY="217.0" prefHeight="643.0" prefWidth="449.0" vgap="30.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="437.24163818359375" minWidth="10.0" prefWidth="420.6265869140625" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="211.0" minHeight="10.0" prefHeight="145.10491943359375" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="200.6051025390625" minHeight="0.0" prefHeight="138.89508056640625" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="200.6051025390625" minHeight="0.0" prefHeight="138.89508056640625" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <Pane prefHeight="900.0" prefWidth="1440.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#sendToReservationSearch" prefHeight="130.0" prefWidth="421.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="Existing Reservations" textFill="WHITE" GridPane.rowIndex="2">
-               <font>
-                  <Font size="40.0" />
-               </font>
+            <ImageView fitHeight="900.0" fitWidth="1440.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/roberto-nickson-MA82mPIZeGI-unsplash(1).jpg" />
+               </image>
                <effect>
-                  <DropShadow height="11.75" offsetY="1.5" radius="5.4375" width="12.0" />
+                  <DropShadow offsetX="1.5" offsetY="1.5" />
                </effect>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#sendToRoomSearch" prefHeight="130.0" prefWidth="421.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="New Reservation" textFill="WHITE">
+            </ImageView>
+            <GridPane layoutX="57.0" layoutY="373.0" prefHeight="480.0" prefWidth="371.0" vgap="30.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="437.24163818359375" minWidth="10.0" prefWidth="420.6265869140625" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="211.0" minHeight="10.0" prefHeight="145.10491943359375" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="200.6051025390625" minHeight="0.0" prefHeight="138.89508056640625" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="200.6051025390625" minHeight="0.0" prefHeight="138.89508056640625" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#sendToReservationSearch" prefHeight="100.0" prefWidth="350.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="Existing Reservations" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="11.75" offsetY="1.5" radius="5.4375" width="12.0" />
+                     </effect>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#sendToRoomSearch" prefHeight="100.0" prefWidth="350.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="New Reservation" textFill="WHITE">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="11.5" offsetY="1.5" radius="5.375" width="12.0" />
+                     </effect>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#sendToLogin" prefHeight="100.0" prefWidth="350.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="Login" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="11.0" offsetY="1.5" radius="5.25" width="12.0" />
+                     </effect>
+                  </Button>
+               </children>
+            </GridPane>
+            <Text fill="WHITE" layoutX="88.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regex Hotel" textAlignment="CENTER" wrappingWidth="308.86647033691406">
                <font>
-                  <Font size="43.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="96.0" />
                </font>
-               <effect>
-                  <DropShadow height="11.5" offsetY="1.5" radius="5.375" width="12.0" />
-               </effect>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#sendToLogin" prefHeight="130.0" prefWidth="421.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="Login" textFill="WHITE" GridPane.rowIndex="1">
+            </Text>
+            <Text fill="WHITE" layoutX="625.0" layoutY="826.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The San Fernando Valley's premier choice for hospitality" textAlignment="CENTER" wrappingWidth="460.0">
                <font>
-                  <Font size="45.0" />
+                  <Font size="34.0" />
                </font>
-               <effect>
-                  <DropShadow height="11.0" offsetY="1.5" radius="5.25" width="12.0" />
-               </effect>
-            </Button>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="907.0" layoutX="1351.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="91.0" />
          </children>
-      </GridPane>
-      <Text layoutX="665.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The San Fernando Valley's premier choice for hospitality" textAlignment="CENTER" wrappingWidth="709.458740234375">
-         <font>
-            <Font size="46.0" />
-         </font>
-      </Text>
+      </Pane>
    </children>
 </AnchorPane>
