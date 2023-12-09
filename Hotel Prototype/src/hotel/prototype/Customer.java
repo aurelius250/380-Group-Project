@@ -49,6 +49,16 @@ public class Customer {
         return sb.toString();
     }
     
+    public String toStringCsv(){
+        String s = Boolean.toString(isAdmin) + "," + 
+               customerName + "," + customerEmail;
+        for(String x: reservationIDs){
+            s += ",";
+            s += x;
+        }
+        return s;
+    }
+    
     /**
      * Standard Customer class constructor
      */
