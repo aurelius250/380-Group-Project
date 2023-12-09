@@ -96,9 +96,15 @@ public class ReservationHandler {
     }
 
     public void SetToUserReservations() {
-        for (String s : user.reservationIDs) {
-           reservationList.removeIf(n -> !(n.ID.contentEquals(s)));
+        ArrayList<Reservation> temp = new ArrayList<Reservation>();
+        for (int i = 0; i < reservationList.size(); i++) {
+            for (int x = 0; x < user.reservationIDs.size(); x++) {
+                if (x < reservationList.size() && reservationList.get(i).getID().equals(user.reservationIDs.get(x))) {
+                    temp.add(reservationList.get(i));
+                }
+            }
         }
+        reservationList = temp;
     }
     private LocalDate parseLocalDate(String dateString) {
         if (dateString != null && !dateString.trim().isEmpty()) {
