@@ -227,23 +227,21 @@ public class FileController {
 
             while ((currentLine = br.readLine()) != null) {
                 if (currentLine.contains(targetLine)) {
-                    currentLine += appendString; // Append to the end of the line
+                    currentLine += appendString; 
                     found = true;
                 }
                 bw.write(currentLine);
-                bw.newLine(); // Add a newline after each line
+                bw.newLine(); 
             }
 
             br.close();
             bw.close();
 
             if (!found) {
-                // Handle the case where the target line was not found
                 System.out.println("Target line not found in the file.");
                 return;
             }
 
-            // Delete the original file and rename the temp file
             if (file.exists()) {
                 file.delete();
             }

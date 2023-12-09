@@ -1,5 +1,6 @@
 package hotel.prototype;
 
+import static hotel.prototype.FileController.findAndAdd;
 import static hotel.prototype.FileController.replaceLine;
 import java.io.IOException;
 import java.net.URL;
@@ -181,7 +182,7 @@ public class CreateReservationController implements Initializable {
 
         reservation.addReservation();
         if(ReservationHandler.resHandler.user != null){
-            replaceLine("src/hotel/prototype/Customers.txt",ReservationHandler.resHandler.user.toStringCsv() + "," + reservation.ID,ReservationHandler.resHandler.user.toStringCsv());
+           findAndAdd("src/hotel/prototype/Customers.txt",","+reservation.ID,ReservationHandler.resHandler.user.toStringCsv());
         }
         ReservationHandler.resHandler.addReservationToList(reservation);
     }

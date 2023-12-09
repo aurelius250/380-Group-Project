@@ -51,7 +51,7 @@ public class Customer {
     
     public String toStringCsv(){
         String s = Boolean.toString(isAdmin) + "," + 
-               customerName + "," + customerEmail;
+               customerName + "," + customerEmail + "," + customerPassword;
         for(String x: reservationIDs){
             s += ",";
             s += x;
