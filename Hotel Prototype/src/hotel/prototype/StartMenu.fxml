@@ -26,53 +26,64 @@
                   <DropShadow offsetX="1.5" offsetY="1.5" />
                </effect>
             </ImageView>
-            <GridPane layoutX="57.0" layoutY="373.0" prefHeight="480.0" prefWidth="371.0" vgap="30.0">
+            <GridPane layoutX="65.0" layoutY="329.0" prefHeight="526.0" prefWidth="355.0" vgap="40.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="437.24163818359375" minWidth="10.0" prefWidth="420.6265869140625" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="211.0" minHeight="10.0" prefHeight="145.10491943359375" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="200.6051025390625" minHeight="0.0" prefHeight="138.89508056640625" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="211.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="200.6051025390625" minHeight="0.0" prefHeight="96.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="200.6051025390625" minHeight="0.0" prefHeight="138.89508056640625" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#sendToReservationSearch" prefHeight="100.0" prefWidth="350.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="Existing Reservations" textFill="WHITE" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#sendToReservationSearch" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: orange;" text="Existing Reservations" textFill="WHITE" GridPane.rowIndex="1">
                      <font>
-                        <Font size="34.0" />
+                        <Font name="Roboto Mono Medium for Powerline" size="24.0" />
                      </font>
                      <effect>
-                        <DropShadow height="11.75" offsetY="1.5" radius="5.4375" width="12.0" />
+                        <DropShadow height="11.9" offsetX="1.0" offsetY="1.0" radius="3.9325" width="5.83" />
                      </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#sendToRoomSearch" prefHeight="100.0" prefWidth="350.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="New Reservation" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#sendToRoomSearch" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: orange;" text="New Reservation" textFill="WHITE">
                      <font>
-                        <Font size="34.0" />
+                        <Font name="Roboto Mono Medium for Powerline" size="23.0" />
                      </font>
                      <effect>
-                        <DropShadow height="11.5" offsetY="1.5" radius="5.375" width="12.0" />
+                        <DropShadow height="11.9" offsetX="1.0" offsetY="1.0" radius="3.9325" width="5.83" />
                      </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#sendToLogin" prefHeight="100.0" prefWidth="350.0" style="-fx-border-radius: 10px; -fx-background-color: orange;" text="Login" textFill="WHITE" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#sendToLogin" prefHeight="100.0" prefWidth="350.0" style="-fx-background-color: orange;" text="Login" textFill="WHITE" GridPane.rowIndex="2">
                      <font>
-                        <Font size="34.0" />
+                        <Font name="Roboto Mono Medium for Powerline" size="24.0" />
                      </font>
                      <effect>
-                        <DropShadow height="11.0" offsetY="1.5" radius="5.25" width="12.0" />
+                        <DropShadow height="11.9" offsetX="1.0" offsetY="1.0" radius="3.9325" width="5.83" />
                      </effect>
                   </Button>
                </children>
             </GridPane>
-            <Text fill="WHITE" layoutX="88.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regex Hotel" textAlignment="CENTER" wrappingWidth="308.86647033691406">
+            <Text fill="WHITE" layoutX="22.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regex" textAlignment="CENTER" wrappingWidth="425.86647033691406">
                <font>
-                  <Font name="Roboto Mono Light for Powerline" size="96.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="110.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#221d1d" height="2.85" offsetX="1.0" offsetY="1.0" radius="1.6675" width="5.82" />
+               </effect>
+            </Text>
+            <Text fill="WHITE" layoutX="532.0" layoutY="779.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The San Fernando Valley's premier choice for hospitality" textAlignment="CENTER" wrappingWidth="630.0">
+               <font>
+                  <Font name="Roboto Mono Light for Powerline" size="34.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="625.0" layoutY="826.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The San Fernando Valley's premier choice for hospitality" textAlignment="CENTER" wrappingWidth="460.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="907.0" layoutX="1351.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" style="-fx-background-color: orange;" width="91.0" />
+            <Text fill="WHITE" layoutX="30.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel" textAlignment="CENTER" wrappingWidth="425.86647033691406">
+               <effect>
+                  <DropShadow color="#221d1d" height="2.85" offsetX="1.0" offsetY="1.0" radius="1.6675" width="5.82" />
+               </effect>
                <font>
-                  <Font size="34.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="110.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="907.0" layoutX="1351.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="91.0" />
          </children>
       </Pane>
    </children>
