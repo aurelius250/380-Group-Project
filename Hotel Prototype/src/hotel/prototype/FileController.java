@@ -15,8 +15,9 @@ import java.time.LocalDate;
 import javafx.beans.property.SimpleIntegerProperty;
 
 /**
- * FileController reads and writes data from files for data storage purposes
- * and for use during run-time
+ * FileController reads and writes data from files for data storage purposes and
+ * for use during run-time
+ *
  * @author Jonathan
  */
 public class FileController {
@@ -166,9 +167,10 @@ public class FileController {
             ioe.printStackTrace();
         }
     }
+
     /**
      * Line replacement method for modifying old text file data
-     * 
+     *
      * @param filename name of the text file to be altered
      * @param newLine new data to replace old in text file
      * @param oldLine old data to be replaced in text file
@@ -181,16 +183,16 @@ public class FileController {
             String oldData = "";
             String newData;
             String currentLine;
-            
-            while ((currentLine = br.readLine()) != null){
-                oldData = oldData + currentLine + System.lineSeparator();
+
+            while ((currentLine = br.readLine()) != null) {
+                oldData += currentLine + System.lineSeparator();
             }
-            
+            System.out.println(oldData);
             newData = oldData.replaceAll(oldLine, newLine);
             fr.write(newData);
             br.close();
             fr.close();
-            
+
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -198,7 +200,7 @@ public class FileController {
 
     /**
      * Method for appending string data to lines in a text file
-     * 
+     *
      * @param fileName The name of the file to have text added to
      * @param data The string data of the text to be added to the file
      * @throws IOException
@@ -207,6 +209,45 @@ public class FileController {
         try (FileWriter fw = new FileWriter(fileName, true)) {
             fw.append(data);
             fw.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+
+    public static void findAndAdd(String fileName, String appendString, String targetLine) {
+        try {
+            File file = new File(fileName);
+            File tempFile = new File("tempFile.txt");
+
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile));
+
+            String currentLine;
+            boolean found = false;
+
+            while ((currentLine = br.readLine()) != null) {
+                if (currentLine.contains(targetLine)) {
+                    currentLine += appendString; // Append to the end of the line
+                    found = true;
+                }
+                bw.write(currentLine);
+                bw.newLine(); // Add a newline after each line
+            }
+
+            br.close();
+            bw.close();
+
+            if (!found) {
+                // Handle the case where the target line was not found
+                System.out.println("Target line not found in the file.");
+                return;
+            }
+
+            // Delete the original file and rename the temp file
+            if (file.exists()) {
+                file.delete();
+            }
+            tempFile.renameTo(file);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }

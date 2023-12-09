@@ -1,4 +1,4 @@
-false,Jonathan,email@email.com,password,
+false,Jonathan,email@email.com,password,success
 false,test,test@email.com,test,R863020
 false,joke,joke@email.com,joke,R842168
 false,easy,easy@email.com,easy,

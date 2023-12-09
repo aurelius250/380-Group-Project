@@ -4,14 +4,9 @@
  */
 package hotel.prototype;
 
-import java.time.LocalDate;
+import static hotel.prototype.FileController.findAndAdd;
+import static hotel.prototype.FileController.replaceLine;
 import java.util.ArrayList;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
@@ -23,7 +18,7 @@ public class FileControllerTest {
     }
     
     public static void main(String[] args) {
-        testReadFile();
+        testToAddToLine();
     }
     
 
@@ -51,5 +46,13 @@ public class FileControllerTest {
         
         System.out.println("Expected: " + true);
         System.out.println("Actual: " + test);    
+    }
+    
+    public static void testReplaceLine(){
+        replaceLine("src/hotel/prototype/Customers.txt","false,Jonathan,email@email.com,password,Success","false,Jonathan,email@email.com,password,");
+    }
+    
+    public static void testToAddToLine(){
+        findAndAdd("src/hotel/prototype/Customers.txt",",success","false,Jonathan,email@email.com,password");
     }
 }
