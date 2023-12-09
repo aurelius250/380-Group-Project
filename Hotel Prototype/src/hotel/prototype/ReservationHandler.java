@@ -89,16 +89,22 @@ public class ReservationHandler {
             checkIn = parseLocalDate(lineData[1]);
             checkOut = parseLocalDate(lineData[2]);
             room = findRoom(integerParser(lineData[3]));
-            //TODO get customer data
+            customer = new Customer();
 
             reservationList.add(new Reservation(ID, checkIn, checkOut, room, customer));
         }
     }
 
     public void SetToUserReservations() {
-        for (String s : user.reservationIDs) {
-           reservationList.removeIf(n -> !(n.ID.contentEquals(s)));
+        ArrayList<Reservation> temp = new ArrayList<Reservation>();
+        for (int i = 0; i < reservationList.size(); i++) {
+            for (int x = 0; x < user.reservationIDs.size(); x++) {
+                if (x < reservationList.size() && reservationList.get(i).getID().equals(user.reservationIDs.get(x))) {
+                    temp.add(reservationList.get(i));
+                }
+            }
         }
+        reservationList = temp;
     }
     private LocalDate parseLocalDate(String dateString) {
         if (dateString != null && !dateString.trim().isEmpty()) {

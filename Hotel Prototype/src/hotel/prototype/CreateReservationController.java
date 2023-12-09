@@ -1,5 +1,7 @@
 package hotel.prototype;
 
+import static hotel.prototype.FileController.findAndAdd;
+import static hotel.prototype.FileController.replaceLine;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -179,6 +181,9 @@ public class CreateReservationController implements Initializable {
         reservation.setCustomer(customer);
 
         reservation.addReservation();
+        if(ReservationHandler.resHandler.user != null){
+           findAndAdd("src/hotel/prototype/Customers.txt",","+reservation.ID,ReservationHandler.resHandler.user.toStringCsv());
+        }
         ReservationHandler.resHandler.addReservationToList(reservation);
     }
     
