@@ -89,7 +89,7 @@ public class ReservationHandler {
             checkIn = parseLocalDate(lineData[1]);
             checkOut = parseLocalDate(lineData[2]);
             room = findRoom(integerParser(lineData[3]));
-            //TODO get customer data
+            customer = new Customer();
 
             reservationList.add(new Reservation(ID, checkIn, checkOut, room, customer));
         }
