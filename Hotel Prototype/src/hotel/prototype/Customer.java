@@ -52,14 +52,21 @@ public class Customer {
     
     public String toStringCsv(){
         String s = "\n" + Boolean.toString(isAdmin) + "," + 
-               customerName + "," + customerEmail + "," + customerPassword;
+               customerName + "," + customerEmail + "," + customerPassword + "," + customerAddress + "," + customerZip + ",";
+        for(int x: cardNum){
+            s += x;
+        }
+        s += "," + expiry + "," + cvv + ",";
+        for(int x: phoneNum){
+            s += x;
+        }
         for(String x: reservationIDs){
             s += ",";
             s += x;
         }
         return s;
     }
-    
+    //false,Tester Testing,test@email.com,test,not regex hotel,99999,9999999999999999,09/09,999,8888888888,
     /**
      * Standard Customer class constructor
      */
@@ -68,7 +75,7 @@ public class Customer {
         this.customerEmail = "";
         this.reservationIDs = null;
         this.customerAddress = "";
-        this.customerZip = customerZip;
+        this.customerZip = 0;
         this.cardNum = new int[16];
         this.expiry = "";
         this.phoneNum = new int[10];

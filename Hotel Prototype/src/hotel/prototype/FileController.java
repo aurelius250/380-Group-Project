@@ -226,7 +226,9 @@ public class FileController {
             boolean found = false;
 
             while ((currentLine = br.readLine()) != null) {
-                if (currentLine.contains(targetLine)) {
+                System.out.println("Current Line: " + currentLine);
+                currentLine = currentLine.trim();
+                if (currentLine.equals(targetLine.trim())) {
                     currentLine += appendString; 
                     found = true;
                 }
@@ -239,6 +241,7 @@ public class FileController {
 
             if (!found) {
                 System.out.println("Target line not found in the file.");
+                System.out.println("Generated Line: " + targetLine);
                 return;
             }
 

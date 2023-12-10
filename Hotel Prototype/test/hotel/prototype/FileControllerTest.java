@@ -53,6 +53,7 @@ public class FileControllerTest {
     }
     
     public static void testToAddToLine(){
-        findAndAdd("src/hotel/prototype/Customers.txt",",success","false,Jonathan,email@email.com,password");
+        
+        findAndAdd("src/hotel/prototype/Customers.txt",",success","false,Tester-Testing,test@email.com,test,not-regex-hotel,99999,9999999999999999,09/09,999,8888888888,");
     }
 }

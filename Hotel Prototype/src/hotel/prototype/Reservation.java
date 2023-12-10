@@ -181,7 +181,7 @@ public final class Reservation {
      */
     public void addReservation() throws IOException {
         FileController.appendFile("src/hotel/prototype/Reservations.txt",
-                "\n" + this.toStringCSV());
+                this.toStringCSV() + "\n");
     }
 
     /**
