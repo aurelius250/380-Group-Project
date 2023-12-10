@@ -79,29 +79,114 @@ public class AccountCreationController implements Initializable {
         expiryData = expiry.getText();
         cvvData = cvv.getText();
         boolean flag = true;
+        //if empty
+        if (fnameData.trim().equals("")) {
+            fnameCheck.setText("Invalid: please enter a name");
+            flag = false;
+        }
+        if (lnameData.trim().equals("")) {
+            lnameCheck.setText("Invalid: please enter a name");
+            flag = false;
+        }
+        if (emailData.trim().equals("")) {
+            fnameCheck.setText("Invalid: please enter a email");
+            flag = false;
+        }
+        if (phoneNumData.trim().equals("")) {
+            phoneNumCheck.setText("Invalid: please enter a phone number");
+            flag = false;
+        }
+        if (passwordData.trim().equals("")) {
+            passwordCheck.setText("Invalid: please enter a password");
+            flag = false;
+        }
+        if (repasswordData.trim().equals("")) {
+            repasswordCheck.setText("Invalid: please enter a password");
+            flag = false;
+        }
+        if (addressData.trim().equals("")) {
+            addressCheck.setText("Invalid: please enter an address");
+            flag = false;
+        }
+        if (zipData.trim().equals("")) {
+            zipCheck.setText("Invalid: please enter a zip code");
+            flag = false;
+        }
+        if (cardNumData.trim().equals("")) {
+            cardNumCheck.setText("Invalid: please enter a card number");
+            flag = false;
+        }
+        if (expiryData.trim().equals("")) {
+            expiryCheck.setText("Invalid: please enter a expiry date");
+            flag = false;
+        }
+        if (cvvData.trim().equals("")) {
+            passwordCheck.setText("Invalid: please enter a cvv");
+            flag = false;
+        }
         
-        if(fnameData.contains(",")){
+        //if invalid for some reason
+        if (fnameData.contains(",") || fnameData.trim().equals("")) {
             fnameCheck.setText("Invalid: Contains \",\"");
             flag = false;
         }
-        if(lnameData.contains(",")){
+        
+        if (lnameData.contains(",")) {
             lnameCheck.setText("Invalid: Contains \",\"");
             flag = false;
         }
-        if(emailData.contains(",")){
+        
+        if (emailData.contains(",")) {
             emailCheck.setText("Invalid: Contains \",\"");
             flag = false;
         }
-        if(!emailData.contains("@email") || !emailData.contains("@gmail") || !emailData.contains("@hotmail")){
+        
+        if (!emailData.contains("@email") || !emailData.contains("@gmail") || !emailData.contains("@hotmail")) {
             emailCheck.setText("Invalid email");
             flag = false;
         }
-        if(phoneNumData.length() != 10 || !phoneNumData.matches("\\d+")){
+        if (phoneNumData.length() != 10 || !phoneNumData.matches("\\d+")) {
             phoneNumCheck.setText("Invalid Phone Number");
             flag = false;
         }
-        if(passwordData.contains(",")){
+        if (passwordData.contains(",")) {
             passwordCheck.setText("Invalid: Contains \",\"");
+            flag = false;
+        }
+        if (!passwordData.equals(repasswordData)) {
+            repasswordCheck.setText("Invalid: please enter the same password");
+            flag = false;
+        }
+        if (repasswordData.contains(",")) {
+            repasswordCheck.setText("Invalid: Contains \",\"");
+            flag = false;
+        }
+        if (addressData.contains(",")) {
+            addressCheck.setText("Invalid: Contains \",\"");
+            flag = false;
+        }
+        if (zipData.contains(",")) {
+            zipCheck.setText("Invalid: Contains \",\"");
+            flag = false;
+        }
+        if (zipData.length() != 5 || !zipData.matches("\\d+")) {
+            zipCheck.setText("Invalid zip");
+            flag = false;
+        }
+        if (cardNumData.contains(",")) {
+            cardNumCheck.setText("Invalid: Contains \",\"");
+            flag = false;
+        }
+        if (cardNumData.length() != 16 || !cardNumData.matches("\\d+")) {
+            cardNumCheck.setText("Invalid Card Number");
+            flag = false;
+        }
+        if(cvvData.contains(",")){
+            cvvCheck.setText("Invalid: Contains \",\"");
+            flag = false;
+        }
+        if (cvvData.length() != 3 || !cvvData.matches("\\d+")) {
+            cvvCheck.setText("Invalid cvv");
             flag = false;
         }
         
