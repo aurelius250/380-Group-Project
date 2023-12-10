@@ -90,7 +90,21 @@ public class AccountCreationController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        setChecksBlank();
+    }
+    
+    private void setChecksBlank(){
+        fnameCheck.setText("");
+        lnameCheck.setText("");
+        emailCheck.setText("");
+        phoneNumCheck.setText("");
+        passwordCheck.setText("");
+        repasswordCheck.setText("");
+        addressCheck.setText("");
+        zipCheck.setText("");
+        cardNumCheck.setText("");
+        expiryCheck.setText("");
+        cvvCheck.setText("");
     }
     
     public void toStart(ActionEvent e) throws IOException {
@@ -110,7 +124,11 @@ public class AccountCreationController implements Initializable {
         cardNumData = cardNum.getText();
         expiryData = expiry.getText();
         cvvData = cvv.getText();
+        
         boolean flag = true;
+        
+        setChecksBlank();
+        
         //if empty
         if (fnameData.trim().equals("")) {
             fnameCheck.setText("Invalid: please enter a name");
@@ -121,7 +139,7 @@ public class AccountCreationController implements Initializable {
             flag = false;
         }
         if (emailData.trim().equals("")) {
-            fnameCheck.setText("Invalid: please enter a email");
+            emailCheck.setText("Invalid: please enter a email");
             flag = false;
         }
         if (phoneNumData.trim().equals("")) {
@@ -153,7 +171,7 @@ public class AccountCreationController implements Initializable {
             flag = false;
         }
         if (cvvData.trim().equals("")) {
-            passwordCheck.setText("Invalid: please enter a cvv");
+            cvvCheck.setText("Invalid: please enter a cvv");
             flag = false;
         }
         
@@ -173,7 +191,7 @@ public class AccountCreationController implements Initializable {
             flag = false;
         }
         
-        if (!emailData.contains("@email") || !emailData.contains("@gmail") || !emailData.contains("@hotmail")) {
+        if (!emailData.contains("@email") && !emailData.contains("@gmail") && !emailData.contains("@hotmail")) {
             emailCheck.setText("Invalid email");
             flag = false;
         }
@@ -222,23 +240,25 @@ public class AccountCreationController implements Initializable {
             flag = false;
         }
         
-        fullNameData = fnameData.trim() + " " + lnameData.trim();
-        customer.customerName = fullNameData;
-        customer.customerEmail = emailData;
-        customer.customerAddress = addressData;
-        customer.customerPassword = passwordData;
-        customer.customerZip = integerParser(zipData);
-        customer.expiry = expiryData;
-        customer.cvv = integerParser(cvvData);
-        customer.isAdmin = false;
-        for(int i = 0; i < phoneNumData.length() ; i++){
-            customer.phoneNum[i] = integerParser(phoneNumData.charAt(i));
+        if(flag){
+            fullNameData = fnameData.trim() + " " + lnameData.trim();
+            customer.customerName = fullNameData;
+            customer.customerEmail = emailData;
+            customer.customerAddress = addressData;
+            customer.customerPassword = passwordData;
+            customer.customerZip = integerParser(zipData);
+            customer.expiry = expiryData;
+            customer.cvv = integerParser(cvvData);
+            customer.isAdmin = false;
+            for(int i = 0; i < phoneNumData.length() ; i++){
+                customer.phoneNum[i] = integerParser(phoneNumData.charAt(i));
+            }
+            for(int i = 0; i < cardNumData.length() ; i++){
+                customer.cardNum[i] = integerParser(cardNumData.charAt(i));
+            }
+            appendFile("src/hotel/prototype/Customers.txt",customer.toStringCsv());
+            ReservationHandler.resHandler.user = customer;
+            Main.setRoot("StartMenu");
         }
-        for(int i = 0; i < cardNumData.length() ; i++){
-            customer.cardNum[i] = integerParser(cardNumData.charAt(i));
-        }
-        appendFile("src/hotel/prototype/Customers.txt",customer.toStringCsv());
-        ReservationHandler.resHandler.user = customer;
-        Main.setRoot("StartMenu");
     }
 }
