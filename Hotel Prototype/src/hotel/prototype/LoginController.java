@@ -5,7 +5,6 @@
 package hotel.prototype;
 
 import static hotel.prototype.FileController.readFile;
-import static hotel.prototype.FileController.booleanParser;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -17,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Hyperlink;
 
 /**
  * FXML Controller class
@@ -40,6 +40,8 @@ public class LoginController implements Initializable {
     private Label updateLabel;
     @FXML
     private Label updateLabel2;
+    @FXML
+    private Hyperlink createAccount;
     /**
      * sends user to start menu
      * @param e on click of "back" button sends user to start

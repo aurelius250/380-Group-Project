@@ -4,10 +4,13 @@
  */
 package hotel.prototype;
 
+import static hotel.prototype.FileController.appendFile;
+import static hotel.prototype.FileController.integerParser;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,29 +23,53 @@ import javafx.scene.control.TextField;
  * @author Jonathan
  */
 public class AccountCreationController implements Initializable {
-
+    @FXML
     public TextField fname;
+    @FXML
     public TextField lname;
+    @FXML
     public TextField email;
+    @FXML
     public TextField phoneNum;
+    @FXML
     public PasswordField password;
+    @FXML
     public PasswordField repassword;
+    @FXML
     public TextField address;
+    @FXML
     public TextField zip;
+    @FXML
     public TextField cardNum;
+    @FXML
     public TextField expiry;
+    @FXML
     public TextField cvv;
+    @FXML
     public Button confirmation;
+    @FXML
+    public Button back;
+    @FXML
     public Label fnameCheck;
+    @FXML
     public Label lnameCheck;
+    @FXML
     public Label emailCheck;
+    @FXML
     public Label phoneNumCheck;
+    @FXML
     public Label passwordCheck;
+    @FXML
     public Label repasswordCheck;
+    @FXML
     public Label addressCheck;
+    @FXML
     public Label zipCheck;
+    @FXML
     public Label cardNumCheck;
+    @FXML
     public Label expiryCheck;
+    @FXML
     public Label cvvCheck;
 
     private String fnameData;
@@ -65,8 +92,13 @@ public class AccountCreationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
+    
+    public void toStart(ActionEvent e) throws IOException {
+        Main.setRoot("StartMenu");
+    }
 
     public void confirmation(ActionEvent e) throws IOException {
+        Customer customer = new Customer();
         fnameData = fname.getText();
         lnameData = lname.getText();
         emailData = email.getText();
@@ -126,7 +158,7 @@ public class AccountCreationController implements Initializable {
         }
         
         //if invalid for some reason
-        if (fnameData.contains(",") || fnameData.trim().equals("")) {
+        if (fnameData.contains(",")) {
             fnameCheck.setText("Invalid: Contains \",\"");
             flag = false;
         }
@@ -190,5 +222,23 @@ public class AccountCreationController implements Initializable {
             flag = false;
         }
         
+        fullNameData = fnameData.trim() + " " + lnameData.trim();
+        customer.customerName = fullNameData;
+        customer.customerEmail = emailData;
+        customer.customerAddress = addressData;
+        customer.customerPassword = passwordData;
+        customer.customerZip = integerParser(zipData);
+        customer.expiry = expiryData;
+        customer.cvv = integerParser(cvvData);
+        customer.isAdmin = false;
+        for(int i = 0; i < phoneNumData.length() ; i++){
+            customer.phoneNum[i]= integerParser(phoneNumData.charAt(i));
+        }
+        for(int i = 0; i < cardNumData.length() ; i++){
+            customer.cardNum[i]= integerParser(cardNumData.charAt(i));
+        }
+        appendFile("src/hotel/prototype/Customers.txt",customer.toStringCsv());
+        ReservationHandler.resHandler.user = customer;
+        Main.setRoot("StartMenu");
     }
 }
