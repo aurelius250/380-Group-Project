@@ -116,12 +116,12 @@ public class FileController {
                 checkIn = dateParser(dataArr[1]);
                 checkOut = dateParser(dataArr[2]);
 
-                reservationList.add(new Reservation(reservationID,
-                        checkIn,
-                        checkOut,
-                        new Room()/*integerParser(dataArr[4]))*/,
-                        new Customer()
-                ));
+                //reservationList.add(new Reservation(reservationID,
+                        //checkIn,
+                        //checkOut,
+                        //new Room()/*integerParser(dataArr[4]))*/,
+                        //new Customer()
+                //));
 
             }
 
@@ -260,6 +260,14 @@ public class FileController {
     public static int integerParser(String stringData) {
         try {
             return Integer.parseInt(stringData);
+        } catch (NumberFormatException nfe) {
+            return 0;
+        }
+    }
+    
+    public static int integerParser(char charData) {
+        try {
+            return Character.getNumericValue(charData);
         } catch (NumberFormatException nfe) {
             return 0;
         }

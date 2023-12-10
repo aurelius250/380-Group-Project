@@ -90,7 +90,17 @@ public class ReservationHandler {
             checkOut = parseLocalDate(lineData[2]);
             room = findRoom(integerParser(lineData[3]));
             customer = new Customer();
-
+            customer.customerName = lineData[4];
+            customer.customerEmail = lineData[5];
+            customer.customerAddress = lineData[6];
+            customer.customerZip = integerParser(lineData[7]);
+            for(int x = 0; x < lineData[8].length();x++){
+                customer.cardNum[x]=integerParser(lineData[8].charAt(x));
+            }
+            customer.expiry = lineData[9];
+            for(int x = 0; x < lineData[10].length();x++){
+                customer.phoneNum[x]=integerParser(lineData[10].charAt(x));
+            }
             reservationList.add(new Reservation(ID, checkIn, checkOut, room, customer));
         }
     }

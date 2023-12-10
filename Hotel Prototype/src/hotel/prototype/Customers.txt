@@ -1,5 +1,5 @@
-false,Jonathan,email@email.com,password,success
-false,test,test@email.com,test,R863020,R511529
-false,joke,joke@email.com,joke,R842168,R511529
-false,easy,easy@email.com,easy,
-true,Admin,Admin@email.com,Admin,
+false,Jonathan,email@email.com,password
+false,test,test@email.com,test,R498557,R418312,R358181,R604930,R746478
+false,joke,joke@email.com,joke
+false,easy,easy@email.com,easy
+true,Admin,Admin@email.com,Admin

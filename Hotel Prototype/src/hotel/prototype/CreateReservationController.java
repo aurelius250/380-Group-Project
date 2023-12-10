@@ -183,6 +183,12 @@ public class CreateReservationController implements Initializable {
         reservation.addReservation();
         if(ReservationHandler.resHandler.user != null){
            findAndAdd("src/hotel/prototype/Customers.txt",","+reservation.ID,ReservationHandler.resHandler.user.toStringCsv());
+           ReservationHandler.resHandler.user.reservationIDs.add(reservation.ID);
+           customer.customerAddress = ReservationHandler.resHandler.user.customerAddress;
+           customer.cardNum = ReservationHandler.resHandler.user.cardNum;
+           customer.customerZip = ReservationHandler.resHandler.user.customerZip;
+           customer.phoneNum = ReservationHandler.resHandler.user.phoneNum;
+           customer.expiry = ReservationHandler.resHandler.user.expiry;
         }
         ReservationHandler.resHandler.addReservationToList(reservation);
     }

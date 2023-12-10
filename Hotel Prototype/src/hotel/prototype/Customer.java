@@ -92,9 +92,9 @@ public class Customer {
         this.reservationIDs = reservationIDs;
         this.customerAddress = customerAddress;
         this.customerZip = customerZip;
-        this.cardNum.equals(cardNum);
+        this.cardNum = cardNum;
         this.expiry = expiry;
-        this.phoneNum.equals(phoneNum);
+        this.phoneNum = phoneNum;
     }    
     
     /**
@@ -163,7 +163,6 @@ public class Customer {
     protected void setIsAdmin (boolean isAdmin){
         this.isAdmin = isAdmin;
     }
-    
     
     
 }
