@@ -65,9 +65,9 @@ public class ReservationHandlerTest {
         ArrayList<Room> expResult = new ArrayList<Room>();
         Boolean test;
         
-        expResult.add(new Room(101,true,1,1,100,'S',"Cheap Room"));
-        expResult.add(new Room(201,false,2,2,200,'K',"Medium Room" ));
-        expResult.add(new Room(401,true,3,4,0,'Q',"Best Room"));
+        expResult.add(new Room(101,true,1,1,100,'S',"Cheap Room",111));
+        expResult.add(new Room(201,false,2,2,200,'K',"Medium Room" ,111));
+        expResult.add(new Room(401,true,3,4,0,'Q',"Best Room",111));
         
         if(expResult.get(0).toStringCSV().equals(instance.roomList.get(0).toStringCSV())){
             System.out.println("Success");

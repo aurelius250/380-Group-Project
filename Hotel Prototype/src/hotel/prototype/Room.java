@@ -44,6 +44,8 @@ public class Room {
      * type of beds in the room
      */
     public char bedType;
+    
+    public SimpleIntegerProperty cost;
 
     /**
      * Default constructor
@@ -68,7 +70,7 @@ public class Room {
      * @param bedType The size of the beds (king,queen,twin)
      * @param description A general description of the room
      */
-    public Room(int roomNum, boolean smoking, int numBeds, int numPeople, int sqftSize, char bedType, String description) {
+    public Room(int roomNum, boolean smoking, int numBeds, int numPeople, int sqftSize, char bedType, String description,int cost) {
         this.roomNum = new SimpleIntegerProperty(roomNum);
         this.smoking = new SimpleBooleanProperty(smoking);
         this.numBeds = new SimpleIntegerProperty(numBeds);
@@ -76,6 +78,7 @@ public class Room {
         this.sqftSize = new SimpleIntegerProperty(sqftSize);
         this.bedType = bedType;
         this.description = new SimpleStringProperty(description);
+        this.cost = new SimpleIntegerProperty(cost);
     }
     
     /**
@@ -91,7 +94,8 @@ public class Room {
         sb.append(numPeople.get()).append(",");
         sb.append(sqftSize.get()).append(",");
         sb.append(bedType).append(",");
-        sb.append(description.get());
+        sb.append(description.get()).append(",");
+        sb.append(cost.get());
         
         return sb.toString();
     }
@@ -150,6 +154,10 @@ public class Room {
      */
     public String getDescription() {
         return description.get();
+    }
+    
+    public Integer getCost(){
+        return cost.get();
     }
     
 }

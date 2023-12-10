@@ -49,6 +49,10 @@ public class LoginController implements Initializable {
         Main.setRoot("StartMenu");
     }
     
+    public void sendToAccountCreation (ActionEvent e) throws IOException{
+        Main.setRoot("accountCreation");
+    }
+    
     /**
      * Will log a user into their account given correct email and password
      * @param e button click of "Login" button runs method

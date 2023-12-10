@@ -212,6 +212,7 @@ public final class Reservation {
             row += customer.phoneNum[i];
 
         }
+        row += "," + customer.cvv;
         return row;
     }
         /**

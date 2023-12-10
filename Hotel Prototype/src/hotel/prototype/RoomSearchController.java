@@ -62,6 +62,8 @@ public class RoomSearchController implements Initializable {
      */
     public TableColumn<Room,String> colDesc;
     
+    public TableColumn<Room,Integer> colCost;
+    
     
     /**
      * creates a new reservation and assigns a room to it before
@@ -113,6 +115,7 @@ public class RoomSearchController implements Initializable {
         colSize.setCellValueFactory(new PropertyValueFactory<>("sqftSize"));
         colBedType.setCellValueFactory(new PropertyValueFactory<>("bedType"));
         colDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colCost.setCellValueFactory(new PropertyValueFactory<>("Cost"));
         
         ObservableList<Room> observableList = FXCollections.observableArrayList(
                 ReservationHandler.resHandler.roomList);

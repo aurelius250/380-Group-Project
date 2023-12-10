@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.RoomSearchController">
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.RoomSearchController">
     <children>
       <Pane prefHeight="900.0" prefWidth="1440.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -21,7 +21,7 @@
                   <Image url="@images/frames-for-your-heart-zSG-kd-L6vw-unsplash%20copy.jpg" />
                </image>
             </ImageView>
-            <TableView fx:id="tableView" layoutX="444.0" layoutY="312.0" prefHeight="277.0" prefWidth="553.0" style="-fx-background-color: white; -fx-border-width: 5px; -fx-border-color: orange;">
+            <TableView fx:id="tableView" layoutX="402.0" layoutY="312.0" prefHeight="277.0" prefWidth="636.0" style="-fx-background-color: white; -fx-border-width: 5px; -fx-border-color: orange;">
               <columns>
                 <TableColumn fx:id="colRoomNum" prefWidth="51.0" style="-fx-alignment: CENTER;" text="Room #" />
                   <TableColumn fx:id="colSmoking" prefWidth="64.0" style="-fx-alignment: CENTER;" text="Roaches?" />
@@ -29,6 +29,7 @@
                   <TableColumn fx:id="colNumPeople" prefWidth="72.0" style="-fx-alignment: CENTER;" text="# of People" />
                   <TableColumn fx:id="colSize" prefWidth="63.0" style="-fx-alignment: CENTER;" text="Size (sq. ft.)" />
                   <TableColumn fx:id="colBedType" prefWidth="72.0" style="-fx-alignment: CENTER;" text="Bed Type" />
+                  <TableColumn fx:id="colCost" prefWidth="75.0" text="Cost" />
                   <TableColumn fx:id="colDesc" prefWidth="168.0" text="Description" />
               </columns>
                <effect>

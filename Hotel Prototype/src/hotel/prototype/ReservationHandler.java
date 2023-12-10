@@ -101,6 +101,7 @@ public class ReservationHandler {
             for(int x = 0; x < lineData[10].length();x++){
                 customer.phoneNum[x]=integerParser(lineData[10].charAt(x));
             }
+            customer.cvv = integerParser(lineData[11]);
             reservationList.add(new Reservation(ID, checkIn, checkOut, room, customer));
         }
     }
@@ -136,7 +137,7 @@ public class ReservationHandler {
      * @param roomLineData ArrayList of lines gained from text file as strings
      */
     public void fillRoomList(ArrayList<String> roomLineData) {
-        int roomNum, numBeds, numPeople, sqftSize;
+        int roomNum, numBeds, numPeople, sqftSize,cost;
         boolean smoking;
         char bedType;
         String description;
@@ -152,6 +153,7 @@ public class ReservationHandler {
             sqftSize = integerParser(lineData[4]);
             bedType = lineData[5].charAt(0);
             description = lineData[6];
+            cost = integerParser(lineData[7]);
 
             roomList.add(new Room(roomNum,
                     smoking,
@@ -159,7 +161,7 @@ public class ReservationHandler {
                     numPeople,
                     sqftSize,
                     bedType,
-                    description));
+                    description,cost));
         }
 
     }

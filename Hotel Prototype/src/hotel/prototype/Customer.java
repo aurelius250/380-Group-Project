@@ -35,6 +35,7 @@ public class Customer {
     protected int[] cardNum;
     protected String expiry;
     protected int[] phoneNum;
+    protected int cvv;
     
     /**
      * Method for taking customer object data and making it into a comma separated string
@@ -73,6 +74,7 @@ public class Customer {
         this.expiry = "";
         this.phoneNum = new int[10];
         this.reservationIDs = new ArrayList<String>();
+        this.cvv = 0;
     } 
 
     /**
@@ -84,7 +86,7 @@ public class Customer {
       */
     protected Customer(String customerName, String customerEmail,String customerPassword,
             ArrayList<String> reservationIDs,boolean isAdmin, String customerAddress,
-            int customerZip,int[] cardNum, String expiry, int[] phoneNum) {
+            int customerZip,int[] cardNum, String expiry, int[] phoneNum,int cvv) {
         this.isAdmin = isAdmin;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
@@ -95,6 +97,7 @@ public class Customer {
         this.cardNum = cardNum;
         this.expiry = expiry;
         this.phoneNum = phoneNum;
+        this.cvv = cvv;
     }    
     
     /**
