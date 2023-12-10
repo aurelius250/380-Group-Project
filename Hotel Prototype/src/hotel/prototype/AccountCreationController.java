@@ -4,9 +4,15 @@
  */
 package hotel.prototype;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -14,7 +20,44 @@ import javafx.fxml.Initializable;
  * @author Jonathan
  */
 public class AccountCreationController implements Initializable {
-
+    public TextField fname;
+    public TextField lname;
+    public TextField email;
+    public TextField phoneNum;
+    public PasswordField password;
+    public PasswordField repassword;
+    public TextField address;
+    public TextField zip;
+    public TextField cardNum;
+    public TextField expiry;
+    public TextField cvv;
+    public Button confirmation;
+    public Label fnameCheck;
+    public Label lnameCheck;
+    public Label emailCheck;
+    public Label phoneNumCheck;
+    public Label passwordCheck;
+    public Label repasswordCheck;
+    public Label addressCheck;
+    public Label zipCheck;
+    public Label cardNumCheck;
+    public Label expiryCheck;
+    public Label cvvCheck;
+    
+    private String fnameData;
+    private String lnameData;
+    private String fullNameData;
+    private String emailData;
+    private String phoneNumData;
+    private String passwordData;
+    private String repasswordData;
+    private String addressData;
+    private String zipData;
+    private String cardNumData;
+    private String expiryData;
+    private String cvvData;
+    
+          
     /**
      * Initializes the controller class.
      */
@@ -23,4 +66,8 @@ public class AccountCreationController implements Initializable {
         // TODO
     }    
     
+    public void confirmation(ActionEvent e) throws IOException {
+       fnameData = fname.getText();
+       lnameData = lname.getText();
+    }
 }
