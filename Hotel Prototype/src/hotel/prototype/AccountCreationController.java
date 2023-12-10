@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
  * @author Jonathan
  */
 public class AccountCreationController implements Initializable {
+
     public TextField fname;
     public TextField lname;
     public TextField email;
@@ -43,7 +44,7 @@ public class AccountCreationController implements Initializable {
     public Label cardNumCheck;
     public Label expiryCheck;
     public Label cvvCheck;
-    
+
     private String fnameData;
     private String lnameData;
     private String fullNameData;
@@ -56,18 +57,53 @@ public class AccountCreationController implements Initializable {
     private String cardNumData;
     private String expiryData;
     private String cvvData;
-    
-          
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
     public void confirmation(ActionEvent e) throws IOException {
-       fnameData = fname.getText();
-       lnameData = lname.getText();
+        fnameData = fname.getText();
+        lnameData = lname.getText();
+        emailData = email.getText();
+        phoneNumData = phoneNum.getText();
+        passwordData = password.getText();
+        repasswordData = repassword.getText();
+        addressData = address.getText();
+        zipData = zip.getText();
+        cardNumData = cardNum.getText();
+        expiryData = expiry.getText();
+        cvvData = cvv.getText();
+        boolean flag = true;
+        
+        if(fnameData.contains(",")){
+            fnameCheck.setText("Invalid: Contains \",\"");
+            flag = false;
+        }
+        if(lnameData.contains(",")){
+            lnameCheck.setText("Invalid: Contains \",\"");
+            flag = false;
+        }
+        if(emailData.contains(",")){
+            emailCheck.setText("Invalid: Contains \",\"");
+            flag = false;
+        }
+        if(!emailData.contains("@email") || !emailData.contains("@gmail") || !emailData.contains("@hotmail")){
+            emailCheck.setText("Invalid email");
+            flag = false;
+        }
+        if(phoneNumData.length() != 10 || !phoneNumData.matches("\\d+")){
+            phoneNumCheck.setText("Invalid Phone Number");
+            flag = false;
+        }
+        if(passwordData.contains(",")){
+            passwordCheck.setText("Invalid: Contains \",\"");
+            flag = false;
+        }
+        
     }
 }
