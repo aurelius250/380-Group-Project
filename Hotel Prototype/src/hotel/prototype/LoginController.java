@@ -4,6 +4,8 @@
  */
 package hotel.prototype;
 
+import static hotel.prototype.FileController.findAndAdd;
+import static hotel.prototype.FileController.integerParser;
 import static hotel.prototype.FileController.readFile;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -63,6 +65,7 @@ public class LoginController implements Initializable {
     public void userLogin(ActionEvent e)throws IOException {
         if(checkLogin(email.getText(),password.getText())){
             System.out.println("login success");
+            System.out.println(ReservationHandler.resHandler.user.toStringCsv());
             Main.setRoot("StartMenu");
             updateLabel.setText("You have Successfully Logged in.");
             updateLabel2.setText("Please click \"back\" to return to home.");
@@ -100,7 +103,7 @@ public class LoginController implements Initializable {
             lineData=s.split(",");
             
             if(lineData[2].equals(email)&& lineData[3].equals(pass)){
-                for(int i = 4; i < lineData.length;i++){
+                for(int i = 10; i < lineData.length;i++){
                     temp = lineData[i];
                     reservationIDs.add(temp);
                 }
@@ -110,6 +113,16 @@ public class LoginController implements Initializable {
                 user.setCustomerName(lineData[1]);
                 user.setCustomerEmail(email);
                 user.setCustomerPass(pass);
+                user.customerAddress = lineData[4];
+                user.customerZip = integerParser(lineData[5]);
+                for(int x = 0; x < lineData[6].length();x++){
+                    user.cardNum[x] = integerParser(lineData[6].charAt(x));
+                }
+                user.expiry = lineData[7];
+                user.cvv = integerParser(lineData[8]);
+                for(int x = 0; x < lineData[9].length();x++){
+                    user.phoneNum[x] = integerParser(lineData[9].charAt(x));
+                }
                 user.setReservationIDs(reservationIDs);
                 
                 ReservationHandler.resHandler.setUser(user);
