@@ -232,10 +232,10 @@ public class AccountCreationController implements Initializable {
         customer.cvv = integerParser(cvvData);
         customer.isAdmin = false;
         for(int i = 0; i < phoneNumData.length() ; i++){
-            customer.phoneNum[i]= integerParser(phoneNumData.charAt(i));
+            customer.phoneNum[i] = integerParser(phoneNumData.charAt(i));
         }
         for(int i = 0; i < cardNumData.length() ; i++){
-            customer.cardNum[i]= integerParser(cardNumData.charAt(i));
+            customer.cardNum[i] = integerParser(cardNumData.charAt(i));
         }
         appendFile("src/hotel/prototype/Customers.txt",customer.toStringCsv());
         ReservationHandler.resHandler.user = customer;

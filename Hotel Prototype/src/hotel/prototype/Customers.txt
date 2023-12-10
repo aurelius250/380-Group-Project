@@ -4,3 +4,4 @@ false,joke,joke@email.com,joke
 false,easy,easy@email.com,easy
 true,Admin,Admin@email.com,Admin
 false,jonathan johnson,jon@email.com,password
+false,testing testing,testing@email.com,testing

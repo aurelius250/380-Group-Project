@@ -51,7 +51,7 @@ public class Customer {
     }
     
     public String toStringCsv(){
-        String s = Boolean.toString(isAdmin) + "," + 
+        String s = "\n" + Boolean.toString(isAdmin) + "," + 
                customerName + "," + customerEmail + "," + customerPassword;
         for(String x: reservationIDs){
             s += ",";
@@ -66,7 +66,6 @@ public class Customer {
     protected Customer() { 
         this.customerName = ""; 
         this.customerEmail = "";
-        this.customerPassword = "";
         this.reservationIDs = null;
         this.customerAddress = "";
         this.customerZip = customerZip;
@@ -75,6 +74,7 @@ public class Customer {
         this.phoneNum = new int[10];
         this.reservationIDs = new ArrayList<String>();
         this.cvv = 0;
+        this.customerPassword = "";
     } 
 
     /**
