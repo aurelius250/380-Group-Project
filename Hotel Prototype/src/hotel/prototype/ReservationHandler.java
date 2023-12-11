@@ -20,6 +20,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class ReservationHandler {
 
     protected Customer user;
+    
+    protected Reservation currentRes;
 
     /**
      * ArrayList of Reservation objects

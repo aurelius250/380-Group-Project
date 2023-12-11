@@ -37,7 +37,8 @@ public class ReviewPurchaseController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         displayGreeting(primaryStage);
-        displayReservationDetails(reservation);
+        Reservation currentRes = ReservationHandler.resHandler.currentRes;
+        displayReservationDetails(currentRes);
     }    
     
     private void setPrimaryStage(Stage stage) { 
