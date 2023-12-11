@@ -164,7 +164,7 @@ public class CreateReservationController implements Initializable {
         bedTypeText.setText(String.valueOf(r.getBedType()));
         descText.setText(r.getDescription());
         reservationIDText.setText(r.getID());
-        nameText.setText(r.getCustomerName());
+        nameText.setText(r.getCustomerName().replace("-", " "));
         emailText.setText(r.getCustomerEmail());
     }
     
@@ -197,7 +197,7 @@ public class CreateReservationController implements Initializable {
         reservation.setCheckOut(checkOut);
         reservation.setCustomer(customer);
 
-        reservation.addReservation();
+        
         if(ReservationHandler.resHandler.user != null){
            findAndAdd("src/hotel/prototype/Customers.txt",","+reservation.ID,ReservationHandler.resHandler.user.toStringCsv());
            ReservationHandler.resHandler.user.reservationIDs.add(reservation.ID);
@@ -207,6 +207,7 @@ public class CreateReservationController implements Initializable {
            customer.phoneNum = ReservationHandler.resHandler.user.phoneNum;
            customer.expiry = ReservationHandler.resHandler.user.expiry;
         }
+        reservation.addReservation();
         ReservationHandler.resHandler.addReservationToList(reservation);
     }
     
