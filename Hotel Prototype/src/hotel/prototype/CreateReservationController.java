@@ -131,6 +131,7 @@ public class CreateReservationController implements Initializable {
                     "," + resHandler.currentRes.ID,
                     resHandler.user.toStringCsv()
             );
+            resHandler.user.reservationIDs.add(resHandler.currentRes.getID());
             //ReviewPurchaseController.reservation = reservation;
             Main.setRoot("ReviewPurchase");
         }  
