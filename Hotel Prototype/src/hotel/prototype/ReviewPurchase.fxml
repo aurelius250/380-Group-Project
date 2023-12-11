@@ -14,28 +14,28 @@
 
 <AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.ReviewPurchaseController">
     <children> 
-      <Label layoutX="782.0" layoutY="89.0" prefHeight="131.0" prefWidth="543.0" text="Review Reservation">
+      <Label layoutX="709.0" layoutY="106.0" prefHeight="104.0" prefWidth="654.0" text="Review Reservation">
          <font>
-            <Font size="61.0" />
+            <Font name="Roboto Mono Light for Powerline" size="57.0" />
          </font>
       </Label>
-        <Button layoutX="1227.0" layoutY="789.0" mnemonicParsing="false" onAction="#returnStart" prefHeight="46.0" prefWidth="163.0" style="-fx-border-radius: 10px; -fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black;" text="Return to Start">
+        <Button layoutX="1181.0" layoutY="789.0" mnemonicParsing="false" onAction="#returnStart" prefHeight="62.0" prefWidth="209.0" style="-fx-border-radius: 10px; -fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: black;" text="Return to Start">
          <font>
-            <Font size="15.0" />
+            <Font name="Roboto Mono Light for Powerline" size="19.0" />
          </font></Button>
       <ImageView fitHeight="915.0" fitWidth="606.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/hamza-younous-UY5CYtvYk9g-unsplash.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="672.0" layoutY="245.0" prefHeight="78.0" prefWidth="728.0" text="Reservation purchase successful! We hope you have a nice stay!" wrapText="true">
+      <Label layoutX="672.0" layoutY="282.0" prefHeight="78.0" prefWidth="728.0" text="Reservation purchase successful! We hope you have a nice stay!" wrapText="true">
          <font>
-            <Font size="26.0" />
+            <Font name="Roboto Mono Light for Powerline" size="27.0" />
          </font></Label>
-      <GridPane layoutX="856.0" layoutY="408.0" prefHeight="233.0" prefWidth="371.0">
+      <GridPane layoutX="851.0" layoutY="453.0" prefHeight="244.0" prefWidth="560.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="211.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="137.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="323.0" minWidth="10.0" prefWidth="186.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.0" minWidth="10.0" prefWidth="374.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -47,52 +47,52 @@
          <children>
             <Label text="Reservation ID:" GridPane.rowIndex="4">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="20.0" />
                </font>
             </Label>
             <Label fx:id="resIDText" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="20.0" />
                </font>
             </Label>
             <Label text="Name:">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="20.0" />
                </font>
             </Label>
             <Label fx:id="nameText" text="Label" GridPane.columnIndex="1">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="20.0" />
                </font>
             </Label>
             <Label text="Email:" textAlignment="RIGHT" GridPane.rowIndex="1">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="20.0" />
                </font>
             </Label>
             <Label fx:id="emailText" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="20.0" />
                </font>
             </Label>
             <Label text="Check In:" GridPane.rowIndex="2">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="20.0" />
                </font>
             </Label>
             <Label fx:id="checkInText" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="20.0" />
                </font>
             </Label>
             <Label text="Check Out:" textAlignment="RIGHT" GridPane.rowIndex="3">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="20.0" />
                </font>
             </Label>
             <Label fx:id="checkOutText" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Roboto Mono Light for Powerline" size="20.0" />
                </font>
             </Label>
          </children>
