@@ -24,15 +24,15 @@
                   <Image url="@images/jason-leung-Gm80iG3v2B0-unsplash.jpg" />
                </image>
             </ImageView>
-            <TableView fx:id="tableView" layoutX="761.0" layoutY="358.0" prefHeight="349.0" prefWidth="528.0">
+            <TableView fx:id="tableView" layoutX="692.0" layoutY="355.0" prefHeight="410.0" prefWidth="663.0">
               <columns>
                 <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="colCost" prefWidth="75.0" text="Cost" />
-                  <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
-                  <TableColumn fx:id="colPhone" prefWidth="75.0" text="Phone #" />
-                  <TableColumn fx:id="colCheckIn" prefWidth="75.0" text="Check In" />
-                  <TableColumn fx:id="colCheckOut" prefWidth="75.0" text="Check Out" />
-                  <TableColumn fx:id="colRoom" prefWidth="75.0" text="Room" />
+                <TableColumn fx:id="colCost" prefWidth="85.0" text="Cost" />
+                  <TableColumn fx:id="colName" prefWidth="132.0" text="Name" />
+                  <TableColumn fx:id="colPhone" prefWidth="95.0" text="Phone #" />
+                  <TableColumn fx:id="colCheckIn" prefWidth="88.0" text="Check In" />
+                  <TableColumn fx:id="colCheckOut" prefWidth="115.0" text="Check Out" />
+                  <TableColumn fx:id="colRoom" prefWidth="72.0" text="Room" />
               </columns>
             </TableView>
             <GridPane layoutX="873.0" layoutY="222.0" prefHeight="91.0" prefWidth="385.0">
@@ -67,7 +67,7 @@
                   </Label>
                </children>
             </GridPane>
-            <Button layoutX="1139.0" layoutY="781.0" mnemonicParsing="false" onAction="#back" prefHeight="57.0" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black;" text="Back">
+            <Button layoutX="1205.0" layoutY="798.0" mnemonicParsing="false" onAction="#back" prefHeight="57.0" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black;" text="Back">
                <font>
                   <Font size="19.0" />
                </font>
