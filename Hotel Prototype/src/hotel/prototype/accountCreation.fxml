@@ -19,19 +19,19 @@
    <children>
       <Pane prefHeight="900.0" prefWidth="1440.0">
          <children>
-            <ImageView fitHeight="407.0" fitWidth="558.0" layoutX="857.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="362.0" fitWidth="482.0" layoutX="936.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/dcxb7fsvhhq81.jpg" />
                </image>
             </ImageView>
-            <GridPane layoutX="33.0" layoutY="246.0" prefHeight="439.0" prefWidth="853.0">
+            <GridPane layoutX="59.0" layoutY="243.0" prefHeight="439.0" prefWidth="853.0">
               <columnConstraints>
                   <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="138.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.0" minWidth="10.0" prefWidth="134.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="46.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="124.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="10.0" prefWidth="179.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="8.0" prefWidth="187.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.0" minWidth="10.0" prefWidth="140.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="106.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="10.0" prefWidth="203.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="8.0" prefWidth="149.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
@@ -121,13 +121,13 @@
                   <Label fx:id="expiryCheck" text="Label" textFill="RED" GridPane.columnIndex="5" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Label layoutX="351.0" layoutY="49.0" prefHeight="134.0" prefWidth="738.0" text="Create an Account">
+            <Label layoutX="351.0" layoutY="53.0" prefHeight="134.0" prefWidth="738.0" text="Create an Account">
                <font>
                   <Font name="Roboto Mono Light for Powerline" size="71.0" />
                </font>
             </Label>
-            <Button fx:id="back" layoutX="53.0" layoutY="700.0" mnemonicParsing="false" onAction="#toStart" prefHeight="39.0" prefWidth="117.0" style="-fx-background-color: white; -fx-border-color: black;" text="Back" />
-            <Button fx:id="confirmation" layoutX="510.0" layoutY="676.0" mnemonicParsing="false" onAction="#confirmation" prefHeight="61.0" prefWidth="186.0" style="-fx-background-color: white; -fx-border-color: black;" text="Confirm">
+            <Button fx:id="back" layoutX="59.0" layoutY="704.0" mnemonicParsing="false" onAction="#toStart" prefHeight="39.0" prefWidth="117.0" style="-fx-background-color: white; -fx-border-color: black;" text="Back" />
+            <Button fx:id="confirmation" layoutX="579.0" layoutY="682.0" mnemonicParsing="false" onAction="#confirmation" prefHeight="61.0" prefWidth="186.0" style="-fx-background-color: white; -fx-border-color: black;" text="Confirm">
                <font>
                   <Font name="Roboto Mono Light for Powerline" size="15.0" />
                </font>
