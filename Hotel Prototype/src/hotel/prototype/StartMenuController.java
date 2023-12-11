@@ -27,7 +27,12 @@ public class StartMenuController implements Initializable {
      * @throws IOException
      */
     public void sendToRoomSearch (ActionEvent e) throws IOException{
-        Main.setRoot("RoomSearch");
+        if(ReservationHandler.resHandler.user != null){
+            Main.setRoot("RoomSearch");
+        }
+        else{
+            Main.setRoot("login");
+        }
     }
     
     /**
