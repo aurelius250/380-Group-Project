@@ -139,7 +139,7 @@ public final class Reservation {
     }
 
     public String getCustomerName() {
-        return customer.getCustomerName();
+        return customer.getCustomerName().replace("-", " ");
     }
 
     public String getCustomerEmail() {
@@ -172,6 +172,22 @@ public final class Reservation {
 
     public String getDescription() {
         return room.getDescription();
+    }
+    
+    public int getCost(){
+        return room.getCost();
+    }
+    
+    public int[] getPhoneNum (){
+        return customer.phoneNum;
+    }
+    
+    public String getPhoneNumString(){
+        String s = "";
+        for(int i : customer.getPhoneNum()){
+            s += i;
+        }
+        return s;
     }
 
     /**

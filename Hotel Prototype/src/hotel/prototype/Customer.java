@@ -174,5 +174,9 @@ public class Customer {
         this.isAdmin = isAdmin;
     }
     
+    protected int[] getPhoneNum (){
+        return phoneNum;
+    }
+    
     
 }

@@ -26,12 +26,13 @@ import javafx.scene.control.Hyperlink;
  * @author jon01
  */
 public class LoginController implements Initializable {
+
     /**
      * Initializes the controller class.
      */
-    
+
     @FXML
-    private Button button; 
+    private Button button;
     @FXML
     private TextField email;
     @FXML
@@ -44,29 +45,36 @@ public class LoginController implements Initializable {
     private Label updateLabel2;
     @FXML
     private Hyperlink createAccount;
+
     /**
      * sends user to start menu
+     *
      * @param e on click of "back" button sends user to start
      * @throws IOException
      */
-    public void sendToStart(ActionEvent e) throws IOException{
+    public void sendToStart(ActionEvent e) throws IOException {
         Main.setRoot("StartMenu");
     }
-    
-    public void sendToAccountCreation (ActionEvent e) throws IOException{
+
+    public void sendToAccountCreation(ActionEvent e) throws IOException {
         Main.setRoot("accountCreation");
     }
-    
+
     /**
      * Will log a user into their account given correct email and password
+     *
      * @param e button click of "Login" button runs method
-     * @throws IOException 
+     * @throws IOException
      */
-    public void userLogin(ActionEvent e)throws IOException {
-        if(checkLogin(email.getText(),password.getText())){
+    public void userLogin(ActionEvent e) throws IOException {
+        if (checkLogin(email.getText(), password.getText())) {
             System.out.println("login success");
             System.out.println(ReservationHandler.resHandler.user.toStringCsv());
-            Main.setRoot("StartMenu");
+            if (ReservationHandler.resHandler.user.isAdmin == false) {
+                Main.setRoot("StartMenu");
+            } else {
+                Main.setRoot("ManagerView");
+            }
             updateLabel.setText("You have Successfully Logged in.");
             updateLabel2.setText("Please click \"back\" to return to home.");
             //System.out.println(ReservationHandler.resHandler.user.customerName);
@@ -83,73 +91,76 @@ public class LoginController implements Initializable {
             updateLabel.setText("Wrong Email or Password");
             updateLabel2.setText("");
         }
-        
+
     }
-    
+
     /**
-     * checks to see if email and password entered in text fields matches a user profile
-     * @throws IOException 
-     * @return 
+     * checks to see if email and password entered in text fields matches a user
+     * profile
+     *
+     * @throws IOException
+     * @return
      */
-    private Boolean checkLogin (String email,String pass) throws IOException {
+    private Boolean checkLogin(String email, String pass) throws IOException {
         String[] lineData;
         Customer user;
         String temp;
         ArrayList<String> customerList = new ArrayList<String>();
         ArrayList<String> reservationIDs = new ArrayList<String>();
         customerList = readFile("src/hotel/prototype/Customers.txt");
-        
-        for(String s: customerList){
-            lineData=s.split(",");
-            
-            if(lineData[2].equals(email)&& lineData[3].equals(pass)){
-                for(int i = 10; i < lineData.length;i++){
+
+        for (String s : customerList) {
+            lineData = s.split(",");
+
+            if (lineData[2].equals(email) && lineData[3].equals(pass)) {
+                for (int i = 10; i < lineData.length; i++) {
                     temp = lineData[i];
                     reservationIDs.add(temp);
                 }
                 user = new Customer();
-                
+
                 user.setIsAdmin(FileController.booleanParser(lineData[0]));
                 user.setCustomerName(lineData[1]);
                 user.setCustomerEmail(email);
                 user.setCustomerPass(pass);
                 user.customerAddress = lineData[4];
                 user.customerZip = integerParser(lineData[5]);
-                for(int x = 0; x < lineData[6].length();x++){
+                for (int x = 0; x < lineData[6].length(); x++) {
                     user.cardNum[x] = integerParser(lineData[6].charAt(x));
                 }
                 user.expiry = lineData[7];
                 user.cvv = integerParser(lineData[8]);
-                for(int x = 0; x < lineData[9].length();x++){
+                for (int x = 0; x < lineData[9].length(); x++) {
                     user.phoneNum[x] = integerParser(lineData[9].charAt(x));
                 }
                 user.setReservationIDs(reservationIDs);
-                
+
                 ReservationHandler.resHandler.setUser(user);
-                
+
                 customerList.clear();
                 reservationIDs.clear();
                 lineData = null;
-                
+
                 return true;
             }
         }
-        
+
         customerList.clear();
         reservationIDs.clear();
-        lineData=null;
-        
+        lineData = null;
+
         return false;
     }
-    
+
     /**
      * initial start up code for this scene. Does nothing
+     *
      * @param url
-     * @param rb 
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }
