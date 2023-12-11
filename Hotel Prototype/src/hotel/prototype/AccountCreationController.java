@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
  * @author Jonathan
  */
 public class AccountCreationController implements Initializable {
+
     @FXML
     public TextField fname;
     @FXML
@@ -92,8 +93,8 @@ public class AccountCreationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         setChecksBlank();
     }
-    
-    private void setChecksBlank(){
+
+    private void setChecksBlank() {
         fnameCheck.setText("");
         lnameCheck.setText("");
         emailCheck.setText("");
@@ -106,7 +107,7 @@ public class AccountCreationController implements Initializable {
         expiryCheck.setText("");
         cvvCheck.setText("");
     }
-    
+
     public void toStart(ActionEvent e) throws IOException {
         Main.setRoot("StartMenu");
     }
@@ -124,11 +125,11 @@ public class AccountCreationController implements Initializable {
         cardNumData = cardNum.getText();
         expiryData = expiry.getText();
         cvvData = cvv.getText();
-        
+
         boolean flag = true;
-        
+
         setChecksBlank();
-        
+
         //if empty
         if (fnameData.trim().equals("")) {
             fnameCheck.setText("Invalid: please enter a name");
@@ -174,23 +175,23 @@ public class AccountCreationController implements Initializable {
             cvvCheck.setText("Invalid: please enter a cvv");
             flag = false;
         }
-        
+
         //if invalid for some reason
         if (fnameData.contains(",")) {
             fnameCheck.setText("Invalid: Contains \",\"");
             flag = false;
         }
-        
+
         if (lnameData.contains(",")) {
             lnameCheck.setText("Invalid: Contains \",\"");
             flag = false;
         }
-        
+
         if (emailData.contains(",")) {
             emailCheck.setText("Invalid: Contains \",\"");
             flag = false;
         }
-        
+
         if (!emailData.contains("@email") && !emailData.contains("@gmail") && !emailData.contains("@hotmail")) {
             emailCheck.setText("Invalid email");
             flag = false;
@@ -231,7 +232,7 @@ public class AccountCreationController implements Initializable {
             cardNumCheck.setText("Invalid Card Number");
             flag = false;
         }
-        if(cvvData.contains(",")){
+        if (cvvData.contains(",")) {
             cvvCheck.setText("Invalid: Contains \",\"");
             flag = false;
         }
@@ -239,24 +240,24 @@ public class AccountCreationController implements Initializable {
             cvvCheck.setText("Invalid cvv");
             flag = false;
         }
-        
-        if(flag){
-            fullNameData = fnameData.trim() + " " + lnameData.trim();
+
+        if (flag) {
+            fullNameData = fnameData.trim() + "-" + lnameData.trim();
             customer.customerName = fullNameData;
             customer.customerEmail = emailData;
-            customer.customerAddress = addressData;
+            customer.customerAddress = addressData.replace(" ", "-");
             customer.customerPassword = passwordData;
             customer.customerZip = integerParser(zipData);
             customer.expiry = expiryData;
             customer.cvv = integerParser(cvvData);
             customer.isAdmin = false;
-            for(int i = 0; i < phoneNumData.length() ; i++){
+            for (int i = 0; i < phoneNumData.length(); i++) {
                 customer.phoneNum[i] = integerParser(phoneNumData.charAt(i));
             }
-            for(int i = 0; i < cardNumData.length() ; i++){
+            for (int i = 0; i < cardNumData.length(); i++) {
                 customer.cardNum[i] = integerParser(cardNumData.charAt(i));
             }
-            appendFile("src/hotel/prototype/Customers.txt",customer.toStringCsv());
+            appendFile("src/hotel/prototype/Customers.txt", customer.toStringCsv());
             ReservationHandler.resHandler.user = customer;
             Main.setRoot("StartMenu");
         }

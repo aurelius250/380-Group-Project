@@ -117,12 +117,11 @@ public class FileController {
                 checkOut = dateParser(dataArr[2]);
 
                 //reservationList.add(new Reservation(reservationID,
-                        //checkIn,
-                        //checkOut,
-                        //new Room()/*integerParser(dataArr[4]))*/,
-                        //new Customer()
+                //checkIn,
+                //checkOut,
+                //new Room()/*integerParser(dataArr[4]))*/,
+                //new Customer()
                 //));
-
             }
 
             br.close();
@@ -229,11 +228,13 @@ public class FileController {
                 System.out.println("Current Line: " + currentLine);
                 currentLine = currentLine.trim();
                 if (currentLine.equals(targetLine.trim())) {
-                    currentLine += appendString; 
+                    currentLine += appendString;
                     found = true;
                 }
                 bw.write(currentLine);
-                bw.newLine(); 
+                if (br.ready()) {
+                    bw.newLine();
+                }
             }
 
             br.close();
@@ -267,7 +268,7 @@ public class FileController {
             return 0;
         }
     }
-    
+
     public static int integerParser(char charData) {
         try {
             return Character.getNumericValue(charData);
