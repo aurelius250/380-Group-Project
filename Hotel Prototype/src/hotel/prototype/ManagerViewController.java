@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -35,6 +36,9 @@ public class ManagerViewController implements Initializable {
     public TableColumn<Reservation, LocalDate> colCheckIn;
     public TableColumn<Reservation, LocalDate> colCheckOut;
     public TableColumn<Reservation, Integer> colRoom;
+    
+    public Label revenueLabel;
+    public Label roomsLabel;
 
     /**
      * Initializes the controller class.
@@ -51,6 +55,7 @@ public class ManagerViewController implements Initializable {
             ReservationHandler.resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
         }
         loadTableData();
+        setLabels();
     }
     
     public void back(ActionEvent e) throws IOException{
@@ -71,5 +76,21 @@ public class ManagerViewController implements Initializable {
                 ReservationHandler.resHandler.reservationList);
 
         tableView.setItems(observableList);
+    }
+    
+    private void setLabels(){
+        int revenue = 0;
+        int roomsRented = 0;
+        String temp;
+        for(Reservation r: ReservationHandler.resHandler.reservationList){
+            revenue += r.getCost();
+            roomsRented++;
+        }
+       
+        temp = Integer.toString(revenue);
+        revenueLabel.setText(temp);
+        temp = Integer.toString(roomsRented);
+        roomsLabel.setText(temp);
+        
     }
 }
