@@ -17,14 +17,14 @@
 
 <AnchorPane id="AnchorPane" prefHeight="898.0" prefWidth="1203.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.prototype.ManagerViewController">
    <children>
-      <Pane layoutX="2.0" prefHeight="900.0" prefWidth="1200.0">
+      <Pane layoutX="2.0" prefHeight="900.0" prefWidth="1440.0">
          <children>
             <ImageView fitHeight="900.0" fitWidth="615.0" layoutX="-8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/jason-leung-Gm80iG3v2B0-unsplash.jpg" />
                </image>
             </ImageView>
-            <TableView fx:id="tableView" layoutX="646.0" layoutY="323.0" prefHeight="349.0" prefWidth="528.0">
+            <TableView fx:id="tableView" layoutX="761.0" layoutY="358.0" prefHeight="349.0" prefWidth="528.0">
               <columns>
                 <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="colCost" prefWidth="75.0" text="Cost" />
@@ -35,7 +35,7 @@
                   <TableColumn fx:id="colRoom" prefWidth="75.0" text="Room" />
               </columns>
             </TableView>
-            <GridPane layoutX="763.0" layoutY="195.0" prefHeight="97.0" prefWidth="339.0" style="-fx-background-color: white;">
+            <GridPane layoutX="855.0" layoutY="199.0" prefHeight="97.0" prefWidth="339.0" style="-fx-background-color: white;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.0" minWidth="10.0" prefWidth="73.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="59.0" />
@@ -67,12 +67,12 @@
                   </Label>
                </children>
             </GridPane>
-            <Button layoutX="1024.0" layoutY="770.0" mnemonicParsing="false" onAction="#back" prefHeight="57.0" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black;" text="Back">
+            <Button layoutX="1139.0" layoutY="781.0" mnemonicParsing="false" onAction="#back" prefHeight="57.0" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black;" text="Back">
                <font>
                   <Font size="19.0" />
                </font>
             </Button>
-            <Text layoutX="695.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager View" wrappingWidth="429.08203125">
+            <Text layoutX="809.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager View" wrappingWidth="429.08203125">
                <font>
                   <Font name="Roboto Mono Light for Powerline" size="58.0" />
                </font>
