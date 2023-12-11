@@ -72,9 +72,16 @@ public class RoomSearchController implements Initializable {
      * @throws IOException 
      */
     public void reserveSelectedRoom(ActionEvent e) throws IOException{
-        Reservation reservation = new Reservation();
-        reservation.setRoom(tableView.getSelectionModel().getSelectedItem());
-        CreateReservationController.reservation = reservation;
+        //Reservation reservation = new Reservation();
+        //reservation.setRoom(tableView.getSelectionModel().getSelectedItem());
+        //CreateReservationController.reservation = reservation;
+        ReservationHandler resHandler = ReservationHandler.resHandler;
+        Room room = tableView.getSelectionModel().getSelectedItem();
+        Customer user = resHandler.user;
+        resHandler.currentRes = new Reservation();
+        resHandler.currentRes.setRoom(room);
+        resHandler.currentRes.setCustomer(user);
+        
         Main.setRoot("CreateReservation");
     }
     

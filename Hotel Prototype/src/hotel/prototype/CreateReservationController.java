@@ -66,6 +66,11 @@ public class CreateReservationController implements Initializable {
     /**
      *  Field for entering customer name
      */
+    
+    public Label nameText;
+    
+    public Label emailText;
+    
     public TextField nameField;
 
     /**
@@ -83,6 +88,7 @@ public class CreateReservationController implements Initializable {
     
     private LocalDate checkIn, checkOut;
     private String customerName, customerEmail;
+    private ReservationHandler resHandler;
     
     /**
      * Method for sending a user back to the RoomSearch scene
@@ -100,8 +106,8 @@ public class CreateReservationController implements Initializable {
      * @throws IOException 
      */
     public void createReservation(ActionEvent e) throws IOException{
-        customerName = nameField.getText();
-        customerEmail = emailField.getText(); 
+        //customerName = nameField.getText();
+        //customerEmail = emailField.getText(); 
         checkIn = checkInDatePicker.getValue();
         checkOut = checkOutDatePicker.getValue();
         
@@ -111,14 +117,21 @@ public class CreateReservationController implements Initializable {
                     + " the check out date.";
             displayAlert(header, content);
         }
-        else if(checkEmptyFields()){
+        /*else if(checkEmptyFields()){
             String header = "Empty Fields";
             String content = "Please make sure data is entered for all fields.";
             displayAlert(header, content);
-        }
+        }*/
         else{
-            setReservationData();
-            ReviewPurchaseController.reservation = reservation;
+            setReservationDates();
+            resHandler.currentRes.addReservation();
+            resHandler.addReservationToList(resHandler.currentRes);
+            findAndAdd(
+                    "src/hotel/prototype/Customers.txt",
+                    "," + resHandler.currentRes.ID,
+                    resHandler.user.toStringCsv()
+            );
+            //ReviewPurchaseController.reservation = reservation;
             Main.setRoot("ReviewPurchase");
         }  
     }
@@ -131,7 +144,8 @@ public class CreateReservationController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        displayReservationDetails(reservation);
+        resHandler = ReservationHandler.resHandler;
+        displayReservationDetails(resHandler.currentRes);
         disablePastDates(checkInDatePicker);
         disablePastDates(checkOutDatePicker);
     }    
@@ -149,6 +163,8 @@ public class CreateReservationController implements Initializable {
         bedTypeText.setText(String.valueOf(r.getBedType()));
         descText.setText(r.getDescription());
         reservationIDText.setText(r.getID());
+        nameText.setText(r.getCustomerName());
+        emailText.setText(r.getCustomerEmail());
     }
     
     /**
@@ -191,6 +207,11 @@ public class CreateReservationController implements Initializable {
            customer.expiry = ReservationHandler.resHandler.user.expiry;
         }
         ReservationHandler.resHandler.addReservationToList(reservation);
+    }
+    
+    private void setReservationDates(){
+        resHandler.currentRes.setCheckIn(checkIn);
+        resHandler.currentRes.setCheckOut(checkOut);
     }
     
     private boolean checkDateRange(LocalDate from, LocalDate to){
