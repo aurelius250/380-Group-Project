@@ -111,6 +111,17 @@ public class ReviewReservationController implements Initializable {
         reservationIDText.setText(r.getID());
     }
     
+    private void setTextBlank(){
+        roomNumText.setText("");
+        smokingText.setText("");
+        numBedsText.setText("");
+        numPeopleText.setText("");
+        sizeText.setText("");
+        bedTypeText.setText("");
+        descText.setText("");
+        reservationIDText.setText("");
+    }
+    
     /**
      * Displays customer reservations as lines on a table view to then be selected
      */
@@ -143,6 +154,7 @@ public class ReviewReservationController implements Initializable {
       */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       setTextBlank();
        ReservationHandler.resHandler.roomList.clear();
        ReservationHandler.resHandler.reservationList.clear();
        if(ReservationHandler.resHandler.isRoomsEmpty()){
@@ -154,7 +166,6 @@ public class ReviewReservationController implements Initializable {
        }
        if(resHandler.user != null)
        ReservationHandler.resHandler.SetToUserReservations();
-       
         //ReservationHandler.resHandler.fillRoomList(readFile("src/hotel/prototype/Rooms.txt"));
         //ReservationHandler.resHandler.fillReservationList(readFile("src/hotel/prototype/Reservations.txt"));
         loadTableData();
