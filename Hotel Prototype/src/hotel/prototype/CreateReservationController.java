@@ -124,14 +124,14 @@ public class CreateReservationController implements Initializable {
         }*/
         else{
             setReservationDates();
-            resHandler.currentRes.addReservation();
-            resHandler.addReservationToList(resHandler.currentRes);
             findAndAdd(
                     "src/hotel/prototype/Customers.txt",
                     "," + resHandler.currentRes.ID,
                     resHandler.user.toStringCsv()
             );
             resHandler.user.reservationIDs.add(resHandler.currentRes.getID());
+            resHandler.currentRes.addReservation();
+            resHandler.addReservationToList(resHandler.currentRes);
             //ReviewPurchaseController.reservation = reservation;
             Main.setRoot("ReviewPurchase");
         }  
