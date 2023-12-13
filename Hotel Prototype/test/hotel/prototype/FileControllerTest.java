@@ -14,9 +14,16 @@ import java.util.ArrayList;
  */
 public class FileControllerTest {
     
+    /**
+     *
+     */
     public FileControllerTest() {
     }
     
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         testToAddToLine();
     }
@@ -48,10 +55,16 @@ public class FileControllerTest {
         System.out.println("Actual: " + test);    
     }
     
+    /**
+     *
+     */
     public static void testReplaceLine(){
         replaceLine("src/hotel/prototype/Customers.txt","false,Jonathan,email@email.com,password,Success","false,Jonathan,email@email.com,password,");
     }
     
+    /**
+     *
+     */
     public static void testToAddToLine(){
         
         findAndAdd("src/hotel/prototype/Customers.txt",",success","false,Tester-Testing,test@email.com,test,not-regex-hotel,99999,9999999999999999,09/09,999,8888888888,");

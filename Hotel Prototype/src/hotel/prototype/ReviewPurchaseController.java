@@ -22,16 +22,40 @@ public class ReviewPurchaseController implements Initializable {
 
     private Stage primaryStage; 
     
+    /**
+     * Reservation for review
+     */
     public static Reservation reservation;
     
+    /**
+     * Label to display reservation id
+     */
     public Label resIDText;
+
+    /**
+     * Label to display customer name
+     */
     public Label nameText;
+
+    /**
+     * Label to display customer email
+     */
     public Label emailText;
+
+    /**
+     * Label to display reservation checkIn date
+     */
     public Label checkInText;
+
+    /**
+     * Label to display reservation checkOut date
+     */
     public Label checkOutText;
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -40,20 +64,30 @@ public class ReviewPurchaseController implements Initializable {
         Reservation currentRes = ReservationHandler.resHandler.currentRes;
         displayReservationDetails(currentRes);
     }    
-    
+    /**
+     * Method for setting the stage
+     * @param stage Stage to be set to
+     */
     private void setPrimaryStage(Stage stage) { 
         this.primaryStage = stage; 
     }
   
-    public void start(Stage stage) { 
+
         
-    }
-        
+    /**
+     * Method for sending user to startMenu
+     * @throws IOException
+     */
     public void returnStart() throws IOException{
         Main.setRoot("StartMenu");
     }
     
     // Still working on this entire class 
+
+    /**
+     * Method for displaying reservation confirmation message
+     * @param stage
+     */
     public void displayGreeting(Stage stage) { 
         Text text = new Text();
         String greeting = "Reservation successfully confirmed.";
@@ -63,7 +97,10 @@ public class ReviewPurchaseController implements Initializable {
 //        stage.setScene(scene);
 //        stage.show();
     }
-    
+    /**
+     * method for displaying reservation info to screen
+     * @param reservation 
+     */
     private void displayReservationDetails(Reservation reservation){
         resIDText.setText(reservation.getID());
         nameText.setText(reservation.getCustomerName());

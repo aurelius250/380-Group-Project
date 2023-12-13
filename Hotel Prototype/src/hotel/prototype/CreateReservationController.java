@@ -64,13 +64,18 @@ public class CreateReservationController implements Initializable {
     public Label descText;
 
     /**
-     *  Field for entering customer name
+     * Label to display customer name
      */
-    
     public Label nameText;
     
+    /**
+     * Label to display customer email
+     */
     public Label emailText;
     
+    /**
+     * TextField for entering customer name
+     */
     public TextField nameField;
 
     /**
@@ -211,11 +216,20 @@ public class CreateReservationController implements Initializable {
         ReservationHandler.resHandler.addReservationToList(reservation);
     }
     
+    /**
+     * sets currentRes in resHandler checkIn and checkOut dates
+     */
     private void setReservationDates(){
         resHandler.currentRes.setCheckIn(checkIn);
         resHandler.currentRes.setCheckOut(checkOut);
     }
     
+    /**
+     * Checks to see if from date is before to date
+     * @param from start date
+     * @param to end date
+     * @return true if from is before to, false otherwise
+     */
     private boolean checkDateRange(LocalDate from, LocalDate to){
         if(from == null || to == null){
             return false;
@@ -225,6 +239,10 @@ public class CreateReservationController implements Initializable {
         }
     }
     
+    /**
+     * checks to see if TextFields are empty or not
+     * @return true if there is an empty TextField, false otherwise
+     */
     private boolean checkEmptyFields(){
         TextField[] fields = {nameField,emailField};
         //LocalDate[] dates = {checkIn,checkOut};
@@ -243,7 +261,11 @@ public class CreateReservationController implements Initializable {
         
         return false;
     }
-    
+    /**
+     * changes labels to inform user of invalid input
+     * @param header specific error
+     * @param content solution to error
+     */
     private void displayAlert(String header, String content){
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Invalid Input");

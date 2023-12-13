@@ -26,22 +26,61 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class ManagerViewController implements Initializable {
 
+    /**
+     * TableView to see all reservations in system
+     */
     @FXML
     public TableView<Reservation> tableView;
 
+    /**
+     * TableColumn for reservation IDs
+     */
     public TableColumn<Reservation, String> colID;
+
+    /**
+     * TableColumn for reservation cost
+     */
     public TableColumn<Reservation, Integer> colCost;
+
+    /**
+     * TableColumn for reservation customer name
+     */
     public TableColumn<Reservation, String> colName;
+
+    /**
+     * TableColumn for reservation customer phone
+     */
     public TableColumn<Reservation, Integer[]> colPhone;
+
+    /**
+     * TableColumn for reservation checkIn date
+     */
     public TableColumn<Reservation, LocalDate> colCheckIn;
+
+    /**
+     * TableColumn for reservation checkOut date
+     */
     public TableColumn<Reservation, LocalDate> colCheckOut;
+
+    /**
+     * TableColumn for reservation room number
+     */
     public TableColumn<Reservation, Integer> colRoom;
     
+    /**
+     * Label displaying current revenue
+     */
     public Label revenueLabel;
+
+    /**
+     * Label displaying rooms purchased
+     */
     public Label roomsLabel;
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,11 +97,18 @@ public class ManagerViewController implements Initializable {
         setLabels();
     }
     
+    /**
+     * Sends user back to the start menu, also logs user out of admin account
+     * @param e button press of "back" button
+     * @throws IOException
+     */
     public void back(ActionEvent e) throws IOException{
         ReservationHandler.resHandler.user = null;
         Main.setRoot("StartMenu");
     }
-
+    /**
+     * Loads data into the TableView
+     */
     private void loadTableData() {
         colID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         colCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
@@ -77,7 +123,9 @@ public class ManagerViewController implements Initializable {
 
         tableView.setItems(observableList);
     }
-    
+    /**
+     * Sets revenue and rooms labels to appropriate values
+     */
     private void setLabels(){
         int revenue = 0;
         int roomsRented = 0;

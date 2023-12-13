@@ -62,6 +62,9 @@ public class RoomSearchController implements Initializable {
      */
     public TableColumn<Room,String> colDesc;
     
+    /**
+     * Column displaying the cost of the room
+     */
     public TableColumn<Room,Integer> colCost;
     
     

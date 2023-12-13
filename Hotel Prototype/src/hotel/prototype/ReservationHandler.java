@@ -19,8 +19,14 @@ import javafx.beans.property.SimpleIntegerProperty;
  */
 public class ReservationHandler {
 
+    /**
+     * Variable to show who the current user is 
+     */
     protected Customer user;
     
+    /**
+     * Current reservation be manipulated
+     */
     protected Reservation currentRes;
 
     /**
@@ -33,6 +39,9 @@ public class ReservationHandler {
      */
     protected ArrayList<Room> roomList;
 
+    /**
+     * ReservationHnadler singleton
+     */
     public static ReservationHandler resHandler = new ReservationHandler();
 
     /**
@@ -44,13 +53,6 @@ public class ReservationHandler {
         user = null;
     }
 
-    /**
-     * Fills reservationList array with reservations from a given ArrayList of
-     * strings
-     *
-     * @param reservationLineData ArrayList of lines gained from text file as
-     * strings
-     */
 //    public void fillReservationList(ArrayList<String> reservationLineData) {
 //        String ID;
 //        LocalDate checkIn, checkOut;
@@ -108,6 +110,9 @@ public class ReservationHandler {
         }
     }
 
+    /**
+     * Sets the reservationList to only contain the current user's reservations
+     */
     public void SetToUserReservations() {
         ArrayList<Reservation> temp = new ArrayList<Reservation>();
         for (int i = 0; i < reservationList.size(); i++) {
@@ -189,6 +194,11 @@ public class ReservationHandler {
         return null;
     }
 
+    /**
+     * Searches the reservationList for a reservation based on id
+     * @param id id of reservation to search for
+     * @return The found reservation or null
+     */
     public Reservation findReservation(String id) {
         if (reservationList == null) {
             return null;
@@ -203,10 +213,18 @@ public class ReservationHandler {
         return null;
     }
 
+    /**
+     * Getter method for getting the current user
+     * @return The current user as a Customer
+     */
     public Customer getUser() {
         return user;
     }
 
+    /**
+     * Setter method for setting the user variable
+     * @param user 
+     */
     public void setUser(Customer user) {
         this.user = user;
     }

@@ -56,6 +56,11 @@ public class LoginController implements Initializable {
         Main.setRoot("StartMenu");
     }
 
+    /**
+     * Sends user to accountCreation screen
+     * @param e Button press of createAccount HyperLink
+     * @throws IOException
+     */
     public void sendToAccountCreation(ActionEvent e) throws IOException {
         Main.setRoot("accountCreation");
     }

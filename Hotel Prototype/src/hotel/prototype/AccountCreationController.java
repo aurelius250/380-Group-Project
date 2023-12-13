@@ -24,52 +24,147 @@ import javafx.scene.control.TextField;
  */
 public class AccountCreationController implements Initializable {
 
+    /**
+     *  TextField for getting customer's first name
+     */
     @FXML
     public TextField fname;
+
+    /**
+     *  TextField for getting customer's last name
+     */
     @FXML
     public TextField lname;
+
+    /**
+     * TextField for getting customer's email
+     */
     @FXML
     public TextField email;
+
+    /**
+     *  TextField for getting customer's phone number
+     */
     @FXML
     public TextField phoneNum;
+
+    /**
+     * PasswordField for getting customer's password
+     */
     @FXML
     public PasswordField password;
+
+    /**
+     * PasswordField for getting customer's password
+     */
     @FXML
     public PasswordField repassword;
+
+    /**
+     *  TextField for getting customer's address
+     */
     @FXML
     public TextField address;
+
+    /**
+     * TextField for getting customer's zip code
+     */
     @FXML
     public TextField zip;
+
+    /**
+     * TextField for getting customer's 16 digit card number
+     */
     @FXML
     public TextField cardNum;
+
+    /**
+     * TextField for getting customer's card expiry date
+     */
     @FXML
     public TextField expiry;
+
+    /**
+     * TextField for getting customer's cvv number from their card
+     */
     @FXML
     public TextField cvv;
+
+    /**
+     * Button for confirmation ActionEvent
+     */
     @FXML
     public Button confirmation;
+
+    /**
+     * Button for toStart ActionEvent
+     */
     @FXML
     public Button back;
+
+    /**
+     * Label for informing user of invalid input for first name
+     */
     @FXML
     public Label fnameCheck;
+
+    /**
+     * Label for informing user of invalid input for last name
+     */
     @FXML
     public Label lnameCheck;
+
+    /**
+     * Label for informing user of invalid input for email
+     */
     @FXML
     public Label emailCheck;
+
+    /**
+     * Label for informing user of invalid input for phone number
+     */
     @FXML
     public Label phoneNumCheck;
+
+    /**
+     * Label for informing user of invalid input for password
+     */
     @FXML
     public Label passwordCheck;
+
+    /**
+     * Label for informing user of invalid input for repassword
+     */
     @FXML
     public Label repasswordCheck;
+
+    /**
+     * Label for informing user of invalid input for address
+     */
     @FXML
     public Label addressCheck;
+
+    /**
+     * Label for informing user of invalid input for zip code
+     */
     @FXML
     public Label zipCheck;
+
+    /**
+     * Label for informing user of invalid input for 16 digit card number
+     */
     @FXML
     public Label cardNumCheck;
+
+    /**
+     * Label for informing user of invalid input for card expiry date
+     */
     @FXML
     public Label expiryCheck;
+
+    /**
+     * Label for informing user of invalid input for cvv number from card
+     */
     @FXML
     public Label cvvCheck;
 
@@ -88,12 +183,16 @@ public class AccountCreationController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setChecksBlank();
     }
-
+    /**
+     * Sets labels on screen to blank
+     */
     private void setChecksBlank() {
         fnameCheck.setText("");
         lnameCheck.setText("");
@@ -108,10 +207,20 @@ public class AccountCreationController implements Initializable {
         cvvCheck.setText("");
     }
 
+    /**
+     * Sends user to StartMenu screen
+     * @param e Button press of "back" button
+     * @throws IOException
+     */
     public void toStart(ActionEvent e) throws IOException {
         Main.setRoot("StartMenu");
     }
 
+    /**
+     * Checks user inputs and if they are valid makes a new customer account
+     * @param e Button press of "Confirm" button
+     * @throws IOException
+     */
     public void confirmation(ActionEvent e) throws IOException {
         Customer customer = new Customer();
         fnameData = fname.getText();

@@ -22,6 +22,11 @@ public class Main extends Application {
     private static Scene scene;
     private static Scene reviewPurchaseScene;
     
+    /**
+     * Method for starting program scenes
+     * @param stage 
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("StartMenu"));
@@ -39,6 +44,11 @@ public class Main extends Application {
         scene.setRoot(loadFXML(fxml));
     }
 
+    /**
+     * changes scene to reviewPurchase screen
+     * @param stage
+     * @throws IOException
+     */
     public void switchToReviewScreen(Stage stage) throws IOException {
         if (reviewPurchaseScene == null) {
             reviewPurchaseScene = new Scene(loadFXML("ReviewPurchase"));
@@ -52,6 +62,10 @@ public class Main extends Application {
         return fxmlLoader.load();
     }
     
+    /**
+     * Program's Main method
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
 }

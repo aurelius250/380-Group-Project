@@ -8,6 +8,9 @@ import java.util.ArrayList;
  */
 public class Customer {
     
+    /**
+     * Variable for determining if the given account is an admin account or not
+     */
     protected boolean isAdmin;
 
     /**
@@ -30,11 +33,34 @@ public class Customer {
      */
     protected ArrayList<String> reservationIDs; 
     
+    /**
+     * Address associated with the customer
+     */
     protected String customerAddress;
+
+    /**
+     * Zip code associated with the customer
+     */
     protected int customerZip;
+
+    /**
+     * 16 digit card number associated with the customer
+     */
     protected int[] cardNum;
+
+    /**
+     * Card expiry date associated with the customer
+     */
     protected String expiry;
+
+    /**
+     * Phone number associated with the customer
+     */
     protected int[] phoneNum;
+
+    /**
+     * Card cvv number associated with the customer
+     */
     protected int cvv;
     
     /**
@@ -50,6 +76,10 @@ public class Customer {
         return sb.toString();
     }
     
+    /**
+     * Converts customer data into a usable CSV string for storage
+     * @return String of customer data
+     */
     public String toStringCsv(){
         String s = "\n" + Boolean.toString(isAdmin) + "," + 
                customerName + "," + customerEmail + "," + customerPassword + "," + customerAddress + "," + customerZip + ",";
@@ -86,10 +116,17 @@ public class Customer {
 
     /**
       * Parameterized constructor
-      * @param customerName
-      * @param customerEmail
-      * @param reservationIDs integer list of reservation ids associated with customer
-      * @param isAdmin
+      * @param customerName Name of the customer
+      * @param customerEmail Customer's email
+     * @param customerPassword Customer's password
+      * @param reservationIDs Integer list of reservation ids associated with customer
+      * @param isAdmin Boolean for admin access
+     * @param customerAddress Customer's address
+     * @param customerZip Customer's zip code
+     * @param expiry Customer's card expiry date
+     * @param cardNum Customer's 16 digit card number
+     * @param phoneNum Customer's phone number
+     * @param cvv Card cvv number
       */
     protected Customer(String customerName, String customerEmail,String customerPassword,
             ArrayList<String> reservationIDs,boolean isAdmin, String customerAddress,
@@ -170,10 +207,18 @@ public class Customer {
         this.reservationIDs.addAll(reservationIDs);
     }
     
+    /**
+     * Setter method for setting isAdmin variable
+     * @param isAdmin
+     */
     protected void setIsAdmin (boolean isAdmin){
         this.isAdmin = isAdmin;
     }
     
+    /**
+     * Getter method for getting customer's phone number
+     * @return
+     */
     protected int[] getPhoneNum (){
         return phoneNum;
     }

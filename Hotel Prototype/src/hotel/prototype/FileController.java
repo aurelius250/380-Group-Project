@@ -213,6 +213,12 @@ public class FileController {
         }
     }
 
+    /**
+     * Method for appending data to a specific line in a text file
+     * @param fileName Name of the text file
+     * @param appendString Data to be added
+     * @param targetLine Line to add to
+     */
     public static void findAndAdd(String fileName, String appendString, String targetLine) {
         try {
             File file = new File(fileName);
@@ -269,6 +275,11 @@ public class FileController {
         }
     }
 
+    /**
+     * Method for converting char data to integer data
+     * @param charData The char to be converted to an integer
+     * @return The integer value of the converted char
+     */
     public static int integerParser(char charData) {
         try {
             return Character.getNumericValue(charData);

@@ -45,6 +45,9 @@ public class Room {
      */
     public char bedType;
     
+    /**
+     * Cost of the room
+     */
     public SimpleIntegerProperty cost;
 
     /**
@@ -69,6 +72,7 @@ public class Room {
      * @param sqftSize The size of the room in square footage
      * @param bedType The size of the beds (king,queen,twin)
      * @param description A general description of the room
+     * @param cost cost of the room
      */
     public Room(int roomNum, boolean smoking, int numBeds, int numPeople, int sqftSize, char bedType, String description,int cost) {
         this.roomNum = new SimpleIntegerProperty(roomNum);
@@ -156,6 +160,10 @@ public class Room {
         return description.get();
     }
     
+    /**
+     * Getter method for getting the cost of the room
+     * @return SimpleIntegerProperty of room cost
+     */
     public Integer getCost(){
         return cost.get();
     }

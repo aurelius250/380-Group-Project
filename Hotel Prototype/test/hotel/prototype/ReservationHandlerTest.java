@@ -19,25 +19,44 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class ReservationHandlerTest {
     
+    /**
+     *
+     */
     public ReservationHandlerTest() {
     }
     
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         testFillRoomList();
     }
     
+    /**
+     *
+     */
     @BeforeAll
     public static void setUpClass() {
     }
     
+    /**
+     *
+     */
     @AfterAll
     public static void tearDownClass() {
     }
     
+    /**
+     *
+     */
     @BeforeEach
     public void setUp() {
     }
     
+    /**
+     *
+     */
     @AfterEach
     public void tearDown() {
     }

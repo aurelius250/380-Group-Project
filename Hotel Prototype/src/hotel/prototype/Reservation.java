@@ -138,53 +138,118 @@ public final class Reservation {
         return checkOut.toString();
     }
 
+    /**
+     * Getter for getting the customer name associated with this reservation
+     *
+     * @return String of customer's name
+     */
     public String getCustomerName() {
         return customer.getCustomerName().replace("-", " ");
     }
 
+    /**
+     * Getter for getting the customer email associated with this reservation
+     *
+     * @return String of the customer's email
+     */
     public String getCustomerEmail() {
         return customer.getCustomerEmail();
     }
 
+    /**
+     * Getter for getting the room number associated with this reservation
+     *
+     * @return SimpleIntegerProperty of the room number
+     */
     public Integer getRoomNum() {
         return room.getRoomNum();
     }
 
+    /**
+     * Getter for getting the smoking availability in the room associated with
+     * this reservation
+     *
+     * @return Boolean value representing smoking availability
+     */
     public Boolean getSmoking() {
         return room.getSmoking();
     }
 
+    /**
+     * Getter for getting the number of beds in the room associated with this
+     * reservation
+     *
+     * @return SimpleIntegerProperty of the number of beds
+     */
     public Integer getNumBeds() {
         return room.getNumBeds();
     }
 
+    /**
+     * Getter for getting the number of people allowed in the room associated
+     * with this reservation
+     *
+     * @return SimpleIntegerProperty of the number of people
+     */
     public Integer getNumPeople() {
         return room.getNumPeople();
     }
 
+    /**
+     * Getter for getting the size of the room associated with this reservation
+     *
+     * @return SimpleIntegerProperty of the room size
+     */
     public Integer getSqftSize() {
         return room.getSqftSize();
     }
 
+    /**
+     * Getter for getting the type of bed in the room associated with this
+     * reservation
+     *
+     * @return char representing bed type
+     */
     public char getBedType() {
         return room.getBedType();
     }
 
+    /**
+     * Getter for getting the room description for this reservation
+     *
+     * @return String description of the room
+     */
     public String getDescription() {
         return room.getDescription();
     }
-    
-    public int getCost(){
+
+    /**
+     * Getter for getting the room cost for this reservation
+     *
+     * @return integer value of the room cost in dollars
+     */
+    public int getCost() {
         return room.getCost();
     }
-    
-    public int[] getPhoneNum (){
+
+    /**
+     * Getter for getting the phone number of the customer associated with this
+     * reservation
+     *
+     * @return integer array of the phone number
+     */
+    public int[] getPhoneNum() {
         return customer.phoneNum;
     }
-    
-    public String getPhoneNumString(){
+
+    /**
+     * Getter for getting the customer's phone number
+     *
+     * @return String of phone number
+     */
+    public String getPhoneNumString() {
         String s = "";
-        for(int i : customer.getPhoneNum()){
+        for (int i : customer.getPhoneNum()) {
             s += i;
         }
         return s;
@@ -231,11 +296,12 @@ public final class Reservation {
         row += "," + customer.cvv;
         return row;
     }
-        /**
-         * method for generating a reservation ID
-         *
-         * @return a string
-         */
+
+    /**
+     * method for generating a reservation ID
+     *
+     * @return a string
+     */
     public String generateID() {
         int max = 999999;
         int min = 100000;
@@ -250,7 +316,12 @@ public final class Reservation {
             return IDstr;
         }
     }
-
+    /**
+     * Checks to see if an ID is in use already
+     * @param ID ID to search for
+     * @param reservations list of all reservations
+     * @return Boolean of true if ID is a duplicate, false otherwise
+     */
     private boolean isDuplicate(String ID, ArrayList<Reservation> reservations) {
         for (Reservation r : reservations) {
             if (r.ID.equals(ID)) {
